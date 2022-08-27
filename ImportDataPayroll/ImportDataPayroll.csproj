@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{296D8BD9-DB4A-44CE-9332-59A3A5F115AA}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>ImportDataPayroll</RootNamespace>
+    <AssemblyName>ImportDataPayroll</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\Finance_Bill\FINANCE_BILL_D.cs" />
+    <Compile Include="Models\Finance_Bill\FINANCE_BILL_PAY_D.cs" />
+    <Compile Include="Models\Finance_Bill\FINANCE_BILL_VENDER.cs" />
+    <Compile Include="Models\Finance_Bill\FINANCE_BILL_PAY_M.cs" />
+    <Compile Include="Models\Finance_Bill\FINANCE_BILL_M.cs" />
+    <Compile Include="Models\Finance_Bill\FINANCE_BILL_ACC.cs" />
+    <Compile Include="Models\PettyCash\PTY_WDRESERVE.cs" />
+    <Compile Include="Models\PettyCash\PTY_WITHDRAWALS_DAILY.cs" />
+    <Compile Include="Models\PettyCash\PTY_WDRESERVE_DETAIL.cs" />
+    <Compile Include="Models\PettyCash\PTY_SUMWDRESERVE.cs" />
+    <Compile Include="Models\PettyCash\PTY_SUMCASH.cs" />
+    <Compile Include="Models\PettyCash\PTY_REFUND.cs" />
+    <Compile Include="Models\PettyCash\PTY_PERMISSION.cs" />
+    <Compile Include="Models\PettyCash\PTY_PAYTYPE.cs" />
+    <Compile Include="Models\PettyCash\PTY_HISWD.cs" />
+    <Compile Include="Models\PettyCash\PTY_EXCELCONFIG.cs" />
+    <Compile Include="Models\PettyCash\PTY_CASH.cs" />
+    <Compile Include="FinanceBill.cs" />
+    <Compile Include="Models\TaxFinance\TAXFINANCE_PERMISSION.cs" />
+    <Compile Include="Models\TaxFinance\NGAR_STOCK_IN.cs" />
+    <Compile Include="Models\TaxFinance\NGAR_PROD.cs" />
+    <Compile Include="Models\TaxFinance\NGAR_TRACKING.cs" />
+    <Compile Include="Models\TaxFinance\NGAR.cs" />
+    <Compile Include="Models\TaxFinance\TAX_SUBTRACT5.cs" />
+    <Compile Include="Models\TaxFinance\TAX_DETAIL5.cs" />
+    <Compile Include="TaxFinance.cs" />
+    <Compile Include="PettyCash.cs" />
+    <Compile Include="Payroll.cs" />
+    <Compile Include="ClsStrVulue.cs" />
+    <Compile Include="ClsOracle.cs" />
+    <Compile Include="ClsSQLServer.cs" />
+    <Compile Include="Models\Dept.cs" />
+    <Compile Include="Models\Supreme_User.cs" />
+    <Compile Include="Models\Parameter.cs" />
+    <Compile Include="Models\Emp.cs" />
+    <Compile Include="Models\Payroll\Pay_address.cs" />
+    <Compile Include="Models\Payroll\Pay_advancecs.cs" />
+    <Compile Include="Models\Payroll\Pay_advance_clear.cs" />
+    <Compile Include="Models\Payroll\Pay_advance_history.cs" />
+    <Compile Include="Models\Payroll\Pay_bonus_history.cs" />
+    <Compile Include="Models\Payroll\Pay_cardinfo.cs" />
+    <Compile Include="Models\Payroll\Pay_company_bank.cs" />
+    <Compile Include="Models\Payroll\Pay_course.cs" />
+    <Compile Include="Models\Payroll\Pay_daily.cs" />
+    <Compile Include="Models\Payroll\Pay_Decrease.cs" />
+    <Compile Include="Models\Payroll\Pay_Decreasetax.cs" />
+    <Compile Include="Models\Payroll\Pay_Decrease_Year.cs" />
+    <Compile Include="Models\Payroll\Pay_dept.cs" />
+    <Compile Include="Models\Payroll\Pay_emp.cs" />
+    <Compile Include="Models\Payroll\Pay_Empedu.cs" />
+    <Compile Include="Models\Payroll\Pay_Emp_Course.cs" />
+    <Compile Include="Models\Payroll\Pay_Emp_Loan.cs" />
+    <Compile Include="Models\Payroll\Pay_Emp_Loan_Time.cs" />
+    <Compile Include="Models\Payroll\Pay_Emp_Offer.cs" />
+    <Compile Include="Models\Payroll\Pay_Emp_Ot_Time.cs" />
+    <Compile Include="Models\Payroll\Pay_Export_Logs.cs" />
+    <Compile Include="Models\Payroll\Pay_Group.cs" />
+    <Compile Include="Models\Payroll\Pay_Historyposition.cs" />
+    <Compile Include="Models\Payroll\Pay_Historysalary.cs" />
+    <Compile Include="Models\Payroll\Pay_Incded.cs" />
+    <Compile Include="Models\Payroll\Pay_Incded_Imp.cs" />
+    <Compile Include="Models\Payroll\Pay_Incded_Reg.cs" />
+    <Compile Include="Models\Payroll\Pay_Incded_Tmp.cs" />
+    <Compile Include="Models\Payroll\Pay_Incomexempt.cs" />
+    <Compile Include="Models\Payroll\Pay_Income_Decerase.cs" />
+    <Compile Include="Models\Payroll\Pay_Ip_Access.cs" />
+    <Compile Include="Models\Payroll\Pay_Ip_User_Allow.cs" />
+    <Compile Include="Models\Payroll\Pay_Job.cs" />
+    <Compile Include="Models\Payroll\Pay_Job_Cost.cs" />
+    <Compile Include="Models\Payroll\Pay_Job_Period.cs" />
+    <Compile Include="Models\Payroll\Pay_Leavewp.cs" />
+    <Compile Include="Models\Payroll\Pay_Loan_Detail.cs" />
+    <Compile Include="Models\Payroll\Pay_Logalert.cs" />
+    <Compile Include="Models\Payroll\Pay_Mthincded.cs" />
+    <Compile Include="Models\Payroll\Pay_Offer_Laborlaw.cs" />
+    <Compile Include="Models\Payroll\Pay_Offer_Othercost.cs" />
+    <Compile Include="Models\Payroll\Pay_OT.cs" />
+    <Compile Include="Models\Payroll\Pay_Offer_Personaltax.cs" />
+    <Compile Include="Models\Payroll\Pay_Permission.cs" />
+    <Compile Include="Models\Payroll\Pay_Position.cs" />
+    <Compile Include="Models\Payroll\Pay_Providentfund.cs" />
+    <Compile Include="Models\Payroll\Pay_Setcompany.cs" />
+    <Compile Include="Models\Payroll\Pay_Pvdcover.cs" />
+    <Compile Include="Models\Payroll\Pay_Setpvdcover.cs" />
+    <Compile Include="Models\Payroll\Pay_Socialcost.cs" />
+    <Compile Include="Models\Payroll\Pay_Time.cs" />
+    <Compile Include="Models\Payroll\Pay_Time_Holiday.cs" />
+    <Compile Include="Models\Payroll\Pay_Time_Raw.cs" />
+    <Compile Include="Models\Payroll\Pay_Transdept.cs" />
+    <Compile Include="Models\Payroll\Pay_Workinfo.cs" />
+    <Compile Include="Models\Payroll\Pay_Yrincded.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
