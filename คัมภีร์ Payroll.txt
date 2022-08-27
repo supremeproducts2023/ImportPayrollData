@@ -1,0 +1,120 @@
+คุณบุษ	U : MNG_08035  	P : S4810OT4
+พี่วัล	U : ACC_08005	P : 1547RU3
+พี่ฝน	U : FIN_09038	P : X9403VL1
+พี่โข 	U : HR_07001	P : U1012OA6
+พี่กิม	U : FIN_14118	P : PINK1975
+พี่จุ่ม	U : FIN_09007	P : W1142UX1
+K2 	User:RD_20016  	PW:596302
+
+SCB Businessnet ของ HAMSCO
+https://www.scbbusinessnet.com/s1gcb/sbb/app/corp/users/decideDefaultScreen
+รหัสบริษัท	: 	hams558
+ผู้ใช้งาน	:	RADEESON
+Password	:	D15082502
+
+Username Remote 172.10.0.16
+U : administrator	P : โปรดักส์สุพรีม
+
+1. กำหนดให้เครื่องไหนมีสิทธิเพิ่ม IP ที่สามารถเข้า Payroll ได้
+     Ans. เข้า User คุณบุษ -> ADMIN MENU -> แก้ไข ADMIN การจำกัดสิทธิ์เข้าถึงระบบ -> ระบุ IP
+
+2. วิธีการเพิ่ม IP เข้าใช้งาน Payroll
+    Ans. เข้า User คุณบุษ -> ADMIN MENU -> เพิ่มข้อมูลผู้มีสิทธิ์เข้าถึงระบบ
+
+3. สถานะประมวลผลรายได้ - รายหัก  pay_income_decerase master
+    - Unload	 ยังไม่กรอกข้อมูล
+    - Un Commit  กรอกข้อมูลแล้ว รอนำเข้า รายได้ - รายหัก
+    - Commit นำเข้าข้อมูลรายได้ - รายหัก ไปแล้ว
+
+4. สถานะ (FLGOLD) ประมวลผลเงินเดือน
+    - Waiting  (0) รอประมวลผลเงินเดือน
+    - Hold  คือมีบางรายการใน pay_incded มีสถานะเป็น 6 (จะเกิดในกรณีที่เคยนำเข้าไปประมวลผลแล้ว มีถูกยกเลิกการนำเข้า)
+      เมื่อ click เข้าไปดูรายละเอียด อันไหนเป็นสีเหลือง แสดงว่ารายการนั้นยังไม่ได้นำเข้า
+    - 8 คือประมลผลเรียบร้อยแล้ว
+    - Unload คือไม่มีการนำเข้ารายการ
+
+   PVD (กองทุนสำรองเลี้ยงชีพ) เป็น Ignore คือไม่มีค่า PVD
+   SSO (ประกันสังคม)
+
+5. เพิ่มบริษัทใหม่
+
+6. ย้ายพนักงาน
+	- ข้อมูลพนักงาน		pay_emp
+	- ข้อมูลแผนก		pay_dept
+	-  ข้อมูลตำแหน่ง		pay_position
+	-  ประวัติเงินเดือน		pay_historysalary	x
+	-  ประวัติตำแหน่ง		pay_historyposition	x
+	- ข้อมูลเลขที่บัตรต่างๆ		pay_cardinfo	x
+	- ข้อมูลที่อยู่		pay_address	x
+	- ประวัติการศึกษา		pay_empedu
+	- เงินกู้			pay_emp_loan_time, pay_emp_loan
+
+
+	- ข้อมูลรายได้ประจำ		
+	- ข้อมูลค่าลดหย่อน		pay_decrease, pay_decrease_year, pay_decreasetax, 
+	- ข้อมูล JOB		pay_job, pay_job_cost, pay_job_period
+	- รายได้จากบริษัทเก่า
+	- pay_incded
+	- pay_mthincded
+	- pay_yrincded
+	- 
+	- 
+
+FLGOLD =>  PAY_INCDED สถานะการทำงาน (ประมวลผลแล้ว [Committed] = 0
+,ยังไม่ได้ประมวลผล [Uncommit] = 6
+,ปิดการประมวลผลแล้ว [Complete]=8
+,รายได้จากบริษัทเก่า [ OLD] = 1
+, ยังไม่ได้ดำเนินการ [UNLOAD] = อื่นๆ)
+
+Flg_r = พนักงานที่อยู่บริษัทนี้อยู่แล้วmไม่ใช้ย้ายมาใหม่เมื่อเดือน พย. pay_mthincded
+    
+   	ถ้ายกเลิกการประมวลผล flguse ใน table pay_mthincded จะเป็น 0   เมื่อมีการประมวลผลใหม่ จะไม่ลบ Record เดิมทิ้งแต่จะเพิ่ม
+  Record ใหม่ (flguse = 1)
+
+
+addHTML.aspx  พิมพ์รายงานสรุปรายการการจ่ายประจำเดือนหลังการประมวลผล
+- สร้างหัวตาราง
+
+ถ้าประมวลผลเงินเดือนแล้ว ตีกลับมาเพื่อปรับปรุงค่าประกันสังคม (เงินเดือน + ประกันสังคม) ในกรณีที่ตั้งค่าการคิด
+ประกันสังคมหลังการประมวลผล วิธีแก้ให้
+1. ตีกลับการประมวลผล
+2. ตีกลับประมวลผลรายได้รายหัก
+3. ปรับปรุงคำนวณรายได้รายหัก
+4. ส่งไปประมวลผลเงินเดือน
+5. ประมวลผลเงินเดือน
+
+**********************************************************************************
+สถานะบัญชีเงินเดือน มีผลตอนที่ออก TextFile จะแสดงรายชื่อตามสถานะบัญชีเงินเดือน
+1 = ธ.กสิกร
+2 = ธ.ไทยพาณิชย์
+
+******************************************************************************************
+Query ดึงข้อมูลวันเกิดผู้ป่วย
+select e.empno,e.nt || e.namet || ' ' || e.surnamet, c.card_no,TO_DATE(E.DOFB,'YYYYMMDD'),d.deptname,com.com_namet
+from pay_emp e
+left join pay_cardinfo c on e.empno = c.empno and c.com_id = '7'
+left join pay_dept d on e.deptno = d.deptno and d.com_id = '7'
+left join pay_setcompany com on e.com_id = com.com_id
+where e.com_id = '7' and e.flg_calsalary = '1'
+order by d.deptno,e.empno;
+
+select * from pay_setcompany
+
+***************************************************************************************************************************
+1	Supreme Products Co.,Ltd.
+2	Hospital Asset Management Services Company
+3	SUPREME HITERA Co., Ltd.
+4	TRANSTEK Co., Ltd.
+5	Suprera  Innovation Co.,Ltd.
+7	Supreme I lasik Company limited
+9	Supreme Univest Company Limited
+10	Supreme Panoflora Company Limited
+11	Supreme Smart Life Company Limited
+12	Hogistic Company Limited
+13	Supreme For Life Company Limited
+14	Hitrix Company Limited
+15	Supreme Smart Health Company Limited
+16	HIGISTICTEST
+18	Medi Concept Limited Partnership
+19	TRANSTEK COMPANY LIMITED
+
