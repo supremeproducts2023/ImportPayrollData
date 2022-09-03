@@ -23,12 +23,21 @@ namespace ImportDataPayroll
             return Str_Conn;
         }
 
-        public static OracleConnection connectDB()
+        public static string Read_Conn_Hamsco()
+        {
+            string Str_Conn = "";
+
+            Str_Conn = ConfigurationManager.AppSettings["ConnectionString_ORACLE_HAMSCO"].ToString();
+            return Str_Conn;
+        }
+
+
+        public static OracleConnection connectDB(string ConnectionString)
         {
             try
             {
                 if (conn.State == ConnectionState.Open) conn.Close();
-                conn = new OracleConnection(Read_Conn());
+                conn = new OracleConnection(ConnectionString);
 
                 conn.Open();
             }
@@ -40,12 +49,12 @@ namespace ImportDataPayroll
             return conn;
         }
 
-        public static OracleConnection CloseDB()
+        public static OracleConnection CloseDB(string ConnectionString)
         {
             try
             {
                 if (conn.State == ConnectionState.Open) conn.Close();
-                conn = new OracleConnection(Read_Conn());
+                conn = new OracleConnection(ConnectionString);
 
                 conn.Close();
             }
@@ -57,7 +66,7 @@ namespace ImportDataPayroll
             return conn;
         }
 
-        public static string GetOneValue(string StrSQL)
+        public static string GetOneValue(string StrSQL, string ConnectionString)
         {
             OracleConnection objCon = new OracleConnection();
             OracleCommand objCmd = new OracleCommand();
@@ -66,7 +75,7 @@ namespace ImportDataPayroll
 
             try
             {
-                objCon = connectDB();
+                objCon = connectDB(ConnectionString);
                 objCmd = new OracleCommand(StrSQL, objCon);
                 objDr = objCmd.ExecuteReader();
 
@@ -91,7 +100,7 @@ namespace ImportDataPayroll
             return StrS;
         }
 
-        public static DataSet GetOnetable(string StrSQL)
+        public static DataSet GetOnetable(string StrSQL, string ConnectionString)
         {
             OracleConnection objCon = new OracleConnection();
             OracleCommand objCmd = new OracleCommand();
@@ -101,7 +110,7 @@ namespace ImportDataPayroll
 
             try
             {
-                objCon = connectDB();
+                objCon = connectDB(ConnectionString);
                 objCmd = new OracleCommand(StrSQL, objCon);
                 objCmd.CommandTimeout = 10800;
                 objda.SelectCommand = objCmd;
