@@ -128,6 +128,24 @@ namespace ImportDataPayroll
             Console.WriteLine("81 NGAR_PROD");
             Console.WriteLine("82 NGAR_STOCK_IN");
             Console.WriteLine("83 TAXFINANCE_PERMISSION");
+
+            Console.WriteLine("");
+            Console.WriteLine("ALL HAMSCO");
+            Console.WriteLine("84 EMP");
+            Console.WriteLine("85 REQUISITION");
+            Console.WriteLine("86 REQUISITION_CONFIG");
+            Console.WriteLine("87 REQUISITION_STATUS_TRACKING");
+            Console.WriteLine("88 REQUISITION_TIME_PROCESS");
+            Console.WriteLine("89 REQUISITION_TRACKING");
+            Console.WriteLine("90 REQUISITION_TS");
+            Console.WriteLine("91 REQUISITION_TS_FOLLOW");
+            Console.WriteLine("92 REQUISITION2");
+            Console.WriteLine("93 BILLING");
+            Console.WriteLine("94 BILL_DETAIL");
+            Console.WriteLine("95 CPI");
+            Console.WriteLine("96 CPI_CONTRACT");
+            Console.WriteLine("97 CPI_PRODUCT");
+            Console.WriteLine("98 CPII");
         }
 
         public static void inputMenu()
@@ -321,6 +339,41 @@ namespace ImportDataPayroll
                 case "81": TaxFinance.Import_NGAR_PROD(); break;
                 case "82": TaxFinance.Import_NGAR_STOCK_IN(); break;
                 case "83": TaxFinance.Import_TAXFINANCE_PERMISSION(); break;
+
+
+                case "ALL HAMSCO":
+                    Hamsco.Import_EMP();
+                    Hamsco.Import_REQUISITION();
+                    Hamsco.Import_REQUISITION_CONFIG();
+                    Hamsco.Import_REQUISITION_STATUS_TRACKING();
+                    Hamsco.Import_REQUISITION_TIME_PROCESS();
+                    Hamsco.Import_REQUISITION_TRACKING();
+                    Hamsco.Import_REQUISITION_TS();
+                    Hamsco.Import_REQUISITION_TS_FOLLOW();
+                    Hamsco.Import_REQUISITION2();
+                    Hamsco.Import_BILLING();
+                    Hamsco.Import_BILL_DETAIL();
+                    Hamsco.Import_CPI();
+                    Hamsco.Import_CPI_CONTRACT();
+                    Hamsco.Import_CPI_PRODUCT();
+                    Hamsco.Import_CPII();
+                    break;
+
+                case "84": Hamsco.Import_EMP(); break;
+                case "85": Hamsco.Import_REQUISITION(); break;
+                case "86": Hamsco.Import_REQUISITION_CONFIG(); break;
+                case "87": Hamsco.Import_REQUISITION_STATUS_TRACKING(); break;
+                case "88": Hamsco.Import_REQUISITION_TIME_PROCESS(); break;
+                case "89": Hamsco.Import_REQUISITION_TRACKING(); break;
+                case "90": Hamsco.Import_REQUISITION_TS(); break;
+                case "91": Hamsco.Import_REQUISITION_TS_FOLLOW(); break;
+                case "92": Hamsco.Import_REQUISITION2(); break;
+                case "93": Hamsco.Import_BILLING(); break;
+                case "94": Hamsco.Import_BILL_DETAIL(); break;
+                case "95": Hamsco.Import_CPI(); break;
+                case "96": Hamsco.Import_CPI_CONTRACT(); break;
+                case "97": Hamsco.Import_CPI_PRODUCT(); break;
+                case "98": Hamsco.Import_CPII(); break;
 
                 defaule:
                     break;
