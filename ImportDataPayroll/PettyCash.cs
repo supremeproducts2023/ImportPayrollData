@@ -24,7 +24,7 @@ namespace ImportDataPayroll
                 string str = @"select * from PTY_CASH";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<PTY_CASH>();
                 var item = new PTY_CASH();
@@ -85,7 +85,7 @@ namespace ImportDataPayroll
                 string str = @"select * from PTY_EXCELCONFIG";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<PTY_EXCELCONFIG>();
                 var item = new PTY_EXCELCONFIG();
@@ -142,7 +142,7 @@ namespace ImportDataPayroll
                 string str = @"select * from PTY_HISWD";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<PTY_HISWD>();
                 var item = new PTY_HISWD();
@@ -192,7 +192,7 @@ namespace ImportDataPayroll
                 string str = @"select * from PTY_PAYTYPE";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<PTY_PAYTYPE>();
                 var item = new PTY_PAYTYPE();
@@ -241,7 +241,7 @@ namespace ImportDataPayroll
                 string str = @"select * from PTY_PERMISSION";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<PTY_PERMISSION>();
                 var item = new PTY_PERMISSION();
@@ -296,7 +296,7 @@ namespace ImportDataPayroll
                 string str = @"select * from PTY_REFUND";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<PTY_REFUND>();
                 var item = new PTY_REFUND();
@@ -346,7 +346,7 @@ namespace ImportDataPayroll
                 string str = @"select * from PTY_SUMCASH";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<PTY_SUMCASH>();
                 var item = new PTY_SUMCASH();
@@ -403,7 +403,7 @@ namespace ImportDataPayroll
                 string str = @"select * from PTY_SUMWDRESERVE";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<PTY_SUMWDRESERVE>();
                 var item = new PTY_SUMWDRESERVE();
@@ -454,7 +454,7 @@ namespace ImportDataPayroll
                 string str = @"select * from PTY_WDRESERVE";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<PTY_WDRESERVE>();
                 var item = new PTY_WDRESERVE();
@@ -506,7 +506,7 @@ namespace ImportDataPayroll
                 string str = @"select * from PTY_WDRESERVE_DETAIL";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<PTY_WDRESERVE_DETAIL>();
                 var item = new PTY_WDRESERVE_DETAIL();
@@ -558,7 +558,7 @@ namespace ImportDataPayroll
                 string str = @"select * from PTY_WITHDRAWALS_DAILY";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<PTY_WITHDRAWALS_DAILY>();
                 var item = new PTY_WITHDRAWALS_DAILY();

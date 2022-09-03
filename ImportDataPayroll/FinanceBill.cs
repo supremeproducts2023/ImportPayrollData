@@ -24,7 +24,7 @@ namespace ImportDataPayroll
                 string str = @"select * from FINANCE_BILL_ACC";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<FINANCE_BILL_ACC>();
                 var item = new FINANCE_BILL_ACC();
@@ -66,7 +66,7 @@ namespace ImportDataPayroll
                 string str = @"select * from FINANCE_BILL_M";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<FINANCE_BILL_M>();
                 var item = new FINANCE_BILL_M();
@@ -120,7 +120,7 @@ namespace ImportDataPayroll
                 string str = @"select * from FINANCE_BILL_D";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<FINANCE_BILL_D>();
                 var item = new FINANCE_BILL_D();
@@ -168,7 +168,7 @@ namespace ImportDataPayroll
                 string str = @"select * from FINANCE_BILL_PAY_M";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<FINANCE_BILL_PAY_M>();
                 var item = new FINANCE_BILL_PAY_M();
@@ -212,7 +212,7 @@ namespace ImportDataPayroll
                 string str = @"select * from FINANCE_BILL_PAY_D";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<FINANCE_BILL_PAY_D>();
                 var item = new FINANCE_BILL_PAY_D();
@@ -253,7 +253,7 @@ namespace ImportDataPayroll
                 string str = @"select * from FINANCE_BILL_VENDER";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<FINANCE_BILL_VENDER>();
                 var item = new FINANCE_BILL_VENDER();

@@ -23,7 +23,7 @@ namespace ImportDataPayroll
                 string str = @"select * from PAY_ADDRESS";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<Pay_address>();
                 var item = new Pay_address();
@@ -87,7 +87,7 @@ namespace ImportDataPayroll
                 string str = @"select * from PAY_ADVANCE";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<Pay_advance>();
                 var item = new Pay_advance();
@@ -183,7 +183,7 @@ namespace ImportDataPayroll
                 string str = @"select * from PAY_ADVANCE_CLEAR";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<Pay_advance_clear>();
                 var item = new Pay_advance_clear();
@@ -268,7 +268,7 @@ namespace ImportDataPayroll
                 string str = @"select * from PAY_ADVANCE_HISTORY";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<Pay_advance_history>();
                 var item = new Pay_advance_history();
@@ -316,7 +316,7 @@ namespace ImportDataPayroll
                 string str = @"select * from PAY_BONUS_HISTORY";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<Pay_bonus_history>();
                 var item = new Pay_bonus_history();
@@ -369,7 +369,7 @@ namespace ImportDataPayroll
                 string str = @"select * from PAY_CARDINFO";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<Pay_cardinfo>();
                 var item = new Pay_cardinfo();
@@ -429,7 +429,7 @@ namespace ImportDataPayroll
                 string str = @"select * from PAY_COMPANY_BANK";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<Pay_company_bank>();
                 var item = new Pay_company_bank();
@@ -481,7 +481,7 @@ namespace ImportDataPayroll
                 string str = @"select * from PAY_COURSE";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<Pay_course>();
                 var item = new Pay_course();
@@ -532,7 +532,7 @@ namespace ImportDataPayroll
                 string str = @"select * from PAY_DAILY";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<PAY_DAILY>();
                 var item = new PAY_DAILY();
@@ -587,7 +587,7 @@ namespace ImportDataPayroll
                 string str = @"select * from PAY_DECREASE";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<PAY_DECREASE>();
                 var item = new PAY_DECREASE();
@@ -643,7 +643,7 @@ namespace ImportDataPayroll
                 string str = @"select * from PAY_DECREASE_YEAR";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<PAY_DECREASE_YEAR>();
                 var item = new PAY_DECREASE_YEAR();
@@ -725,7 +725,7 @@ namespace ImportDataPayroll
                 string str = @"select * from PAY_DECREASETAX";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<PAY_DECREASETAX>();
                 var item = new PAY_DECREASETAX();
@@ -777,7 +777,7 @@ namespace ImportDataPayroll
                 string str = @"select * from PAY_DEPT";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<PAY_DEPT>();
                 var item = new PAY_DEPT();
@@ -832,7 +832,7 @@ namespace ImportDataPayroll
                 string str = @"select * from PAY_EMP";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<Pay_emp>();
                 var item = new Pay_emp();
@@ -959,7 +959,7 @@ namespace ImportDataPayroll
                 string str = @"select * from PAY_EMP_COURSE";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<PAY_EMP_COURSE>();
                 var item = new PAY_EMP_COURSE();
@@ -1018,7 +1018,7 @@ namespace ImportDataPayroll
                 string str = @"select * from PAY_EMP_LOAN";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<PAY_EMP_LOAN>();
                 var item = new PAY_EMP_LOAN();
@@ -1075,7 +1075,7 @@ namespace ImportDataPayroll
                 string str = @"select * from PAY_EMP_LOAN_TIME";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<PAY_EMP_LOAN_TIME>();
                 var item = new PAY_EMP_LOAN_TIME();
@@ -1135,7 +1135,7 @@ namespace ImportDataPayroll
                 string str = @"select * from PAY_EMP_OFFER";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<PAY_EMP_OFFER>();
                 var item = new PAY_EMP_OFFER();
@@ -1191,7 +1191,7 @@ namespace ImportDataPayroll
                 string str = @"select * from PAY_EMP_OT_TIME";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<PAY_EMP_OT_TIME>();
                 var item = new PAY_EMP_OT_TIME();
@@ -1252,7 +1252,7 @@ namespace ImportDataPayroll
                 string str = @"select * from PAY_EMPEDU";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<PAY_EMPEDU>();
                 var item = new PAY_EMPEDU();
@@ -1308,7 +1308,7 @@ namespace ImportDataPayroll
                 string str = @"select * from PAY_EXPORT_LOGS";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<PAY_EXPORT_LOGS>();
                 var item = new PAY_EXPORT_LOGS();
@@ -1354,7 +1354,7 @@ namespace ImportDataPayroll
                 string str = @"select * from PAY_GROUP";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<PAY_GROUP>();
                 var item = new PAY_GROUP();
@@ -1396,7 +1396,7 @@ namespace ImportDataPayroll
                 string str = @"select * from PAY_HISTORYPOSITION";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<PAY_HISTORYPOSITION>();
                 var item = new PAY_HISTORYPOSITION();
@@ -1451,7 +1451,7 @@ namespace ImportDataPayroll
                 string str = @"select * from PAY_HISTORYSALARY";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<PAY_HISTORYSALARY>();
                 var item = new PAY_HISTORYSALARY();
@@ -1507,7 +1507,7 @@ namespace ImportDataPayroll
                 string str = @"select * from PAY_INCDED";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<PAY_INCDED>();
                 var item = new PAY_INCDED();
@@ -1569,7 +1569,7 @@ namespace ImportDataPayroll
                 string str = @"select * from PAY_INCDED_IMP";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<PAY_INCDED_IMP>();
                 var item = new PAY_INCDED_IMP();
@@ -1629,7 +1629,7 @@ namespace ImportDataPayroll
                 string str = @"select * from PAY_INCDED_REG";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<PAY_INCDED_REG>();
                 var item = new PAY_INCDED_REG();
@@ -1690,7 +1690,7 @@ namespace ImportDataPayroll
                 string str = @"select * from PAY_INCDED_TMP";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<PAY_INCDED_TMP>();
                 var item = new PAY_INCDED_TMP();
@@ -1751,7 +1751,7 @@ namespace ImportDataPayroll
                 string str = @"select * from PAY_INCOME_DECERASE";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<PAY_INCOME_DECERASE>();
                 var item = new PAY_INCOME_DECERASE();
@@ -1812,7 +1812,7 @@ namespace ImportDataPayroll
                 string str = @"select * from PAY_INCOMEXEMPT";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<PAY_INCOMEXEMPT>();
                 var item = new PAY_INCOMEXEMPT();
@@ -1862,7 +1862,7 @@ namespace ImportDataPayroll
                 string str = @"select * from PAY_IP_ACCESS";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<PAY_IP_ACCESS>();
                 var item = new PAY_IP_ACCESS();
@@ -1908,7 +1908,7 @@ namespace ImportDataPayroll
                 string str = @"select * from PAY_IP_USER_ALLOW";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<PAY_IP_USER_ALLOW>();
                 var item = new PAY_IP_USER_ALLOW();
@@ -1955,7 +1955,7 @@ namespace ImportDataPayroll
                 string str = @"select * from PAY_JOB";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<PAY_JOB>();
                 var item = new PAY_JOB();
@@ -2006,7 +2006,7 @@ namespace ImportDataPayroll
                 string str = @"select * from PAY_JOB_COST";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<PAY_JOB_COST>();
                 var item = new PAY_JOB_COST();
@@ -2063,7 +2063,7 @@ namespace ImportDataPayroll
                 string str = @"select * from PAY_JOB_PERIOD";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<PAY_JOB_PERIOD>();
                 var item = new PAY_JOB_PERIOD();
@@ -2116,7 +2116,7 @@ namespace ImportDataPayroll
                 string str = @"select * from PAY_LEAVEWP";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<PAY_LEAVEWP>();
                 var item = new PAY_LEAVEWP();
@@ -2161,7 +2161,7 @@ namespace ImportDataPayroll
                 string str = @"select * from PAY_LOAN_DETAIL";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<PAY_LOAN_DETAIL>();
                 var item = new PAY_LOAN_DETAIL();
@@ -2216,7 +2216,7 @@ namespace ImportDataPayroll
                 string str = @"select * from PAY_LOGALERT";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<PAY_LOGALERT>();
                 var item = new PAY_LOGALERT();
@@ -2266,7 +2266,7 @@ namespace ImportDataPayroll
                 string str = @"select * from PAY_MTHINCDED";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<PAY_MTHINCDED>();
                 var item = new PAY_MTHINCDED();
@@ -2334,7 +2334,7 @@ namespace ImportDataPayroll
                 string str = @"select * from PAY_OFFER_LABORLAW";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<PAY_OFFER_LABORLAW>();
                 var item = new PAY_OFFER_LABORLAW();
@@ -2385,7 +2385,7 @@ namespace ImportDataPayroll
                 string str = @"select * from PAY_OFFER_OTHERCOST";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<PAY_OFFER_OTHERCOST>();
                 var item = new PAY_OFFER_OTHERCOST();
@@ -2436,7 +2436,7 @@ namespace ImportDataPayroll
                 string str = @"select * from PAY_OFFER_PERSONALTAX";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<PAY_OFFER_PERSONALTAX>();
                 var item = new PAY_OFFER_PERSONALTAX();
@@ -2488,7 +2488,7 @@ namespace ImportDataPayroll
                 string str = @"select * from PAY_OT";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<PAY_OT>();
                 var item = new PAY_OT();
@@ -2543,7 +2543,7 @@ namespace ImportDataPayroll
                 string str = @"select * from PAY_PERMISSION";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<PAY_PERMISSION>();
                 var item = new PAY_PERMISSION();
@@ -2597,7 +2597,7 @@ namespace ImportDataPayroll
                 string str = @"select * from PAY_POSITION";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<PAY_POSITION>();
                 var item = new PAY_POSITION();
@@ -2648,7 +2648,7 @@ namespace ImportDataPayroll
                 string str = @"select * from PAY_PROVIDENTFUND";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<PAY_PROVIDENTFUND>();
                 var item = new PAY_PROVIDENTFUND();
@@ -2699,7 +2699,7 @@ namespace ImportDataPayroll
                 string str = @"select * from PAY_PVDCOVER";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<PAY_PVDCOVER>();
                 var item = new PAY_PVDCOVER();
@@ -2763,7 +2763,7 @@ namespace ImportDataPayroll
                 string str = @"select * from PAY_SETCOMPANY";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<PAY_SETCOMPANY>();
                 var item = new PAY_SETCOMPANY();
@@ -2874,7 +2874,7 @@ namespace ImportDataPayroll
                 string str = @"select * from PAY_SETPVDCOVER";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<PAY_SETPVDCOVER>();
                 var item = new PAY_SETPVDCOVER();
@@ -2937,7 +2937,7 @@ namespace ImportDataPayroll
                 string str = @"select * from PAY_SOCIALCOST";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<PAY_SOCIALCOST>();
                 var item = new PAY_SOCIALCOST();
@@ -2992,7 +2992,7 @@ namespace ImportDataPayroll
                 string str = @"select * from PAY_TIME";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<PAY_TIME>();
                 var item = new PAY_TIME();
@@ -3050,7 +3050,7 @@ namespace ImportDataPayroll
                 string str = @"select * from PAY_TIME_HOLIDAY";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<PAY_TIME_HOLIDAY>();
                 var item = new PAY_TIME_HOLIDAY();
@@ -3101,7 +3101,7 @@ namespace ImportDataPayroll
                 string str = @"select * from PAY_TIME_RAW";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<PAY_TIME_RAW>();
                 var item = new PAY_TIME_RAW();
@@ -3166,7 +3166,7 @@ namespace ImportDataPayroll
                 string str = @"select * from PAY_TRANSDEPT";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<PAY_TRANSDEPT>();
                 var item = new PAY_TRANSDEPT();
@@ -3218,7 +3218,7 @@ namespace ImportDataPayroll
                 string str = @"select * from PAY_WORKINFO";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<PAY_WORKINFO>();
                 var item = new PAY_WORKINFO();
@@ -3290,7 +3290,7 @@ namespace ImportDataPayroll
                 string str = @"select * from PAY_YRINCDED";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<PAY_YRINCDED>();
                 var item = new PAY_YRINCDED();
@@ -3348,7 +3348,7 @@ namespace ImportDataPayroll
                 string str = @"select * from SUPREME_USER";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<SUPREME_USER>();
                 var item = new SUPREME_USER();
@@ -3394,7 +3394,7 @@ namespace ImportDataPayroll
                 string str = @"select * from EMP where HIREDATE is not null";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn_Hamsco()).Tables[0];
 
                 var itemList = new List<EMP>();
                 var item = new EMP();
@@ -3412,12 +3412,12 @@ namespace ImportDataPayroll
                             EMPNO = row["EMPNO"].ToString(),
                             E_TITLE = row["E_TITLE"].ToString(),
                             E_NAME = row["E_NAME"].ToString(),
-                            HIREDATE = Convert.ToDateTime(row["HIREDATE"].ToString()),
+                            HIREDATE = ClsStrVulue.convertToDateTime(row["HIREDATE"]),
                             DEPTNO = row["DEPTNO"].ToString(),
                             MNGNO = row["MNGNO"].ToString(),
                             E_JOB = row["E_JOB"].ToString(),
                             E_SITUATION = row["E_SITUATION"].ToString(),
-                            QUITDATE = row["QUITDATE"].ToString(),
+                            QUITDATE = ClsStrVulue.convertToDateTime(row["QUITDATE"]),
                             E_MOBILE = row["E_MOBILE"].ToString(),
                             E_PAGER = row["E_PAGER"].ToString(),
                             E_EXTENTION = row["E_EXTENTION"].ToString(),
@@ -3426,12 +3426,12 @@ namespace ImportDataPayroll
                             E_MAIL = row["E_MAIL"].ToString(),
                             E_NAME_EN = row["E_NAME_EN"].ToString(),
                             E_NICKNAME = row["E_NICKNAME"].ToString(),
-                            REC_DATE = row["REC_DATE"].ToString(),
+                            REC_DATE = ClsStrVulue.convertToDateTime(row["REC_DATE"]),
                             LAST_USER = row["LAST_USER"].ToString(),
-                            LAST_DATE = row["LAST_DATE"].ToString(),
+                            LAST_DATE = ClsStrVulue.convertToDateTime(row["LAST_DATE"]),
                             POSITION_NO = ClsStrVulue.convertToDecimal(row["POSITION_NO"]),
                             SENT_TO_SAP = row["SENT_TO_SAP"].ToString(),
-                            SENT_TO_DATE = row["SENT_TO_DATE"].ToString()
+                            SENT_TO_DATE = ClsStrVulue.convertToDateTime(row["SENT_TO_DATE"])
                         });
                     }
 
@@ -3456,7 +3456,7 @@ namespace ImportDataPayroll
                 string str = @"select * from DEPT";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<DEPT>();
                 var item = new DEPT();

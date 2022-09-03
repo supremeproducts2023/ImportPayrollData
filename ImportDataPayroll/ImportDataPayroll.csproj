@@ -51,6 +51,20 @@
     <Compile Include="Models\Finance_Bill\FINANCE_BILL_PAY_M.cs" />
     <Compile Include="Models\Finance_Bill\FINANCE_BILL_M.cs" />
     <Compile Include="Models\Finance_Bill\FINANCE_BILL_ACC.cs" />
+    <Compile Include="Models\Hamsco\CPII.cs" />
+    <Compile Include="Models\Hamsco\CPI_PRODUCT.cs" />
+    <Compile Include="Models\Hamsco\CPI_CONTRACT.cs" />
+    <Compile Include="Models\Hamsco\CPI.cs" />
+    <Compile Include="Models\Hamsco\BILL_DETAIL.cs" />
+    <Compile Include="Models\Hamsco\BILLING.cs" />
+    <Compile Include="Models\Hamsco\REQUISITION2.cs" />
+    <Compile Include="Models\Hamsco\REQUISITION_TS_FOLLOW.cs" />
+    <Compile Include="Models\Hamsco\REQUISITION_TS.cs" />
+    <Compile Include="Models\Hamsco\REQUISITION_TRACKING.cs" />
+    <Compile Include="Models\Hamsco\REQUISITION_TIME_PROCESS.cs" />
+    <Compile Include="Models\Hamsco\REQUISITION_STATUS_TRACKING.cs" />
+    <Compile Include="Models\Hamsco\REQUISITION_CONFIG.cs" />
+    <Compile Include="Models\Hamsco\REQUISITION.cs" />
     <Compile Include="Models\PettyCash\PTY_WDRESERVE.cs" />
     <Compile Include="Models\PettyCash\PTY_WITHDRAWALS_DAILY.cs" />
     <Compile Include="Models\PettyCash\PTY_WDRESERVE_DETAIL.cs" />
@@ -70,6 +84,7 @@
     <Compile Include="Models\TaxFinance\NGAR.cs" />
     <Compile Include="Models\TaxFinance\TAX_SUBTRACT5.cs" />
     <Compile Include="Models\TaxFinance\TAX_DETAIL5.cs" />
+    <Compile Include="Hamsco.cs" />
     <Compile Include="TaxFinance.cs" />
     <Compile Include="PettyCash.cs" />
     <Compile Include="Payroll.cs" />
@@ -140,7 +155,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -24,7 +24,7 @@ namespace ImportDataPayroll
                 string str = @"select * from TAX_DETAIL5";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<TAX_DETAIL5>();
                 var item = new TAX_DETAIL5();
@@ -72,7 +72,7 @@ namespace ImportDataPayroll
                 string str = @"select * from TAX_SUBTRACT5";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<TAX_SUBTRACT5>();
                 var item = new TAX_SUBTRACT5();
@@ -122,7 +122,7 @@ namespace ImportDataPayroll
                 string str = @"select * from NGAR";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<NGAR>();
                 var item = new NGAR();
@@ -190,7 +190,7 @@ namespace ImportDataPayroll
                 string str = @"select * from NGAR_TRACKING";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<NGAR_TRACKING>();
                 var item = new NGAR_TRACKING();
@@ -235,7 +235,7 @@ namespace ImportDataPayroll
                 string str = @"select * from NGAR_PROD";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<NGAR_PROD>();
                 var item = new NGAR_PROD();
@@ -299,7 +299,7 @@ namespace ImportDataPayroll
                 string str = @"select * from NGAR_STOCK_IN";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<NGAR_STOCK_IN>();
                 var item = new NGAR_STOCK_IN();
@@ -352,7 +352,7 @@ namespace ImportDataPayroll
                 string str = @"select * from TAXFINANCE_PERMISSION";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<TAXFINANCE_PERMISSION>();
                 var item = new TAXFINANCE_PERMISSION();
