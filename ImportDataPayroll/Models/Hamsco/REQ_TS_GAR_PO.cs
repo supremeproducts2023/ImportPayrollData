@@ -14,16 +14,16 @@ namespace ImportDataPayroll.Models
 
         public string DOC_NO { get; set; }
 
-        public DateTime DOC_DATE { get; set; }
+        public DateTime? DOC_DATE { get; set; }
 
         public string DOC_TYPE { get; set; }
 
         public string REC_USER { get; set; }
 
-        public DateTime REC_DATE { get; set; }
+        public DateTime? REC_DATE { get; set; }
 
         public string LAST_USER { get; set; }
 
-        public DateTime LAST_DATE { get; set; }
+        public DateTime? LAST_DATE { get; set; }
     }
 }

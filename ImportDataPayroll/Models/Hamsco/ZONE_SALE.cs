@@ -20,6 +20,6 @@ namespace ImportDataPayroll.Models
 
         public string REC_USER { get; set; }
 
-        public DateTime REC_DATE { get; set; }
+        public DateTime? REC_DATE { get; set; }
     }
 }

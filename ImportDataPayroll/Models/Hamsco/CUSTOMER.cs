@@ -18,7 +18,7 @@ namespace ImportDataPayroll.Models
 
         public string SPNO { get; set; }
 
-        public DateTime C_BIRTHDAY { get; set; }
+        public DateTime? C_BIRTHDAY { get; set; }
 
         public string C_STATUS { get; set; }
 
@@ -36,7 +36,7 @@ namespace ImportDataPayroll.Models
 
         public string C_AS400ID { get; set; }
 
-        public DateTime C_BUILDDATE { get; set; }
+        public DateTime? C_BUILDDATE { get; set; }
 
         public Decimal? C_IDCARD { get; set; }
 
@@ -44,7 +44,7 @@ namespace ImportDataPayroll.Models
 
         public string SENT_TO_SAP { get; set; }
 
-        public DateTime SENT_TO_DATE { get; set; }
+        public DateTime? SENT_TO_DATE { get; set; }
 
         public string C_UPDATE { get; set; }
     }

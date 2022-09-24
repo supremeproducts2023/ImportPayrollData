@@ -28,7 +28,7 @@ namespace ImportDataPayroll.Models
 
         public string OBSOLESCENCE { get; set; }
 
-        public DateTime OBSOLESCENT_DATE { get; set; }
+        public DateTime? OBSOLESCENT_DATE { get; set; }
 
         public string BRAND_ID { get; set; }
 
@@ -50,13 +50,13 @@ namespace ImportDataPayroll.Models
 
         public string RECUSER_ID { get; set; }
 
-        public DateTime REC_DATE { get; set; }
+        public DateTime? REC_DATE { get; set; }
 
         public string LASTUSER_ID { get; set; }
 
-        public DateTime LAST_DATE { get; set; }
+        public DateTime? LAST_DATE { get; set; }
 
-        public DateTime EFFECTIVE { get; set; }
+        public DateTime? EFFECTIVE { get; set; }
 
         public Decimal? FOBPRICE { get; set; }
 
@@ -70,7 +70,7 @@ namespace ImportDataPayroll.Models
 
         public string SENT_TO_SAP { get; set; }
 
-        public DateTime SENT_TO_DATE { get; set; }
+        public DateTime? SENT_TO_DATE { get; set; }
 
         public string FOREIGN_ITEM_CODE { get; set; }
 

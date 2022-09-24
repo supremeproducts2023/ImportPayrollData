@@ -20,7 +20,7 @@ namespace ImportDataPayroll.Models
 
         public string RECORD_BY { get; set; }
 
-        public DateTime RECORD_DATE { get; set; }
+        public DateTime? RECORD_DATE { get; set; }
 
         public string BRAND_ID { get; set; }
 
@@ -38,7 +38,7 @@ namespace ImportDataPayroll.Models
 
         public Decimal? SP_SEMI { get; set; }
 
-        public DateTime AMBU_SEND_DATE { get; set; }
+        public DateTime? AMBU_SEND_DATE { get; set; }
 
         public string FILE_STANDARD { get; set; }
 
@@ -52,7 +52,7 @@ namespace ImportDataPayroll.Models
 
         public string APPROVE_BY { get; set; }
 
-        public DateTime APPROVE_DATE { get; set; }
+        public DateTime? APPROVE_DATE { get; set; }
 
         public string FLG_MASTER { get; set; }
     }

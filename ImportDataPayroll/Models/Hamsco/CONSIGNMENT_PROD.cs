@@ -28,7 +28,7 @@ namespace ImportDataPayroll.Models
 
         public string REC_UPDATE { get; set; }
 
-        public DateTime DATE_UPDATE { get; set; }
+        public DateTime? DATE_UPDATE { get; set; }
 
         public string RETURN_RECORD { get; set; }
 
@@ -36,7 +36,7 @@ namespace ImportDataPayroll.Models
 
         public Decimal? CHECK_STATUS { get; set; }
 
-        public DateTime DUAL_DATE { get; set; }
+        public DateTime? DUAL_DATE { get; set; }
 
         public Decimal? COST { get; set; }
 

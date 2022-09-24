@@ -1675,12 +1675,12 @@ namespace ImportDataPayroll
 
 /////////////////////////////////////////////////////////
 
- #region SALE_VAC_SHARING
+        #region SALE_VAC_SHARING
         public static void Import_SALE_VAC_SHARING()
         {
             try
             {
-                string str = @"select * from xxx";
+                string str = @"select * from SALE_VAC_SHARING";
 
                 DataTable dt;
                 dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn_Hamsco()).Tables[0];
@@ -2010,7 +2010,7 @@ namespace ImportDataPayroll
         {
             try
             {
-                string str = @"select * from PROD_CONFIG_MASTER";
+                string str = @"select * from PROD_CONFIG_MASTER ";
 
                 DataTable dt;
                 dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn_Hamsco()).Tables[0];
@@ -2317,7 +2317,7 @@ namespace ImportDataPayroll
         {
             try
             {
-                string str = @"select * from xxx";
+                string str = @"select * from CUSTOMER";
 
                 DataTable dt;
                 dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn_Hamsco()).Tables[0];

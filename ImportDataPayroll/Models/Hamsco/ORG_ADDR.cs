@@ -30,7 +30,7 @@ namespace ImportDataPayroll.Models
 
         public string ORG_RECORDER { get; set; }
 
-        public DateTime LAST_DATE { get; set; }
+        public DateTime? LAST_DATE { get; set; }
 
         public string LAST_USER { get; set; }
 

@@ -24,6 +24,6 @@ namespace ImportDataPayroll.Models
 
         public Decimal? HOSNO { get; set; }
 
-        public DateTime EFFECTIVE_DATE { get; set; }
+        public DateTime? EFFECTIVE_DATE { get; set; }
     }
 }

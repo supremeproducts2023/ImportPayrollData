@@ -28,7 +28,7 @@ namespace ImportDataPayroll.Models
 
         public string AS400_TYPE { get; set; }
 
-        public DateTime H_BUILDDATE { get; set; }
+        public DateTime? H_BUILDDATE { get; set; }
 
         public string H_RATING { get; set; }
 
@@ -42,7 +42,7 @@ namespace ImportDataPayroll.Models
 
         public string SENT_TO_SAP { get; set; }
 
-        public DateTime SENT_TO_DATE { get; set; }
+        public DateTime? SENT_TO_DATE { get; set; }
 
         public Decimal? PK_SAP { get; set; }
 
