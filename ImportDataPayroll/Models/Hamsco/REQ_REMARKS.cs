@@ -14,7 +14,7 @@ namespace ImportDataPayroll.Models
 
         public string REQ_REMARK { get; set; }
 
-        public DateTime REQ_REMARKDATE { get; set; }
+        public DateTime? REQ_REMARKDATE { get; set; }
 
         public string RECUSER_ID { get; set; }
 

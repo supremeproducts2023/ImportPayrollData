@@ -146,6 +146,21 @@ namespace ImportDataPayroll
             Console.WriteLine("96 CPI_CONTRACT");
             Console.WriteLine("97 CPI_PRODUCT");
             Console.WriteLine("98 CPII");
+            Console.WriteLine("99 REQ_BETWEEN_MNG");
+            Console.WriteLine("100 REQ_BILL");
+            Console.WriteLine("101 REQ_BILL1");
+            Console.WriteLine("102 REQ_BILL3");
+            Console.WriteLine("103 REQ_BILLNEW");
+            Console.WriteLine("104 REQ_BILLNEW2");
+            Console.WriteLine("105 REQ_COLLECT_BILL");
+            Console.WriteLine("106 REQ_CONTRACT");
+            Console.WriteLine("107 REQ_COUNT_LOGSHEET");
+            Console.WriteLine("108 BRAND");
+            Console.WriteLine("109 BRAND_EXCHANGE_RATE");
+            Console.WriteLine("110 REQ_GWD");
+            Console.WriteLine("111 REQ_GWD_REF");
+            Console.WriteLine("112 REQ_REMARKS");
+            Console.WriteLine("113 REQ_STATUS");
         }
 
         public static void inputMenu()
@@ -357,6 +372,21 @@ namespace ImportDataPayroll
                     Hamsco.Import_CPI_CONTRACT();
                     Hamsco.Import_CPI_PRODUCT();
                     Hamsco.Import_CPII();
+                    Hamsco.Import_REQ_BETWEEN_MNG();
+                    Hamsco.Import_REQ_BILL();
+                    Hamsco.Import_REQ_BILL1();
+                    Hamsco.Import_REQ_BILL3();
+                    Hamsco.Import_REQ_BILLNEW();
+                    Hamsco.Import_REQ_BILLNEW2();
+                    Hamsco.Import_REQ_COLLECT_BILL();
+                    Hamsco.Import_REQ_CONTRACT();
+                    Hamsco.Import_REQ_COUNT_LOGSHEET();
+                    Hamsco.Import_BRAND();
+                    Hamsco.Import_BRAND_EXCHANGE_RATE();
+                    Hamsco.Import_REQ_GWD();
+                    Hamsco.Import_REQ_GWD_REF();
+                    Hamsco.Import_REQ_REMARKS();
+                    Hamsco.Import_REQ_STATUS();
                     break;
 
                 case "84": Hamsco.Import_EMP(); break;
@@ -374,7 +404,21 @@ namespace ImportDataPayroll
                 case "96": Hamsco.Import_CPI_CONTRACT(); break;
                 case "97": Hamsco.Import_CPI_PRODUCT(); break;
                 case "98": Hamsco.Import_CPII(); break;
-
+                case "99": Hamsco.Import_REQ_BETWEEN_MNG(); break;
+                case "100": Hamsco.Import_REQ_BILL(); break;
+                case "101": Hamsco.Import_REQ_BILL1(); break;
+                case "102": Hamsco.Import_REQ_BILL3(); break;
+                case "103": Hamsco.Import_REQ_BILLNEW(); break;
+                case "104": Hamsco.Import_REQ_BILLNEW2(); break;
+                case "105": Hamsco.Import_REQ_COLLECT_BILL(); break;
+                case "106": Hamsco.Import_REQ_CONTRACT(); break;
+                case "107": Hamsco.Import_REQ_COUNT_LOGSHEET(); break;
+                case "108": Hamsco.Import_BRAND(); break;
+                case "109": Hamsco.Import_BRAND_EXCHANGE_RATE(); break;
+                case "110": Hamsco.Import_REQ_GWD(); break;
+                case "111": Hamsco.Import_REQ_GWD_REF(); break;
+                case "112": Hamsco.Import_REQ_REMARKS(); break;
+                case "113": Hamsco.Import_REQ_STATUS(); break;
                 defaule:
                     break;
             }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ImportDataPayroll.Models
 {
-    class REQ_STATUS
+    class REQ_STATUS_TB
     {
         public string REQ_STATUS { get; set; }
 

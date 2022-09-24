@@ -10,7 +10,7 @@ namespace ImportDataPayroll.Models
     {
         public Decimal? ID { get; set; }
 
-        public DateTime DATE_LOG { get; set; }
+        public DateTime? DATE_LOG { get; set; }
 
         public Decimal? NUM_LOG { get; set; }
     }

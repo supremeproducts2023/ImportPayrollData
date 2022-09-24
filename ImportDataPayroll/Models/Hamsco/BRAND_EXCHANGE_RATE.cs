@@ -18,14 +18,14 @@ namespace ImportDataPayroll.Models
 
         public string RECUSER_ID { get; set; }
 
-        public DateTime REC_DATE { get; set; }
+        public DateTime? REC_DATE { get; set; }
 
         public string LASTUSER_ID { get; set; }
 
-        public DateTime LAST_DATE { get; set; }
+        public DateTime? LAST_DATE { get; set; }
 
         public Decimal? STATUS { get; set; }
 
-        public DateTime EFFECTIVE_DATE { get; set; }
+        public DateTime? EFFECTIVE_DATE { get; set; }
     }
 }

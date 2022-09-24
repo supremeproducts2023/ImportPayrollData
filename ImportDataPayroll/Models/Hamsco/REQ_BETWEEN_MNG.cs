@@ -16,8 +16,8 @@ namespace ImportDataPayroll.Models
 
         public string TO_MNG { get; set; }
 
-        public DateTime SEND_DATE { get; set; }
+        public DateTime? SEND_DATE { get; set; }
 
-        public DateTime APPROVE_DATE { get; set; }
+        public DateTime? APPROVE_DATE { get; set; }
     }
 }

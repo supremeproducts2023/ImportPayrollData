@@ -12,7 +12,7 @@ namespace ImportDataPayroll.Models
 
         public string BILLNO { get; set; }
 
-        public DateTime DELIVERY_SEND { get; set; }
+        public DateTime? DELIVERY_SEND { get; set; }
 
         public string NAME_RECEIVED { get; set; }
 
@@ -26,10 +26,10 @@ namespace ImportDataPayroll.Models
 
         public string REC_USER { get; set; }
 
-        public DateTime REC_DATE { get; set; }
+        public DateTime? REC_DATE { get; set; }
 
         public string EXPECT_DATE { get; set; }
 
-        public DateTime DATE_TO_CUS { get; set; }
+        public DateTime? DATE_TO_CUS { get; set; }
     }
 }

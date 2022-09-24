@@ -997,5 +997,679 @@ namespace ImportDataPayroll
             }
         }
         #endregion
+
+        #region REQ_BETWEEN_MNG
+        public static void Import_REQ_BETWEEN_MNG()
+        {
+            try
+            {
+                string str = @"select * from REQ_BETWEEN_MNG";
+
+                DataTable dt;
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
+
+                var itemList = new List<REQ_BETWEEN_MNG>();
+                var item = new REQ_BETWEEN_MNG();
+                var paramList = ClsStrVulue.getParamList(item);
+
+                if (dt.Rows.Count > 0)
+                {
+                    str = @"truncate table REQ_BETWEEN_MNG";
+                    ClsSQLServer.ExecuteQuery(str, conn_sql, null);
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        itemList.Add(new REQ_BETWEEN_MNG
+                        {
+                            ID = ClsStrVulue.convertToDecimal(row["ID"]),
+                            REQNO = ClsStrVulue.convertToDecimal(row["REQNO"]),
+                            FROM_MNG = row["FROM_MNG"].ToString(),
+                            TO_MNG = row["TO_MNG"].ToString(),
+                            SEND_DATE = ClsStrVulue.convertToDateTime(row["SEND_DATE"]),
+                            APPROVE_DATE = ClsStrVulue.convertToDateTime(row["APPROVE_DATE"]),
+                        });
+                    }
+
+                    if (!ClsSQLServer.BulkCopy("REQ_BETWEEN_MNG", conn_sql, paramList, itemList))
+                        Console.WriteLine("REQ_BETWEEN_MNG save data error!!");
+                    else
+                        Console.WriteLine("REQ_BETWEEN_MNG insert complate!!");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+        #endregion
+
+        #region REQ_BILL
+        public static void Import_REQ_BILL()
+        {
+            try
+            {
+                string str = @"select * from REQ_BILL";
+
+                DataTable dt;
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
+
+                var itemList = new List<REQ_BILL>();
+                var item = new REQ_BILL();
+                var paramList = ClsStrVulue.getParamList(item);
+
+                if (dt.Rows.Count > 0)
+                {
+                    str = @"truncate table REQ_BILL";
+                    ClsSQLServer.ExecuteQuery(str, conn_sql, null);
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        itemList.Add(new REQ_BILL
+                        {
+                            BILLNO = row["BILLNO"].ToString(),
+                            REQNO = ClsStrVulue.convertToDecimal(row["REQNO"]),
+                        });
+                    }
+
+                    if (!ClsSQLServer.BulkCopy("REQ_BILL", conn_sql, paramList, itemList))
+                        Console.WriteLine("REQ_BILL save data error!!");
+                    else
+                        Console.WriteLine("REQ_BILL insert complate!!");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+        #endregion
+
+        #region REQ_BILL1
+        public static void Import_REQ_BILL1()
+        {
+            try
+            {
+                string str = @"select * from REQ_BILL1";
+
+                DataTable dt;
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
+
+                var itemList = new List<REQ_BILL1>();
+                var item = new REQ_BILL1();
+                var paramList = ClsStrVulue.getParamList(item);
+
+                if (dt.Rows.Count > 0)
+                {
+                    str = @"truncate table REQ_BILL1";
+                    ClsSQLServer.ExecuteQuery(str, conn_sql, null);
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        itemList.Add(new REQ_BILL1
+                        {
+                            BILLNO = row["BILLNO"].ToString(),
+                            REQNO = ClsStrVulue.convertToDecimal(row["REQNO"])
+                        });
+                    }
+
+                    if (!ClsSQLServer.BulkCopy("REQ_BILL1", conn_sql, paramList, itemList))
+                        Console.WriteLine("REQ_BILL1 save data error!!");
+                    else
+                        Console.WriteLine("REQ_BILL1 insert complate!!");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+        #endregion
+
+        #region REQ_BILL3
+        public static void Import_REQ_BILL3()
+        {
+            try
+            {
+                string str = @"select * from REQ_BILL3";
+
+                DataTable dt;
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
+
+                var itemList = new List<REQ_BILL3>();
+                var item = new REQ_BILL3();
+                var paramList = ClsStrVulue.getParamList(item);
+
+                if (dt.Rows.Count > 0)
+                {
+                    str = @"truncate table REQ_BILL3";
+                    ClsSQLServer.ExecuteQuery(str, conn_sql, null);
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        itemList.Add(new REQ_BILL3
+                        {
+                            BILLNO = row["BILLNO"].ToString(),
+                            REQNO = ClsStrVulue.convertToDecimal(row["REQNO"]),
+                        });
+                    }
+
+                    if (!ClsSQLServer.BulkCopy("REQ_BILL3", conn_sql, paramList, itemList))
+                        Console.WriteLine("REQ_BILL3 save data error!!");
+                    else
+                        Console.WriteLine("REQ_BILL3 insert complate!!");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+        #endregion
+
+        #region REQ_BILLNEW
+        public static void Import_REQ_BILLNEW()
+        {
+            try
+            {
+                string str = @"select * from REQ_BILLNEW";
+
+                DataTable dt;
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
+
+                var itemList = new List<REQ_BILLNEW>();
+                var item = new REQ_BILLNEW();
+                var paramList = ClsStrVulue.getParamList(item);
+
+                if (dt.Rows.Count > 0)
+                {
+                    str = @"truncate table REQ_BILLNEW";
+                    ClsSQLServer.ExecuteQuery(str, conn_sql, null);
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        itemList.Add(new REQ_BILLNEW
+                        {
+                            BILLNO = row["BILLNO"].ToString(),
+                            REQNO = ClsStrVulue.convertToDecimal(row["REQNO"]),
+                        });
+                    }
+
+                    if (!ClsSQLServer.BulkCopy("REQ_BILLNEW", conn_sql, paramList, itemList))
+                        Console.WriteLine("REQ_BILLNEW save data error!!");
+                    else
+                        Console.WriteLine("REQ_BILLNEW insert complate!!");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+        #endregion
+
+        #region REQ_BILLNEW2
+        public static void Import_REQ_BILLNEW2()
+        {
+            try
+            {
+                string str = @"select * from REQ_BILLNEW2";
+
+                DataTable dt;
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
+
+                var itemList = new List<REQ_BILLNEW2>();
+                var item = new REQ_BILLNEW2();
+                var paramList = ClsStrVulue.getParamList(item);
+
+                if (dt.Rows.Count > 0)
+                {
+                    str = @"truncate table REQ_BILLNEW2";
+                    ClsSQLServer.ExecuteQuery(str, conn_sql, null);
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        itemList.Add(new REQ_BILLNEW2
+                        {
+                            BILLNO = row["BILLNO"].ToString(),
+                            REQNO = ClsStrVulue.convertToDecimal(row["REQNO"]),
+                        });
+                    }
+
+                    if (!ClsSQLServer.BulkCopy("REQ_BILLNEW2", conn_sql, paramList, itemList))
+                        Console.WriteLine("REQ_BILLNEW2 save data error!!");
+                    else
+                        Console.WriteLine("REQ_BILLNEW2 insert complate!!");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+        #endregion
+
+        #region REQ_COLLECT_BILL
+        public static void Import_REQ_COLLECT_BILL()
+        {
+            try
+            {
+                string str = @"select * from REQ_COLLECT_BILL";
+
+                DataTable dt;
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
+
+                var itemList = new List<REQ_COLLECT_BILL>();
+                var item = new REQ_COLLECT_BILL();
+                var paramList = ClsStrVulue.getParamList(item);
+
+                if (dt.Rows.Count > 0)
+                {
+                    str = @"truncate table REQ_COLLECT_BILL";
+                    ClsSQLServer.ExecuteQuery(str, conn_sql, null);
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        itemList.Add(new REQ_COLLECT_BILL
+                        {
+                            REQNO = ClsStrVulue.convertToDecimal(row["REQNO"]),
+                            BILLDATE = ClsStrVulue.convertToDateTime(row["BILLDATE"]),
+                            BILLNO = row["BILLNO"].ToString(),
+                            BILL_AMOUNT = ClsStrVulue.convertToDecimal(row["BILL_AMOUNT"]),
+                            SALENAME = row["SALENAME"].ToString(),
+                            PRODUCTNAME = row["PRODUCTNAME"].ToString(),
+                            HOSNO = ClsStrVulue.convertToDecimal(row["HOSNO"]),
+                            DO_DATE = ClsStrVulue.convertToDateTime(row["DO_DATE"]),
+                            DEP_BILL_DATE = ClsStrVulue.convertToDateTime(row["DEP_BILL_DATE"]),
+                            COLLECT_APPOINT = ClsStrVulue.convertToDateTime(row["COLLECT_APPOINT"]),
+                            COLLECT_CHEQUE = ClsStrVulue.convertToDateTime(row["COLLECT_CHEQUE"]),
+                            CHEQUE_NO = ClsStrVulue.convertToDecimal(row["CHEQUE_NO"]),
+                            CHEQUE_DATE = ClsStrVulue.convertToDateTime(row["CHEQUE_DATE"]),
+                            BANK_NAME = row["BANK_NAME"].ToString(),
+                            BRANCH_NAME = row["BRANCH_NAME"].ToString(),
+                            COLLECT_AMOUNT = ClsStrVulue.convertToDecimal(row["COLLECT_AMOUNT"]),
+                            RECEIVE_NAME = row["RECEIVE_NAME"].ToString(),
+                            REMARKS = row["REMARKS"].ToString(),
+                            RECUSER_ID = row["RECUSER_ID"].ToString(),
+                            REC_DATE = ClsStrVulue.convertToDateTime(row["REC_DATE"]),
+                            LASTUSER_ID = row["LASTUSER_ID"].ToString(),
+                            LAST_DATE = ClsStrVulue.convertToDateTime(row["LAST_DATE"]),
+                        });
+                    }
+
+                    if (!ClsSQLServer.BulkCopy("REQ_COLLECT_BILL", conn_sql, paramList, itemList))
+                        Console.WriteLine("REQ_COLLECT_BILL save data error!!");
+                    else
+                        Console.WriteLine("REQ_COLLECT_BILL insert complate!!");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+        #endregion
+
+        #region REQ_CONTRACT
+        public static void Import_REQ_CONTRACT()
+        {
+            try
+            {
+                string str = @"select * from REQ_CONTRACT";
+
+                DataTable dt;
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
+
+                var itemList = new List<REQ_CONTRACT>();
+                var item = new REQ_CONTRACT();
+                var paramList = ClsStrVulue.getParamList(item);
+
+                if (dt.Rows.Count > 0)
+                {
+                    str = @"truncate table REQ_CONTRACT";
+                    ClsSQLServer.ExecuteQuery(str, conn_sql, null);
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        itemList.Add(new REQ_CONTRACT
+                        {
+                            TITLE = row["TITLE"].ToString(),
+                            DESCRIPTION = row["DESCRIPTION"].ToString(), 
+                        });
+                    }
+
+                    if (!ClsSQLServer.BulkCopy("REQ_CONTRACT", conn_sql, paramList, itemList))
+                        Console.WriteLine("REQ_CONTRACT save data error!!");
+                    else
+                        Console.WriteLine("REQ_CONTRACT insert complate!!");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+        #endregion
+
+        #region REQ_COUNT_LOGSHEET
+        public static void Import_REQ_COUNT_LOGSHEET()
+        {
+            try
+            {
+                string str = @"select * from REQ_COUNT_LOGSHEET";
+
+                DataTable dt;
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
+
+                var itemList = new List<REQ_COUNT_LOGSHEET>();
+                var item = new REQ_COUNT_LOGSHEET();
+                var paramList = ClsStrVulue.getParamList(item);
+
+                if (dt.Rows.Count > 0)
+                {
+                    str = @"truncate table REQ_COUNT_LOGSHEET";
+                    ClsSQLServer.ExecuteQuery(str, conn_sql, null);
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        itemList.Add(new REQ_COUNT_LOGSHEET
+                        {
+                            ID = ClsStrVulue.convertToDecimal(row["ID"]),
+                            DATE_LOG = ClsStrVulue.convertToDateTime(row["DATE_LOG"]),
+                            NUM_LOG = ClsStrVulue.convertToDecimal(row["NUM_LOG"]),
+                        });
+                    }
+
+                    if (!ClsSQLServer.BulkCopy("REQ_COUNT_LOGSHEET", conn_sql, paramList, itemList))
+                        Console.WriteLine("REQ_COUNT_LOGSHEET save data error!!");
+                    else
+                        Console.WriteLine("REQ_COUNT_LOGSHEET insert complate!!");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+        #endregion
+
+        #region BRAND
+        public static void Import_BRAND()
+        {
+            try
+            {
+                string str = @"select * from BRAND";
+
+                DataTable dt;
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn_Hamsco()).Tables[0];
+
+                var itemList = new List<BRAND>();
+                var item = new BRAND();
+                var paramList = ClsStrVulue.getParamList(item);
+
+                if (dt.Rows.Count > 0)
+                {
+                    str = @"truncate table BRAND";
+                    ClsSQLServer.ExecuteQuery(str, conn_sql, null);
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        itemList.Add(new BRAND
+                        {
+                            BRAND_ID = row["BRAND_ID"].ToString(),
+                            BRANDNAME = row["BRANDNAME"].ToString(),
+                            PRNO = row["PRNO"].ToString(),
+                            DEPTNO = row["DEPTNO"].ToString(),
+                            AGENT = row["AGENT"].ToString(),
+                            ID = ClsStrVulue.convertToDecimal(row["ID"])
+                        });
+                    }
+
+                    if (!ClsSQLServer.BulkCopy("BRAND", conn_sql, paramList, itemList))
+                        Console.WriteLine("BRAND save data error!!");
+                    else
+                        Console.WriteLine("BRAND insert complate!!");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+        #endregion
+
+        #region BRAND_EXCHANGE_RATE
+        public static void Import_BRAND_EXCHANGE_RATE()
+        {
+            try
+            {
+                string str = @"select * from BRAND_EXCHANGE_RATE";
+
+                DataTable dt;
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn_Hamsco()).Tables[0];
+
+                var itemList = new List<BRAND_EXCHANGE_RATE>();
+                var item = new BRAND_EXCHANGE_RATE();
+                var paramList = ClsStrVulue.getParamList(item);
+
+                if (dt.Rows.Count > 0)
+                {
+                    str = @"truncate table BRAND_EXCHANGE_RATE";
+                    ClsSQLServer.ExecuteQuery(str, conn_sql, null);
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        itemList.Add(new BRAND_EXCHANGE_RATE
+                        {
+                            ID = ClsStrVulue.convertToDecimal(row["ID"]),
+                            EX_NAME = row["EX_NAME"].ToString(),
+                            EX_ABBR = row["EX_ABBR"].ToString(),
+                            K = ClsStrVulue.convertToDecimal(row["K"]),
+                            RECUSER_ID = row["RECUSER_ID"].ToString(),
+                            REC_DATE = ClsStrVulue.convertToDateTime(row["REC_DATE"]),
+                            LASTUSER_ID = row["LASTUSER_ID"].ToString(),
+                            LAST_DATE = ClsStrVulue.convertToDateTime(row["LAST_DATE"]),
+                            STATUS = ClsStrVulue.convertToDecimal(row["STATUS"]),
+                            EFFECTIVE_DATE = ClsStrVulue.convertToDateTime(row["EFFECTIVE_DATE"])
+                        });
+                    }
+
+                    if (!ClsSQLServer.BulkCopy("BRAND_EXCHANGE_RATE", conn_sql, paramList, itemList))
+                        Console.WriteLine("BRAND_EXCHANGE_RATE save data error!!");
+                    else
+                        Console.WriteLine("BRAND_EXCHANGE_RATE insert complate!!");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+        #endregion
+
+        #region REQ_GWD
+        public static void Import_REQ_GWD()
+        {
+            try
+            {
+                string str = @"select * from REQ_GWD";
+
+                DataTable dt;
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
+
+                var itemList = new List<REQ_GWD>();
+                var item = new REQ_GWD();
+                var paramList = ClsStrVulue.getParamList(item);
+
+                if (dt.Rows.Count > 0)
+                {
+                    str = @"truncate table REQ_GWD";
+                    ClsSQLServer.ExecuteQuery(str, conn_sql, null);
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        itemList.Add(new REQ_GWD
+                        {
+                            REQNO = ClsStrVulue.convertToDecimal(row["REQNO"]),
+                            BILLNO = row["BILLNO"].ToString(),
+                            DELIVERY_SEND = ClsStrVulue.convertToDateTime(row["DELIVERY_SEND"]),
+                            NAME_RECEIVED = row["NAME_RECEIVED"].ToString(),
+                            POSITION_RECEIVED = row["POSITION_RECEIVED"].ToString(),
+                            REMARK_SEND = row["REMARK_SEND"].ToString(),
+                            REMARK = row["REMARK"].ToString(),
+                            RESULT_SEND = ClsStrVulue.convertToDecimal(row["RESULT_SEND"]),
+                            REC_USER = row["REC_USER"].ToString(),
+                            REC_DATE = ClsStrVulue.convertToDateTime(row["REC_DATE"]),
+                            EXPECT_DATE = row["EXPECT_DATE"].ToString(),
+                            DATE_TO_CUS = ClsStrVulue.convertToDateTime(row["DATE_TO_CUS"]),
+                        });
+                    }
+
+                    if (!ClsSQLServer.BulkCopy("REQ_GWD", conn_sql, paramList, itemList))
+                        Console.WriteLine("REQ_GWD save data error!!");
+                    else
+                        Console.WriteLine("REQ_GWD insert complate!!");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+        #endregion
+
+        #region REQ_GWD_REF
+        public static void Import_REQ_GWD_REF()
+        {
+            try
+            {
+                string str = @"select * from REQ_GWD_REF";
+
+                DataTable dt;
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
+
+                var itemList = new List<REQ_GWD_REF>();
+                var item = new REQ_GWD_REF();
+                var paramList = ClsStrVulue.getParamList(item);
+
+                if (dt.Rows.Count > 0)
+                {
+                    str = @"truncate table REQ_GWD_REF_REF";
+                    ClsSQLServer.ExecuteQuery(str, conn_sql, null);
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        itemList.Add(new REQ_GWD_REF
+                        {
+                            ID = ClsStrVulue.convertToDecimal(row["ID"]),
+                            REQNO = ClsStrVulue.convertToDecimal(row["REQNO"]),
+                            LOT_NO = row["LOT_NO"].ToString(),
+                            SERIAL_NO = row["SERIAL_NO"].ToString(),
+                            REF_NO = row["REF_NO"].ToString(),
+                            EXPIRE_DATE = ClsStrVulue.convertToDateTime(row["EXPIRE_DATE"]),
+                            REMARK = row["REMARK"].ToString(),
+                            ID_BILLNO = ClsStrVulue.convertToDecimal(row["ID_BILLNO"]),
+                        });
+                    }
+
+                    if (!ClsSQLServer.BulkCopy("REQ_GWD_REF", conn_sql, paramList, itemList))
+                        Console.WriteLine("REQ_GWD_REF save data error!!");
+                    else
+                        Console.WriteLine("REQ_GWD_REF insert complate!!");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+        #endregion
+
+        #region REQ_REMARKS
+        public static void Import_REQ_REMARKS()
+        {
+            try
+            {
+                string str = @"select * from REQ_REMARKS";
+
+                DataTable dt;
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
+
+                var itemList = new List<REQ_REMARKS>();
+                var item = new REQ_REMARKS();
+                var paramList = ClsStrVulue.getParamList(item);
+
+                if (dt.Rows.Count > 0)
+                {
+                    str = @"truncate table REQ_REMARKS";
+                    ClsSQLServer.ExecuteQuery(str, conn_sql, null);
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        itemList.Add(new REQ_REMARKS
+                        {
+                            ID = ClsStrVulue.convertToDecimal(row["ID"]),
+                            REQNO = ClsStrVulue.convertToDecimal(row["REQNO"]),
+                            REQ_REMARK = row["REQ_REMARK"].ToString(),
+                            REQ_REMARKDATE = ClsStrVulue.convertToDateTime(row["REQ_REMARKDATE"]),
+                            RECUSER_ID = row["RECUSER_ID"].ToString(),
+                            REQ_TO = row["REQ_TO"].ToString(), 
+                        });
+                    }
+
+                    if (!ClsSQLServer.BulkCopy("REQ_REMARKS", conn_sql, paramList, itemList))
+                        Console.WriteLine("REQ_REMARKS save data error!!");
+                    else
+                        Console.WriteLine("REQ_REMARKS insert complate!!");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+        #endregion
+
+        #region REQ_STATUS
+        public static void Import_REQ_STATUS()
+        {
+            try
+            {
+                string str = @"select * from REQ_STATUS";
+
+                DataTable dt;
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
+
+                var itemList = new List<REQ_STATUS_TB>();
+                var item = new REQ_STATUS_TB();
+                var paramList = ClsStrVulue.getParamList(item);
+
+                if (dt.Rows.Count > 0)
+                {
+                    str = @"truncate table REQ_STATUS";
+                    ClsSQLServer.ExecuteQuery(str, conn_sql, null);
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        itemList.Add(new REQ_STATUS_TB
+                        {
+                            REQ_STATUS = row["REQ_STATUS"].ToString(),
+                            REQ_STATUS_NAME = row["REQ_STATUS_NAME"].ToString(),
+                            RECUSER_ID = row["RECUSER_ID"].ToString(),
+                            REC_DATE = row["REC_DATE"].ToString(), 
+                        });
+                    }
+
+                    if (!ClsSQLServer.BulkCopy("REQ_STATUS", conn_sql, paramList, itemList))
+                        Console.WriteLine("REQ_STATUS save data error!!");
+                    else
+                        Console.WriteLine("REQ_STATUS insert complate!!");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+        #endregion
     }
 }

@@ -18,7 +18,7 @@ namespace ImportDataPayroll.Models
 
         public string REF_NO { get; set; }
 
-        public DateTime EXPIRE_DATE { get; set; }
+        public DateTime? EXPIRE_DATE { get; set; }
 
         public string REMARK { get; set; }
 
