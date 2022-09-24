@@ -161,6 +161,21 @@ namespace ImportDataPayroll
             Console.WriteLine("111 REQ_GWD_REF");
             Console.WriteLine("112 REQ_REMARKS");
             Console.WriteLine("113 REQ_STATUS");
+
+
+            Console.WriteLine("124 SALE_VAC_SHARING");
+            Console.WriteLine("125 PROVINCE_SALE");
+            Console.WriteLine("126 ZONE_SALE");
+            Console.WriteLine("127 HOSPITAL");
+            Console.WriteLine("128 CONSIGNMENT_DATA");
+            Console.WriteLine("129 CONSIGNMENT_PROD");
+            Console.WriteLine("130 PROD_CONFIG_MASTER");
+            Console.WriteLine("131 PROD_CONFIG_DETAIL");
+            Console.WriteLine("132 CONFIG_MASTER");
+            Console.WriteLine("133 CONFIG_DETAIL");
+            Console.WriteLine("134 PERSON_ADDR");
+            Console.WriteLine("135 ORG_ADDR");
+            Console.WriteLine("136 CUSTOMER");
         }
 
         public static void inputMenu()
@@ -387,6 +402,23 @@ namespace ImportDataPayroll
                     Hamsco.Import_REQ_GWD_REF();
                     Hamsco.Import_REQ_REMARKS();
                     Hamsco.Import_REQ_STATUS();
+
+
+                    //------ToM----add---
+                    Hamsco.Import_SALE_VAC_SHARING(); 
+                    Hamsco.Import_PROVINCE_SALE();  
+                    Hamsco.Import_ZONE_SALE();  
+                    Hamsco.Import_HOSPITAL();  
+                    Hamsco.Import_CONSIGNMENT_DATA();  
+                    Hamsco.Import_CONSIGNMENT_PROD();  
+                    Hamsco.Import_PROD_CONFIG_MASTER();  
+                    Hamsco.Import_PROD_CONFIG_DETAIL(); 
+                    Hamsco.Import_CONFIG_MASTER(); 
+                    Hamsco.Import_CONFIG_DETAIL(); 
+                    Hamsco.Import_PERSON_ADDR();  
+                    Hamsco.Import_ORG_ADDR();  
+                    Hamsco.Import_CUSTOMER(); 
+
                     break;
 
                 case "84": Hamsco.Import_EMP(); break;
@@ -419,6 +451,23 @@ namespace ImportDataPayroll
                 case "111": Hamsco.Import_REQ_GWD_REF(); break;
                 case "112": Hamsco.Import_REQ_REMARKS(); break;
                 case "113": Hamsco.Import_REQ_STATUS(); break;
+
+
+
+
+                case "124": Hamsco.Import_SALE_VAC_SHARING(); break;
+                case "125": Hamsco.Import_PROVINCE_SALE(); break;
+                case "126": Hamsco.Import_ZONE_SALE(); break;
+                case "127": Hamsco.Import_HOSPITAL(); break;
+                case "128": Hamsco.Import_CONSIGNMENT_DATA(); break;
+                case "129": Hamsco.Import_CONSIGNMENT_PROD(); break;
+                case "130": Hamsco.Import_PROD_CONFIG_MASTER(); break;
+                case "131": Hamsco.Import_PROD_CONFIG_DETAIL(); break;
+                case "132": Hamsco.Import_CONFIG_MASTER(); break;
+                case "133": Hamsco.Import_CONFIG_DETAIL(); break;
+                case "134": Hamsco.Import_PERSON_ADDR(); break;
+                case "135": Hamsco.Import_ORG_ADDR(); break;
+                case "136": Hamsco.Import_CUSTOMER(); break;
                 defaule:
                     break;
             }

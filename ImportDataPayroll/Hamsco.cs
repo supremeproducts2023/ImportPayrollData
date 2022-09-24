@@ -1671,5 +1671,706 @@ namespace ImportDataPayroll
             }
         }
         #endregion
+
+
+/////////////////////////////////////////////////////////
+
+ #region SALE_VAC_SHARING
+        public static void Import_SALE_VAC_SHARING()
+        {
+            try
+            {
+                string str = @"select * from xxx";
+
+                DataTable dt;
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn_Hamsco()).Tables[0];
+
+                var itemList = new List<SALE_VAC_SHARING>();
+                var item = new SALE_VAC_SHARING();
+                var paramList = ClsStrVulue.getParamList(item);
+
+                if (dt.Rows.Count > 0)
+                {
+                    str = @"truncate table SALE_VAC_SHARING";
+                    ClsSQLServer.ExecuteQuery(str, conn_sql, null);
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        itemList.Add(new SALE_VAC_SHARING
+                        {
+                            REQNO = ClsStrVulue.convertToDecimal(row["REQNO"]),
+                            EMPNO = row["EMPNO"].ToString(),
+                            PERCENT_VAC = ClsStrVulue.convertToDecimal(row["PERCENT_VAC"]),
+                            VAC_RECEIVE = ClsStrVulue.convertToDecimal(row["VAC_RECEIVE"]),
+                            BATH_RECEIVE = ClsStrVulue.convertToDecimal(row["BATH_RECEIVE"])
+                        });
+                    }
+
+                    if (!ClsSQLServer.BulkCopy("SALE_VAC_SHARING", conn_sql, paramList, itemList))
+                        Console.WriteLine("SALE_VAC_SHARING save data error!!");
+                    else
+                        Console.WriteLine("SALE_VAC_SHARING insert complate!!");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+        #endregion
+
+        #region PROVINCE_SALE
+        public static void Import_PROVINCE_SALE()
+        {
+            try
+            {
+                string str = @"select * from PROVINCE_SALE";
+
+                DataTable dt;
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn_Hamsco()).Tables[0];
+
+                var itemList = new List<PROVINCE_SALE>();
+                var item = new PROVINCE_SALE();
+                var paramList = ClsStrVulue.getParamList(item);
+
+                if (dt.Rows.Count > 0)
+                {
+                    str = @"truncate table PROVINCE_SALE";
+                    ClsSQLServer.ExecuteQuery(str, conn_sql, null);
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        itemList.Add(new PROVINCE_SALE
+                        {
+                            PROV_ID = ClsStrVulue.convertToDecimal(row["PROV_ID"]),
+                            PROV_NAME = row["PROV_NAME"].ToString(),
+                            PROV_ABBR = row["PROV_ABBR"].ToString(),
+                            REC_USER = row["REC_USER"].ToString(),
+                            REC_DATE = ClsStrVulue.convertToDateTime(row["REC_DATE"]),
+                            ZONE_ID = ClsStrVulue.convertToDecimal(row["ZONE_ID"]),
+                            PROV_NAME_EN = row["PROV_NAME_EN"].ToString(),
+                            PROV_ZONE = row["PROV_ZONE"].ToString(),
+                            ZONE_TS = row["ZONE_TS"].ToString(),
+                            ID_AS400 = row["ID_AS400"].ToString(),
+                            ID_B1 = row["ID_B1"].ToString()
+                        });
+                    }
+
+                    if (!ClsSQLServer.BulkCopy("PROVINCE_SALE", conn_sql, paramList, itemList))
+                        Console.WriteLine("PROVINCE_SALE save data error!!");
+                    else
+                        Console.WriteLine("PROVINCE_SALE insert complate!!");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+        #endregion
+
+        #region ZONE_SALE
+        public static void Import_ZONE_SALE()
+        {
+            try
+            {
+                string str = @"select * from ZONE_SALE";
+
+                DataTable dt;
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn_Hamsco()).Tables[0];
+
+                var itemList = new List<ZONE_SALE>();
+                var item = new ZONE_SALE();
+                var paramList = ClsStrVulue.getParamList(item);
+
+                if (dt.Rows.Count > 0)
+                {
+                    str = @"truncate table ZONE_SALE";
+                    ClsSQLServer.ExecuteQuery(str, conn_sql, null);
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        itemList.Add(new ZONE_SALE
+                        {
+                            ZONE_ID = ClsStrVulue.convertToDecimal(row["ZONE_ID"]),
+                            ZONE_NAME = row["ZONE_NAME"].ToString(),
+                            ZONE_EMPNO = row["ZONE_EMPNO"].ToString(),
+                            ZONE_ENGINEER = row["ZONE_ENGINEER"].ToString(),
+                            ZONE_MNGNO = row["ZONE_MNGNO"].ToString(),
+                            REC_USER = row["REC_USER"].ToString(),
+                            REC_DATE = ClsStrVulue.convertToDateTime(row["REC_DATE"])
+                        });
+                    }
+
+                    if (!ClsSQLServer.BulkCopy("ZONE_SALE", conn_sql, paramList, itemList))
+                        Console.WriteLine("ZONE_SALE save data error!!");
+                    else
+                        Console.WriteLine("ZONE_SALE insert complate!!");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+        #endregion
+
+        #region HOSPITAL
+        public static void Import_HOSPITAL()
+        {
+            try
+            {
+                string str = @"select * from HOSPITAL";
+
+                DataTable dt;
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn_Hamsco()).Tables[0];
+
+                var itemList = new List<HOSPITAL>();
+                var item = new HOSPITAL();
+                var paramList = ClsStrVulue.getParamList(item);
+
+                if (dt.Rows.Count > 0)
+                {
+                    str = @"truncate table HOSPITAL";
+                    ClsSQLServer.ExecuteQuery(str, conn_sql, null);
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        itemList.Add(new HOSPITAL
+                        {
+                            HOSNO = ClsStrVulue.convertToDecimal(row["HOSNO"]),
+                            H_TYPEID = row["H_TYPEID"].ToString(),
+                            H_TITLE = row["H_TITLE"].ToString(),
+                            H_NAME = row["H_NAME"].ToString(),
+                            HF_NAME = row["HF_NAME"].ToString(),
+                            H_SIZE = row["H_SIZE"].ToString(),
+                            H_CUS = row["H_CUS"].ToString(),
+                            H_EMAIL = row["H_EMAIL"].ToString(),
+                            H_AS400ID = ClsStrVulue.convertToDecimal(row["H_AS400ID"]),
+                            AS400_TYPE = row["AS400_TYPE"].ToString(),
+                            H_BUILDDATE = ClsStrVulue.convertToDateTime(row["H_BUILDDATE"]),
+                            H_RATING = row["H_RATING"].ToString(),
+                            H_DIRECTOR = row["H_DIRECTOR"].ToString(),
+                            H_OWNER = row["H_OWNER"].ToString(),
+                            H_RECORDER = row["H_RECORDER"].ToString(),
+                            H_ZONE = ClsStrVulue.convertToDecimal(row["H_ZONE"]),
+                            SENT_TO_SAP = row["SENT_TO_SAP"].ToString(),
+                            SENT_TO_DATE = ClsStrVulue.convertToDateTime(row["SENT_TO_DATE"]),
+                            PK_SAP = ClsStrVulue.convertToDecimal(row["PK_SAP"]),
+                            TAX_ID = row["TAX_ID"].ToString(),
+                            TAX_BRANCH = row["TAX_BRANCH"].ToString()
+                        });
+                    }
+
+                    if (!ClsSQLServer.BulkCopy("HOSPITAL", conn_sql, paramList, itemList))
+                        Console.WriteLine("HOSPITAL save data error!!");
+                    else
+                        Console.WriteLine("HOSPITAL insert complate!!");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+        #endregion
+
+        #region CONSIGNMENT_DATA
+        public static void Import_CONSIGNMENT_DATA()
+        {
+            try
+            {
+                string str = @"select * from CONSIGNMENT_DATA";
+
+                DataTable dt;
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn_Hamsco()).Tables[0];
+
+                var itemList = new List<CONSIGNMENT_DATA>();
+                var item = new CONSIGNMENT_DATA();
+                var paramList = ClsStrVulue.getParamList(item);
+
+                if (dt.Rows.Count > 0)
+                {
+                    str = @"truncate table CONSIGNMENT_DATA";
+                    ClsSQLServer.ExecuteQuery(str, conn_sql, null);
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        itemList.Add(new CONSIGNMENT_DATA
+                        {
+                            CONSI_NO = ClsStrVulue.convertToDecimal(row["CONSI_NO"]),
+                            HOSNO = ClsStrVulue.convertToDecimal(row["HOSNO"]),
+                            CONSI_DATE = ClsStrVulue.convertToDateTime(row["CONSI_DATE"]),
+                            PURPOSE = row["PURPOSE"].ToString(),
+                            EMPNO = row["EMPNO"].ToString(),
+                            APPRV_BY = row["APPRV_BY"].ToString(),
+                            CONSI_STATUS = ClsStrVulue.convertToDecimal(row["CONSI_STATUS"]),
+                            DE_PICKED_BY = row["DE_PICKED_BY"].ToString(),
+                            DE_PICKED_DATE = ClsStrVulue.convertToDateTime(row["DE_PICKED_DATE"]),
+                            DE_CHECK_BY = row["DE_CHECK_BY"].ToString(),
+                            DE_CHECK_DATE = ClsStrVulue.convertToDateTime(row["DE_CHECK_DATE"]),
+                            DE_RECEIVE_BY = row["DE_RECEIVE_BY"].ToString(),
+                            DE_RECEIVE_DATE = ClsStrVulue.convertToDateTime(row["DE_RECEIVE_DATE"]),
+                            RE_DELIVER_BY = row["RE_DELIVER_BY"].ToString(),
+                            RE_DELIVER_DATE = ClsStrVulue.convertToDateTime(row["RE_DELIVER_DATE"]),
+                            RE_RECEIVE_BY = row["RE_RECEIVE_BY"].ToString(),
+                            RE_RECEIVE_DATE = ClsStrVulue.convertToDateTime(row["RE_RECEIVE_DATE"]),
+                            RE_CK_BY = row["RE_CK_BY"].ToString(),
+                            RE_CK_DATE = ClsStrVulue.convertToDateTime(row["RE_CK_DATE"]),
+                            SALE_RECBY = row["SALE_RECBY"].ToString(),
+                            SALE_RECDATE = ClsStrVulue.convertToDateTime(row["SALE_RECDATE"]),
+                            DE_STK_RECBY = row["DE_STK_RECBY"].ToString(),
+                            DE_STK_RECDATE = ClsStrVulue.convertToDateTime(row["DE_STK_RECDATE"]),
+                            RE_STK_RECBY = row["RE_STK_RECBY"].ToString(),
+                            RE_STK_RECDATE = ClsStrVulue.convertToDateTime(row["RE_STK_RECDATE"]),
+                            DE_GO_RECBY = row["DE_GO_RECBY"].ToString(),
+                            DE_GO_RECDATE = ClsStrVulue.convertToDateTime(row["DE_GO_RECDATE"]),
+                            RE_GO_RECBY = row["RE_GO_RECBY"].ToString(),
+                            RE_GO_RECDATE = ClsStrVulue.convertToDateTime(row["RE_GO_RECDATE"]),
+                            REMARKS = row["REMARKS"].ToString(),
+                            REMARK_CANCEL = row["REMARK_CANCEL"].ToString(),
+                            TURN_DATE = ClsStrVulue.convertToDateTime(row["TURN_DATE"]),
+                            STATUS_BY_GWD = ClsStrVulue.convertToDecimal(row["STATUS_BY_GWD"]),
+                            MNG_RECBY = row["MNG_RECBY"].ToString(),
+                            MNG_RECDATE = ClsStrVulue.convertToDateTime(row["MNG_RECDATE"])
+                        });
+                    }
+
+                    if (!ClsSQLServer.BulkCopy("CONSIGNMENT_DATA", conn_sql, paramList, itemList))
+                        Console.WriteLine("CONSIGNMENT_DATA save data error!!");
+                    else
+                        Console.WriteLine("CONSIGNMENT_DATA insert complate!!");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+        #endregion
+
+        #region CONSIGNMENT_PROD
+        public static void Import_CONSIGNMENT_PROD()
+        {
+            try
+            {
+                string str = @"select * from CONSIGNMENT_PROD";
+
+                DataTable dt;
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn_Hamsco()).Tables[0];
+
+                var itemList = new List<CONSIGNMENT_PROD>();
+                var item = new CONSIGNMENT_PROD();
+                var paramList = ClsStrVulue.getParamList(item);
+
+                if (dt.Rows.Count > 0)
+                {
+                    str = @"truncate table CONSIGNMENT_PROD";
+                    ClsSQLServer.ExecuteQuery(str, conn_sql, null);
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        itemList.Add(new CONSIGNMENT_PROD
+                        {
+                            CONSI_NO = ClsStrVulue.convertToDecimal(row["CONSI_NO"]),
+                            PRODNO = ClsStrVulue.convertToDecimal(row["PRODNO"]),
+                            PROD_DETAIL = row["PROD_DETAIL"].ToString(),
+                            PROD_QTY = ClsStrVulue.convertToDecimal(row["PROD_QTY"]),
+                            UNIT_PRICE = ClsStrVulue.convertToDecimal(row["UNIT_PRICE"]),
+                            UNITTYPE = row["UNITTYPE"].ToString(),
+                            REMARKS = row["REMARKS"].ToString(),
+                            NUM_TOTAL = ClsStrVulue.convertToDecimal(row["NUM_TOTAL"]),
+                            NUM_RETURN = ClsStrVulue.convertToDecimal(row["NUM_RETURN"]),
+                            REC_UPDATE = row["REC_UPDATE"].ToString(),
+                            DATE_UPDATE = ClsStrVulue.convertToDateTime(row["DATE_UPDATE"]),
+                            RETURN_RECORD = row["RETURN_RECORD"].ToString(),
+                            GWD_PLACE = ClsStrVulue.convertToDecimal(row["GWD_PLACE"]),
+                            CHECK_STATUS = ClsStrVulue.convertToDecimal(row["CHECK_STATUS"]),
+                            DUAL_DATE = ClsStrVulue.convertToDateTime(row["DUAL_DATE"]),
+                            COST = ClsStrVulue.convertToDecimal(row["COST"]),
+                            REMARK_STOCK = row["REMARK_STOCK"].ToString()
+                        });
+                    }
+
+                    if (!ClsSQLServer.BulkCopy("CONSIGNMENT_PROD", conn_sql, paramList, itemList))
+                        Console.WriteLine("CONSIGNMENT_PROD save data error!!");
+                    else
+                        Console.WriteLine("CONSIGNMENT_PROD insert complate!!");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+        #endregion
+
+        #region PROD_CONFIG_MASTER
+        public static void Import_PROD_CONFIG_MASTER()
+        {
+            try
+            {
+                string str = @"select * from PROD_CONFIG_MASTER";
+
+                DataTable dt;
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn_Hamsco()).Tables[0];
+
+                var itemList = new List<PROD_CONFIG_MASTER>();
+                var item = new PROD_CONFIG_MASTER();
+                var paramList = ClsStrVulue.getParamList(item);
+
+                if (dt.Rows.Count > 0)
+                {
+                    str = @"truncate table PROD_CONFIG_MASTER";
+                    ClsSQLServer.ExecuteQuery(str, conn_sql, null);
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        itemList.Add(new PROD_CONFIG_MASTER
+                        {
+                            CONFIG_ID = ClsStrVulue.convertToDecimal(row["CONFIG_ID"]),
+                            DETAIL = row["DETAIL"].ToString(),
+                            NETPRICE = ClsStrVulue.convertToDecimal(row["NETPRICE"]),
+                            QTY = ClsStrVulue.convertToDecimal(row["QTY"]),
+                            UNIT_TYPE = row["UNIT_TYPE"].ToString(),
+                            RECORD_BY = row["RECORD_BY"].ToString(),
+                            RECORD_DATE = ClsStrVulue.convertToDateTime(row["RECORD_DATE"]),
+                            BRAND_ID = row["BRAND_ID"].ToString(),
+                            SET1 = row["SET1"].ToString(),
+                            MASTER_CONFIG = ClsStrVulue.convertToDecimal(row["MASTER_CONFIG"]),
+                            REFDATA = ClsStrVulue.convertToDecimal(row["REFDATA"]),
+                            VAC = ClsStrVulue.convertToDecimal(row["VAC"]),
+                            CONFIG_TYPE = ClsStrVulue.convertToDecimal(row["CONFIG_TYPE"]),
+                            REMARK = row["REMARK"].ToString(),
+                            SP_SEMI = ClsStrVulue.convertToDecimal(row["SP_SEMI"]),
+                            AMBU_SEND_DATE = ClsStrVulue.convertToDateTime(row["AMBU_SEND_DATE"]),
+                            FILE_STANDARD = row["FILE_STANDARD"].ToString(),
+                            FILE_SPECPACK = row["FILE_SPECPACK"].ToString(),
+                            FILE_TOR = row["FILE_TOR"].ToString(),
+                            REMARK_MNG = row["REMARK_MNG"].ToString(),
+                            STATUS = row["STATUS"].ToString(),
+                            APPROVE_BY = row["APPROVE_BY"].ToString(),
+                            APPROVE_DATE = ClsStrVulue.convertToDateTime(row["APPROVE_DATE"]),
+                            FLG_MASTER = row["FLG_MASTER"].ToString()
+                        });
+                    }
+
+                    if (!ClsSQLServer.BulkCopy("PROD_CONFIG_MASTER", conn_sql, paramList, itemList))
+                        Console.WriteLine("PROD_CONFIG_MASTER save data error!!");
+                    else
+                        Console.WriteLine("PROD_CONFIG_MASTER insert complate!!");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+        #endregion
+
+        #region PROD_CONFIG_DETAIL
+        public static void Import_PROD_CONFIG_DETAIL()
+        {
+            try
+            {
+                string str = @"select * from PROD_CONFIG_DETAIL";
+
+                DataTable dt;
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn_Hamsco()).Tables[0];
+
+                var itemList = new List<PROD_CONFIG_DETAIL>();
+                var item = new PROD_CONFIG_DETAIL();
+                var paramList = ClsStrVulue.getParamList(item);
+
+                if (dt.Rows.Count > 0)
+                {
+                    str = @"truncate table PROD_CONFIG_DETAIL";
+                    ClsSQLServer.ExecuteQuery(str, conn_sql, null);
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        itemList.Add(new PROD_CONFIG_DETAIL
+                        {
+                            CONFIG_ID = ClsStrVulue.convertToDecimal(row["CONFIG_ID"]),
+                            PRODNO = ClsStrVulue.convertToDecimal(row["PRODNO"]),
+                            NETPRICE = ClsStrVulue.convertToDecimal(row["NETPRICE"]),
+                            QTY = ClsStrVulue.convertToDecimal(row["QTY"]),
+                            UNIT_TYPE = row["UNIT_TYPE"].ToString(),
+                            NETTOTAL = ClsStrVulue.convertToDecimal(row["NETTOTAL"]),
+                            K_EXCHANGERATE = ClsStrVulue.convertToDecimal(row["K_EXCHANGERATE"]),
+                            ORDERLIST = ClsStrVulue.convertToDecimal(row["ORDERLIST"]),
+                            CAPABILITY = row["CAPABILITY"].ToString(),
+                            PROD_TYPE = ClsStrVulue.convertToDecimal(row["PROD_TYPE"])
+                        });
+                    }
+
+                    if (!ClsSQLServer.BulkCopy("PROD_CONFIG_DETAIL", conn_sql, paramList, itemList))
+                        Console.WriteLine("PROD_CONFIG_DETAIL save data error!!");
+                    else
+                        Console.WriteLine("PROD_CONFIG_DETAIL insert complate!!");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+        #endregion
+
+        #region CONFIG_MASTER
+        public static void Import_CONFIG_MASTER()
+        {
+            try
+            {
+                string str = @"select * from CONFIG_MASTER";
+
+                DataTable dt;
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn_Hamsco()).Tables[0];
+
+                var itemList = new List<CONFIG_MASTER>();
+                var item = new CONFIG_MASTER();
+                var paramList = ClsStrVulue.getParamList(item);
+
+                if (dt.Rows.Count > 0)
+                {
+                    str = @"truncate table CONFIG_MASTER";
+                    ClsSQLServer.ExecuteQuery(str, conn_sql, null);
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        itemList.Add(new CONFIG_MASTER
+                        {
+                            CONFIG_ID = ClsStrVulue.convertToDecimal(row["CONFIG_ID"]),
+                            DETAIL = row["DETAIL"].ToString(),
+                            NETPRICE = ClsStrVulue.convertToDecimal(row["NETPRICE"]),
+                            QTY = ClsStrVulue.convertToDecimal(row["QTY"]),
+                            UNIT_TYPE = row["UNIT_TYPE"].ToString(),
+                            BRAND_ID = row["BRAND_ID"].ToString(),
+                            CUSNO = ClsStrVulue.convertToDecimal(row["CUSNO"]),
+                            HOSNO = ClsStrVulue.convertToDecimal(row["HOSNO"]),
+                            EFFECTIVE_DATE = ClsStrVulue.convertToDateTime(row["EFFECTIVE_DATE"])
+                        });
+                    }
+
+                    if (!ClsSQLServer.BulkCopy("CONFIG_MASTER", conn_sql, paramList, itemList))
+                        Console.WriteLine("CONFIG_MASTER save data error!!");
+                    else
+                        Console.WriteLine("CONFIG_MASTER insert complate!!");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+        #endregion
+
+        #region CONFIG_DETAIL
+        public static void Import_CONFIG_DETAIL()
+        {
+            try
+            {
+                string str = @"select * from CONFIG_DETAIL";
+
+                DataTable dt;
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn_Hamsco()).Tables[0];
+
+                var itemList = new List<CONFIG_DETAIL>();
+                var item = new CONFIG_DETAIL();
+                var paramList = ClsStrVulue.getParamList(item);
+
+                if (dt.Rows.Count > 0)
+                {
+                    str = @"truncate table CONFIG_DETAIL";
+                    ClsSQLServer.ExecuteQuery(str, conn_sql, null);
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        itemList.Add(new CONFIG_DETAIL
+                        {
+                            CONFIG_ID = ClsStrVulue.convertToDecimal(row["CONFIG_ID"]),
+                            QTY = ClsStrVulue.convertToDecimal(row["QTY"]),
+                            K_EXCHANGERATE = ClsStrVulue.convertToDecimal(row["K_EXCHANGERATE"]),
+                            PRODNO = ClsStrVulue.convertToDecimal(row["PRODNO"])
+                        });
+                    }
+
+                    if (!ClsSQLServer.BulkCopy("CONFIG_DETAIL", conn_sql, paramList, itemList))
+                        Console.WriteLine("CONFIG_DETAIL save data error!!");
+                    else
+                        Console.WriteLine("CONFIG_DETAIL insert complate!!");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+        #endregion
+
+        #region PERSON_ADDR
+        public static void Import_PERSON_ADDR()
+        {
+            try
+            {
+                string str = @"select * from PERSON_ADDR";
+
+                DataTable dt;
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn_Hamsco()).Tables[0];
+
+                var itemList = new List<PERSON_ADDR>();
+                var item = new PERSON_ADDR();
+                var paramList = ClsStrVulue.getParamList(item);
+
+                if (dt.Rows.Count > 0)
+                {
+                    str = @"truncate table PERSON_ADDR";
+                    ClsSQLServer.ExecuteQuery(str, conn_sql, null);
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        itemList.Add(new PERSON_ADDR
+                        {
+                            ID = ClsStrVulue.convertToDecimal(row["ID"]),
+                            CUSNO = ClsStrVulue.convertToDecimal(row["CUSNO"]),
+                            ADDRESS = row["ADDRESS"].ToString(),
+                            CITY = row["CITY"].ToString(),
+                            PROVINCE = row["PROVINCE"].ToString(),
+                            ZIPCODE = row["ZIPCODE"].ToString(),
+                            ADDR_TYPE = row["ADDR_TYPE"].ToString(),
+                            POSTALCODE = row["POSTALCODE"].ToString(),
+                            TEL_NUMBER = row["TEL_NUMBER"].ToString(),
+                            FAX_NUMBER = row["FAX_NUMBER"].ToString(),
+                            PER_RECORDER = row["PER_RECORDER"].ToString(),
+                            USER_UPDATE = row["USER_UPDATE"].ToString()
+                        });
+                    }
+
+                    if (!ClsSQLServer.BulkCopy("PERSON_ADDR", conn_sql, paramList, itemList))
+                        Console.WriteLine("PERSON_ADDR save data error!!");
+                    else
+                        Console.WriteLine("PERSON_ADDR insert complate!!");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+        #endregion
+
+        #region ORG_ADDR
+        public static void Import_ORG_ADDR()
+        {
+            try
+            {
+                string str = @"select * from ORG_ADDR";
+
+                DataTable dt;
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn_Hamsco()).Tables[0];
+
+                var itemList = new List<ORG_ADDR>();
+                var item = new ORG_ADDR();
+                var paramList = ClsStrVulue.getParamList(item);
+
+                if (dt.Rows.Count > 0)
+                {
+                    str = @"truncate table ORG_ADDR";
+                    ClsSQLServer.ExecuteQuery(str, conn_sql, null);
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        itemList.Add(new ORG_ADDR
+                        {
+                            ID = ClsStrVulue.convertToDecimal(row["ID"]),
+                            HOSNO = ClsStrVulue.convertToDecimal(row["HOSNO"]),
+                            ADDRESS = row["ADDRESS"].ToString(),
+                            CITY = row["CITY"].ToString(),
+                            PROVINCE = row["PROVINCE"].ToString(),
+                            ZIPCODE = row["ZIPCODE"].ToString(),
+                            ADDR_TYPE = row["ADDR_TYPE"].ToString(),
+                            POSTALCODE = row["POSTALCODE"].ToString(),
+                            TEL_NUMBER = row["TEL_NUMBER"].ToString(),
+                            FAX_NUMBER = row["FAX_NUMBER"].ToString(),
+                            ORG_RECORDER = row["ORG_RECORDER"].ToString(),
+                            LAST_DATE = ClsStrVulue.convertToDateTime(row["LAST_DATE"]),
+                            LAST_USER = row["LAST_USER"].ToString(),
+                            STATUS = ClsStrVulue.convertToDecimal(row["STATUS"])
+                        });
+                    }
+
+                    if (!ClsSQLServer.BulkCopy("ORG_ADDR", conn_sql, paramList, itemList))
+                        Console.WriteLine("ORG_ADDR save data error!!");
+                    else
+                        Console.WriteLine("ORG_ADDR insert complate!!");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+        #endregion
+
+        #region CUSTOMER
+        public static void Import_CUSTOMER()
+        {
+            try
+            {
+                string str = @"select * from xxx";
+
+                DataTable dt;
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn_Hamsco()).Tables[0];
+
+                var itemList = new List<CUSTOMER>();
+                var item = new CUSTOMER();
+                var paramList = ClsStrVulue.getParamList(item);
+
+                if (dt.Rows.Count > 0)
+                {
+                    str = @"truncate table CUSTOMER";
+                    ClsSQLServer.ExecuteQuery(str, conn_sql, null);
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        itemList.Add(new CUSTOMER
+                        {
+                            CUSNO = ClsStrVulue.convertToDecimal(row["CUSNO"]),
+                            C_TITLE = row["C_TITLE"].ToString(),
+                            C_NAME = row["C_NAME"].ToString(),
+                            OCCUPATION_ID = ClsStrVulue.convertToDecimal(row["OCCUPATION_ID"]),
+                            SPNO = row["SPNO"].ToString(),
+                            C_BIRTHDAY = ClsStrVulue.convertToDateTime(row["C_BIRTHDAY"]),
+                            C_STATUS = row["C_STATUS"].ToString(),
+                            C_SEX = row["C_SEX"].ToString(),
+                            C_MOBILE = row["C_MOBILE"].ToString(),
+                            C_EMAIL = row["C_EMAIL"].ToString(),
+                            C_RATING = row["C_RATING"].ToString(),
+                            C_TYPE = row["C_TYPE"].ToString(),
+                            C_TAXID = row["C_TAXID"].ToString(),
+                            C_AS400ID = row["C_AS400ID"].ToString(),
+                            C_BUILDDATE = ClsStrVulue.convertToDateTime(row["C_BUILDDATE"]),
+                            C_IDCARD = ClsStrVulue.convertToDecimal(row["C_IDCARD"]),
+                            C_RECORDER = row["C_RECORDER"].ToString(),
+                            SENT_TO_SAP = row["SENT_TO_SAP"].ToString(),
+                            SENT_TO_DATE = ClsStrVulue.convertToDateTime(row["SENT_TO_DATE"]),
+                            C_UPDATE = row["C_UPDATE"].ToString()
+                        });
+                    }
+
+                    if (!ClsSQLServer.BulkCopy("CUSTOMER", conn_sql, paramList, itemList))
+                        Console.WriteLine("CUSTOMER save data error!!");
+                    else
+                        Console.WriteLine("CUSTOMER insert complate!!");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+        #endregion
+
+
     }
 }
