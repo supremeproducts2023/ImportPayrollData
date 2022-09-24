@@ -12,7 +12,6 @@ D:\SourceTree\ImportPayrollData\ImportDataPayroll\obj\Debug\ImportDataPayroll.cs
 D:\SourceTree\ImportPayrollData\ImportDataPayroll\obj\Debug\ImportDataPayroll.csproj.CoreCompileInputs.cache
 D:\SourceTree\ImportPayrollData\ImportDataPayroll\obj\Debug\ImportDataPayroll.exe
 D:\SourceTree\ImportPayrollData\ImportDataPayroll\obj\Debug\ImportDataPayroll.pdb
-D:\git\ImportPayrollData\ImportDataPayroll\obj\Debug\ImportDataPayroll.csprojResolveAssemblyReference.cache
 D:\git\ImportPayrollData\ImportDataPayroll\obj\Debug\ImportDataPayroll.exe
 D:\git\ImportPayrollData\ImportDataPayroll\bin\Debug\ImportDataPayroll.exe.config
 D:\git\ImportPayrollData\ImportDataPayroll\bin\Debug\ImportDataPayroll.exe
