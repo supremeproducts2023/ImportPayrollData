@@ -14,9 +14,9 @@ namespace ImportDataPayroll.Models
 
         public Decimal? PERCENT_TAX { get; set; }
 
-        public DateTime START_DATE { get; set; }
+        public DateTime? START_DATE { get; set; }
 
-        public DateTime END_DATE { get; set; }
+        public DateTime? END_DATE { get; set; }
 
         public string RECUSER_ID { get; set; }
 

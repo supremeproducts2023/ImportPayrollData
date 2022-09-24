@@ -410,16 +410,18 @@ namespace ImportDataPayroll
                     Hamsco.Import_REQ_GWD_REF();
                     Hamsco.Import_REQ_REMARKS();
                     Hamsco.Import_REQ_STATUS();
+
                     Hamsco.Import_REQ_TAXCN(); 
                     Hamsco.Import_REQ_TS_CONTRACT(); 
                     Hamsco.Import_REQ_TS_GAR_PO(); 
                     Hamsco.Import_REQ_TS_PROD(); 
-                    Hamsco.Import_EMP(); 
+                   
                     Hamsco.Import_PRODUCT(); 
                     Hamsco.Import_PROD_CHANGE(); 
                     Hamsco.Import_PAYMENT_METHOD(); 
                     Hamsco.Import_ZONE_BKK(); 
                     Hamsco.Import_RSV_FOC(); 
+
                     Hamsco.Import_SALE_VAC_SHARING(); 
                     Hamsco.Import_PROVINCE_SALE();  
                     Hamsco.Import_ZONE_SALE();  
@@ -466,16 +468,17 @@ namespace ImportDataPayroll
                 case "111": Hamsco.Import_REQ_GWD_REF(); break;
                 case "112": Hamsco.Import_REQ_REMARKS(); break;
                 case "113": Hamsco.Import_REQ_STATUS(); break;
+
                 case "114": Hamsco.Import_REQ_TAXCN(); break;
                 case "115": Hamsco.Import_REQ_TS_CONTRACT(); break;
                 case "116": Hamsco.Import_REQ_TS_GAR_PO(); break;
                 case "117": Hamsco.Import_REQ_TS_PROD(); break;
-                case "118": Hamsco.Import_EMP(); break;
                 case "119": Hamsco.Import_PRODUCT(); break;
                 case "120": Hamsco.Import_PROD_CHANGE(); break;
                 case "121": Hamsco.Import_PAYMENT_METHOD(); break;
                 case "122": Hamsco.Import_ZONE_BKK(); break;
                 case "123": Hamsco.Import_RSV_FOC(); break;
+
                 case "124": Hamsco.Import_SALE_VAC_SHARING(); break;
                 case "125": Hamsco.Import_PROVINCE_SALE(); break;
                 case "126": Hamsco.Import_ZONE_SALE(); break;
