@@ -184,6 +184,11 @@ namespace ImportDataPayroll
             Console.WriteLine("134 PERSON_ADDR");
             Console.WriteLine("135 ORG_ADDR");
             Console.WriteLine("136 CUSTOMER");
+
+            Console.WriteLine("137 SUPPLIER");
+            Console.WriteLine("138 PO_MASTER");
+            Console.WriteLine("139 SUPREME_USER");
+
         }
 
         public static void inputMenu()
@@ -436,6 +441,10 @@ namespace ImportDataPayroll
                     Hamsco.Import_ORG_ADDR();  
                     Hamsco.Import_CUSTOMER(); 
 
+                    Hamsco.Import_SUPPLIER(); 
+                    Hamsco.Import_PO_MASTER(); 
+                    Hamsco.Import_CUSTOMER(); 
+
                     break;
 
                 case "84": Hamsco.Import_EMP(); break;
@@ -492,6 +501,10 @@ namespace ImportDataPayroll
                 case "134": Hamsco.Import_PERSON_ADDR(); break;
                 case "135": Hamsco.Import_ORG_ADDR(); break;
                 case "136": Hamsco.Import_CUSTOMER(); break;
+
+                case "137": Hamsco.Import_PERSON_ADDR(); break;
+                case "138": Hamsco.Import_PO_MASTER(); break;
+                case "139": Hamsco.Import_SUPREME_USER(); break;
                 defaule:
                     break;
             }

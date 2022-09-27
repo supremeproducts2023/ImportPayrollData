@@ -2836,5 +2836,200 @@ namespace ImportDataPayroll
             }
         }
         #endregion
+
+        #region SUPPLIER
+        public static void Import_SUPPLIER()
+        {
+            try
+            {
+                string str = @"select * from SUPPLIER";
+
+                DataTable dt;
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn_Hamsco()).Tables[0];
+
+                var itemList = new List<SUPPLIER>();
+                var item = new SUPPLIER();
+                var paramList = ClsStrVulue.getParamList(item);
+
+                if (dt.Rows.Count > 0)
+                {
+                    str = @"truncate table SUPPLIER";
+                    ClsSQLServer.ExecuteQuery(str, conn_sql, null);
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        itemList.Add(new SUPPLIER
+                        {
+                            SUPPLIER_ID	=	 ClsStrVulue.convertToDecimal(row["SUPPLIER_ID"]),
+                            COMPANY_NAME	=	row["COMPANY_NAME"].ToString(),  
+                            SUPPLIER_ADDRESS1	=	row["SUPPLIER_ADDRESS1"].ToString(),  
+                            SUPPLIER_ADDRESS2	=	row["SUPPLIER_ADDRESS2"].ToString(),  
+                            SUPPLIER_ADDRESS3	=	row["SUPPLIER_ADDRESS3"].ToString(),  
+                            SUPPLIER_PAYMENT	=	row["SUPPLIER_PAYMENT"].ToString(),  
+                            REC_USER	=	row["REC_USER"].ToString(),  
+                            REC_DATE	=	ClsStrVulue.convertToDateTime(row["REC_DATE"]),
+                            LAST_USER	=	row["LAST_USER"].ToString(),  
+                            LAST_DATE	=	ClsStrVulue.convertToDateTime(row["LAST_DATE"]),
+                            SUPPLIER_TITLE	=	row["SUPPLIER_TITLE"].ToString(),  
+                            PAYCODE	=	row["PAYCODE"].ToString(),  
+                            TAMBOL	=	row["TAMBOL"].ToString(),  
+                            DISTRICT	=	row["DISTRICT"].ToString(),  
+                            PROVINCE	=	row["PROVINCE"].ToString(),  
+                            POSTCODE	=	row["POSTCODE"].ToString(),  
+                            SUPPLIER_ADDRESS3_1	=	row["SUPPLIER_ADDRESS3_1"].ToString(),  
+                            FAX_NUMBER	=	row["FAX_NUMBER"].ToString(),  
+                            SUP_TYPE	=	row["SUP_TYPE"].ToString(),  
+                            SENT_TO_SAP	=	row["SENT_TO_SAP"].ToString(),  
+                            SENT_TO_DATE	=	ClsStrVulue.convertToDateTime(row["SENT_TO_DATE"]),
+                            STATUS	=	row["STATUS"].ToString(),  
+                            COUNTRY	=	row["COUNTRY"].ToString(),  
+                            SUP_AS400ID	=	row["SUP_AS400ID"].ToString(),  
+                            COMPANY	=	row["COMPANY"].ToString(),  
+                            PROVINCE_ID	=	row["PROVINCE_ID"].ToString(),  
+                            VENDOR_NO	=	row["VENDOR_NO"].ToString(),  
+                            PID	=	row["PID"].ToString(),  
+                            BRANCH_TYPE	=	 ClsStrVulue.convertToDecimal(row["BRANCH_TYPE"]),
+                            BRANCH_NAME	=	row["BRANCH_NAME"].ToString()
+                        });
+                    }
+
+                    if (!ClsSQLServer.BulkCopy("SUPPLIER", conn_sql, paramList, itemList))
+                        Console.WriteLine("SUPPLIER save data error!!");
+                    else
+                        Console.WriteLine("SUPPLIER insert complate!!");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+        #endregion
+		
+
+        #region PO_MASTER
+        public static void Import_PO_MASTER()
+        {
+            try
+            {
+                string str = @"select * from PO_MASTER";
+
+                DataTable dt;
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn_Hamsco()).Tables[0];
+
+                var itemList = new List<PO_MASTER>();
+                var item = new PO_MASTER();
+                var paramList = ClsStrVulue.getParamList(item);
+
+                if (dt.Rows.Count > 0)
+                {
+                    str = @"truncate table PO_MASTER";
+                    ClsSQLServer.ExecuteQuery(str, conn_sql, null);
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        itemList.Add(new PO_MASTER
+                        {
+                           PO_NO	=	row["PO_NO"].ToString(),  
+                            PO_DATE	=	ClsStrVulue.convertToDateTime(row["PO_DATE"]),
+                            SUPPLIER_ID	=	 ClsStrVulue.convertToDecimal(row["SUPPLIER_ID"]),
+                            YOUR_REF	=	row["YOUR_REF"].ToString(),  
+                            OUR_REF	=	row["OUR_REF"].ToString(),  
+                            DESPATCH_TO	=	row["DESPATCH_TO"].ToString(),  
+                            DELIVERY_TIME	=	row["DELIVERY_TIME"].ToString(),  
+                            PAYMENT	=	row["PAYMENT"].ToString(),  
+                            DISCOUNT_PERCENT	=	row["DISCOUNT_PERCENT"].ToString(),  
+                            DISCOUNT_BAHT	=	 ClsStrVulue.convertToDecimal(row["DISCOUNT_BAHT"]),
+                            PO_REMARK	=	row["PO_REMARK"].ToString(),  
+                            PO_STATUS	=	row["PO_STATUS"].ToString(),  
+                            REC_USER	=	row["REC_USER"].ToString(),  
+                            REC_DATE	=	ClsStrVulue.convertToDateTime(row["REC_DATE"]),
+                            LAST_USER	=	row["LAST_USER"].ToString(),  
+                            LAST_DATE	=	ClsStrVulue.convertToDateTime(row["LAST_DATE"]),
+                            FLAG_VAT	=	row["FLAG_VAT"].ToString(),  
+                            FOR_REF	=	row["FOR_REF"].ToString(),  
+                            ACCID	=	row["ACCID"].ToString(),  
+                            COSTID	=	row["COSTID"].ToString(),  
+                            PO_FILE	=	row["PO_FILE"].ToString(),  
+                            PO_FILE2	=	row["PO_FILE2"].ToString(),  
+                            PO_FILE3	=	row["PO_FILE3"].ToString(),  
+                            REDHEAD	=	row["REDHEAD"].ToString(),  
+                            REDHEADSPECIAL	=	row["REDHEADSPECIAL"].ToString(),  
+                            PO_TYPE	=	row["PO_TYPE"].ToString(),  
+                            APPROVE_DATE	=	ClsStrVulue.convertToDateTime(row["APPROVE_DATE"]),
+                            E_MAIL_DATE	=	ClsStrVulue.convertToDateTime(row["E_MAIL_DATE"]),
+                            PORTSQL	=	ClsStrVulue.convertToDateTime(row["PORTSQL"]),
+                            PAYCODE	=	row["PAYCODE"].ToString(),  
+                            REF_PO_NO	=	row["REF_PO_NO"].ToString(),  
+                            PO_COMPANY	=	row["PO_COMPANY"].ToString(),  
+                            DELIVERY_DATE	=	ClsStrVulue.convertToDateTime(row["DELIVERY_DATE"]),
+                            BOI_FLG	=	row["BOI_FLG"].ToString()
+                        });
+                    }
+
+                    if (!ClsSQLServer.BulkCopy("PO_MASTER", conn_sql, paramList, itemList))
+                        Console.WriteLine("PO_MASTER save data error!!");
+                    else
+                        Console.WriteLine("PO_MASTER insert complate!!");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+        #endregion
+		
+
+        #region SUPREME_USER
+        public static void Import_SUPREME_USER()
+        {
+            try
+            {
+                string str = @"select * from SUPREME_USER";
+
+                DataTable dt;
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn_Hamsco()).Tables[0];
+
+                var itemList = new List<SUPREME_USER>();
+                var item = new SUPREME_USER();
+                var paramList = ClsStrVulue.getParamList(item);
+
+                if (dt.Rows.Count > 0)
+                {
+                    str = @"truncate table SUPREME_USER";
+                    ClsSQLServer.ExecuteQuery(str, conn_sql, null);
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        itemList.Add(new SUPREME_USER
+                        {
+                            ID	=	 ClsStrVulue.convertToDecimal(row["ID"]),
+                            EMPNO	=	row["EMPNO"].ToString(),  
+                            SUP_USERNAME	=	row["SUP_USERNAME"].ToString(),  
+                            SUP_PASSWORD	=	row["SUP_PASSWORD"].ToString(),  
+                            COMPUTERNAME	=	row["COMPUTERNAME"].ToString(),  
+                            MNG_NO	=	 ClsStrVulue.convertToDecimal(row["MNG_NO"]),
+                            USE_CK	=	 ClsStrVulue.convertToDecimal(row["USE_CK"])
+                        });
+                    }
+
+                    if (!ClsSQLServer.BulkCopy("SUPREME_USER", conn_sql, paramList, itemList))
+                        Console.WriteLine("SUPREME_USER save data error!!");
+                    else
+                        Console.WriteLine("SUPREME_USER insert complate!!");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+        #endregion
+		
+ 
+ 
+ 
+
     }
 }
