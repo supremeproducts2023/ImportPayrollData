@@ -1553,7 +1553,7 @@ namespace ImportDataPayroll
 
                 if (dt.Rows.Count > 0)
                 {
-                    str = @"truncate table REQ_GWD_REF_REF";
+                    str = @"truncate table REQ_GWD_REF";
                     ClsSQLServer.ExecuteQuery(str, conn_sql, null);
 
                     foreach (DataRow row in dt.Rows)
