@@ -24,7 +24,7 @@ namespace ImportDataPayroll
         //        string str = @"select * from EMP";
 
         //        DataTable dt;
-        //        dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn_Hamsco()).Tables[0];
+        //        dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
         //        var itemList = new List<EMP>();
         //        var item = new EMP();
@@ -86,7 +86,7 @@ namespace ImportDataPayroll
                 string str = @"select * from REQUISITION";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn_Hamsco()).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<REQUISITION>();
                 var item = new REQUISITION();
@@ -178,11 +178,7 @@ namespace ImportDataPayroll
                             SENT_TO_SAP = row["SENT_TO_SAP"].ToString(),
                             SENT_TO_DATE = ClsStrVulue.convertToDateTime(row["SENT_TO_DATE"]),
                             TEL_SENDTO = row["TEL_SENDTO"].ToString(),
-                            SUBJOB = row["SUBJOB"].ToString(),
-                            GROUP_PRODUCT = row["GROUP_PRODUCT"].ToString(),
-                            ZONE_PRODUCT = row["ZONE_PRODUCT"].ToString(),
-                            TS_PRODUCT = row["TS_PRODUCT"].ToString(),
-                            BOITYPE = row["BOITYPE"].ToString(), 
+                            NEED_DELI_DATE = ClsStrVulue.convertToDateTime(row["NEED_DELI_DATE"]),
                         });
                     }
 
@@ -1400,7 +1396,7 @@ namespace ImportDataPayroll
                 string str = @"select * from BRAND";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn_Hamsco()).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<BRAND>();
                 var item = new BRAND();
@@ -1445,7 +1441,7 @@ namespace ImportDataPayroll
                 string str = @"select * from BRAND_EXCHANGE_RATE";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn_Hamsco()).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<BRAND_EXCHANGE_RATE>();
                 var item = new BRAND_EXCHANGE_RATE();
@@ -1683,7 +1679,7 @@ namespace ImportDataPayroll
                 string str = @"select * from SALE_VAC_SHARING";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn_Hamsco()).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<SALE_VAC_SHARING>();
                 var item = new SALE_VAC_SHARING();
@@ -1727,7 +1723,7 @@ namespace ImportDataPayroll
                 string str = @"select * from PROVINCE_SALE";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn_Hamsco()).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<PROVINCE_SALE>();
                 var item = new PROVINCE_SALE();
@@ -1777,7 +1773,7 @@ namespace ImportDataPayroll
                 string str = @"select * from ZONE_SALE";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn_Hamsco()).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<ZONE_SALE>();
                 var item = new ZONE_SALE();
@@ -1823,7 +1819,7 @@ namespace ImportDataPayroll
                 string str = @"select * from HOSPITAL";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn_Hamsco()).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<HOSPITAL>();
                 var item = new HOSPITAL();
@@ -1883,7 +1879,7 @@ namespace ImportDataPayroll
                 string str = @"select * from CONSIGNMENT_DATA";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn_Hamsco()).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<CONSIGNMENT_DATA>();
                 var item = new CONSIGNMENT_DATA();
@@ -1957,7 +1953,7 @@ namespace ImportDataPayroll
                 string str = @"select * from CONSIGNMENT_PROD";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn_Hamsco()).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<CONSIGNMENT_PROD>();
                 var item = new CONSIGNMENT_PROD();
@@ -1986,9 +1982,7 @@ namespace ImportDataPayroll
                             RETURN_RECORD = row["RETURN_RECORD"].ToString(),
                             GWD_PLACE = ClsStrVulue.convertToDecimal(row["GWD_PLACE"]),
                             CHECK_STATUS = ClsStrVulue.convertToDecimal(row["CHECK_STATUS"]),
-                            DUAL_DATE = ClsStrVulue.convertToDateTime(row["DUAL_DATE"]),
-                            COST = ClsStrVulue.convertToDecimal(row["COST"]),
-                            REMARK_STOCK = row["REMARK_STOCK"].ToString()
+                            DUAL_DATE = ClsStrVulue.convertToDateTime(row["DUAL_DATE"])
                         });
                     }
 
@@ -2013,7 +2007,7 @@ namespace ImportDataPayroll
                 string str = @"select * from PROD_CONFIG_MASTER ";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn_Hamsco()).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<PROD_CONFIG_MASTER>();
                 var item = new PROD_CONFIG_MASTER();
@@ -2076,7 +2070,7 @@ namespace ImportDataPayroll
                 string str = @"select * from PROD_CONFIG_DETAIL";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn_Hamsco()).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<PROD_CONFIG_DETAIL>();
                 var item = new PROD_CONFIG_DETAIL();
@@ -2125,7 +2119,7 @@ namespace ImportDataPayroll
                 string str = @"select * from CONFIG_MASTER";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn_Hamsco()).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<CONFIG_MASTER>();
                 var item = new CONFIG_MASTER();
@@ -2173,7 +2167,7 @@ namespace ImportDataPayroll
                 string str = @"select * from CONFIG_DETAIL";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn_Hamsco()).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<CONFIG_DETAIL>();
                 var item = new CONFIG_DETAIL();
@@ -2216,7 +2210,7 @@ namespace ImportDataPayroll
                 string str = @"select * from PERSON_ADDR";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn_Hamsco()).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<PERSON_ADDR>();
                 var item = new PERSON_ADDR();
@@ -2267,7 +2261,7 @@ namespace ImportDataPayroll
                 string str = @"select * from ORG_ADDR";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn_Hamsco()).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<ORG_ADDR>();
                 var item = new ORG_ADDR();
@@ -2320,7 +2314,7 @@ namespace ImportDataPayroll
                 string str = @"select * from CUSTOMER";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn_Hamsco()).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<CUSTOMER>();
                 var item = new CUSTOMER();
@@ -2371,7 +2365,7 @@ namespace ImportDataPayroll
         }
         #endregion
 
-       #region REQ_TAXCN
+        #region REQ_TAXCN
         public static void Import_REQ_TAXCN()
         {
             try
@@ -2379,7 +2373,7 @@ namespace ImportDataPayroll
                 string str = @"select * from REQ_TAXCN";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn_Hamsco()).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<REQ_TAXCN>();
                 var item = new REQ_TAXCN();
@@ -2426,7 +2420,7 @@ namespace ImportDataPayroll
                 string str = @"select * from REQ_TS_CONTRACT";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn_Hamsco()).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<REQ_TS_CONTRACT>();
                 var item = new REQ_TS_CONTRACT();
@@ -2467,7 +2461,7 @@ namespace ImportDataPayroll
                 string str = @"select * from REQ_TS_GAR_PO";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn_Hamsco()).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<REQ_TS_GAR_PO>();
                 var item = new REQ_TS_GAR_PO();
@@ -2515,7 +2509,7 @@ namespace ImportDataPayroll
                 string str = @"select * from REQ_TS_PROD";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn_Hamsco()).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<REQ_TS_PROD>();
                 var item = new REQ_TS_PROD();
@@ -2569,7 +2563,7 @@ namespace ImportDataPayroll
                 string str = @"select * from PRODUCT";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn_Hamsco()).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<PRODUCT>();
                 var item = new PRODUCT();
@@ -2656,7 +2650,7 @@ namespace ImportDataPayroll
                 string str = @"select * from PROD_CHANGE";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn_Hamsco()).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<PROD_CHANGE>();
                 var item = new PROD_CHANGE();
@@ -2710,7 +2704,7 @@ namespace ImportDataPayroll
                 string str = @"select * from PAYMENT_METHOD";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn_Hamsco()).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<PAYMENT_METHOD>();
                 var item = new PAYMENT_METHOD();
@@ -2753,7 +2747,7 @@ namespace ImportDataPayroll
                 string str = @"select * from ZONE_BKK";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn_Hamsco()).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<ZONE_BKK>();
                 var item = new ZONE_BKK();
@@ -2798,7 +2792,7 @@ namespace ImportDataPayroll
                 string str = @"select * from RSV_FOC";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn_Hamsco()).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<RSV_FOC>();
                 var item = new RSV_FOC();
@@ -2845,7 +2839,7 @@ namespace ImportDataPayroll
                 string str = @"select * from SUPPLIER";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn_Hamsco()).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<SUPPLIER>();
                 var item = new SUPPLIER();
@@ -2906,7 +2900,6 @@ namespace ImportDataPayroll
         }
         #endregion
 
-
         #region PO_MASTER
         public static void Import_PO_MASTER()
         {
@@ -2915,7 +2908,7 @@ namespace ImportDataPayroll
                 string str = @"select * from PO_MASTER";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn_Hamsco()).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<PO_MASTER>();
                 var item = new PO_MASTER();
@@ -2979,57 +2972,430 @@ namespace ImportDataPayroll
             }
         }
         #endregion
-		
 
-        //#region SUPREME_USER
-        //public static void Import_SUPREME_USER()
-        //{
-        //    try
-        //    {
-        //        string str = @"select * from SUPREME_USER";
+        #region DOC_TB
+        public static void Import_DOC_TB()
+        {
+            try
+            {
+                string str = @"select * from DOC_TB";
 
-        //        DataTable dt;
-        //        dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn_Hamsco()).Tables[0];
+                DataTable dt;
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
-        //        var itemList = new List<SUPREME_USER>();
-        //        var item = new SUPREME_USER();
-        //        var paramList = ClsStrVulue.getParamList(item);
+                var itemList = new List<DOC_TB>();
+                var item = new DOC_TB();
+                var paramList = ClsStrVulue.getParamList(item);
 
-        //        if (dt.Rows.Count > 0)
-        //        {
-        //            str = @"truncate table SUPREME_USER";
-        //            ClsSQLServer.ExecuteQuery(str, conn_sql, null);
+                if (dt.Rows.Count > 0)
+                {
+                    str = @"truncate table DOC_TB";
+                    ClsSQLServer.ExecuteQuery(str, conn_sql, null);
 
-        //            foreach (DataRow row in dt.Rows)
-        //            {
-        //                itemList.Add(new SUPREME_USER
-        //                {
-        //                    ID	=	 ClsStrVulue.convertToDecimal(row["ID"]),
-        //                    EMPNO	=	row["EMPNO"].ToString(),  
-        //                    SUP_USERNAME	=	row["SUP_USERNAME"].ToString(),  
-        //                    SUP_PASSWORD	=	row["SUP_PASSWORD"].ToString(),  
-        //                    COMPUTERNAME	=	row["COMPUTERNAME"].ToString(),  
-        //                    MNG_NO	=	 ClsStrVulue.convertToDecimal(row["MNG_NO"]),
-        //                    USE_CK	=	 ClsStrVulue.convertToDecimal(row["USE_CK"])
-        //                });
-        //            }
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        itemList.Add(new DOC_TB
+                        {
+                            DOC_ID = row["DOC_ID"].ToString(),
+                            DOC_NAME = row["DOC_NAME"].ToString(),
+                            FLG = row["FLG"].ToString(),
+                            DOC_ACC = row["DOC_ACC"].ToString(),
+                            DOC_BANK = row["DOC_BANK"].ToString(),
+                            DOC_BRANCH = row["DOC_BRANCH"].ToString(),
+                            REC_USER = row["REC_USER"].ToString(),
+                            REC_DATE = ClsStrVulue.convertToDateTime(row["REC_DATE"]),
+                            UPDATE_DATE = ClsStrVulue.convertToDateTime(row["UPDATE_DATE"]),
+                            UPDATE_USER = row["UPDATE_USER"].ToString(),
+                            TITLE = row["TITLE"].ToString(),
+                            HOS_ID = row["HOS_ID"].ToString()
+                        });
+                    }
 
-        //            if (!ClsSQLServer.BulkCopy("SUPREME_USER", conn_sql, paramList, itemList))
-        //                Console.WriteLine("SUPREME_USER save data error!!");
-        //            else
-        //                Console.WriteLine("SUPREME_USER insert complate!!");
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Console.WriteLine(ex.ToString());
-        //    }
-        //}
-        //#endregion
-		
- 
- 
- 
+                    if (!ClsSQLServer.BulkCopy("DOC_TB", conn_sql, paramList, itemList))
+                        Console.WriteLine("DOC_TB save data error!!");
+                    else
+                        Console.WriteLine("DOC_TB insert complate!!");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+        #endregion
+
+        #region HOS_TB
+        public static void Import_HOS_TB()
+        {
+            try
+            {
+                string str = @"select * from HOS_TB";
+
+                DataTable dt;
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
+
+                var itemList = new List<HOS_TB>();
+                var item = new HOS_TB();
+                var paramList = ClsStrVulue.getParamList(item);
+
+                if (dt.Rows.Count > 0)
+                {
+                    str = @"truncate table HOS_TB";
+                    ClsSQLServer.ExecuteQuery(str, conn_sql, null);
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        itemList.Add(new HOS_TB
+                        {
+                            HOS_ID = row["HOS_ID"].ToString(),
+                            HOS_NAME = row["HOS_NAME"].ToString(),
+                            HOS_ADDR = row["HOS_ADDR"].ToString(),
+                            FLG = row["FLG"].ToString(),
+                            REC_USER = row["REC_USER"].ToString(),
+                            REC_DATE = ClsStrVulue.convertToDateTime(row["REC_DATE"]),
+                            UPDATE_DATE = ClsStrVulue.convertToDateTime(row["UPDATE_DATE"]),
+                            UPDATE_USER = row["UPDATE_USER"].ToString()
+                        });
+                    }
+
+                    if (!ClsSQLServer.BulkCopy("HOS_TB", conn_sql, paramList, itemList))
+                        Console.WriteLine("HOS_TB save data error!!");
+                    else
+                        Console.WriteLine("HOS_TB insert complate!!");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+        #endregion
+
+        #region PREQ_DETAIL
+        public static void Import_PREQ_DETAIL()
+        {
+            try
+            {
+                string str = @"select * from PREQ_DETAIL";
+
+                DataTable dt;
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
+
+                var itemList = new List<PREQ_DETAIL>();
+                var item = new PREQ_DETAIL();
+                var paramList = ClsStrVulue.getParamList(item);
+
+                if (dt.Rows.Count > 0)
+                {
+                    str = @"truncate table PREQ_DETAIL";
+                    ClsSQLServer.ExecuteQuery(str, conn_sql, null);
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        itemList.Add(new PREQ_DETAIL
+                        {
+                            REQNO = ClsStrVulue.convertToDecimal(row["REQNO"]),
+                            PRODNO = ClsStrVulue.convertToDecimal(row["PRODNO"]),
+                            P_QTY = ClsStrVulue.convertToDecimal(row["P_QTY"]),
+                            NETPRICE = ClsStrVulue.convertToDecimal(row["NETPRICE"]),
+                            UNIT_LP = ClsStrVulue.convertToDecimal(row["UNIT_LP"]),
+                            TOTAL_LP = ClsStrVulue.convertToDecimal(row["TOTAL_LP"]),
+                            NETTOTAL = ClsStrVulue.convertToDecimal(row["NETTOTAL"]),
+                            P_COLOR = row["P_COLOR"].ToString(),
+                            P_SIZE = row["P_SIZE"].ToString(),
+                            PROD_STATUS = row["PROD_STATUS"].ToString(),
+                            UNITTYPE = row["UNITTYPE"].ToString(),
+                            R_PRONO = ClsStrVulue.convertToDecimal(row["R_PRONO"]),
+                            ESPID = ClsStrVulue.convertToDecimal(row["ESPID"]),
+                            K_EXCHANGRATE = ClsStrVulue.convertToDecimal(row["K_EXCHANGRATE"]),
+                            K_DISCOUNT = ClsStrVulue.convertToDecimal(row["K_DISCOUNT"]),
+                            P_DETAIL = row["P_DETAIL"].ToString(),
+                            CONSI_NO = ClsStrVulue.convertToDecimal(row["CONSI_NO"]),
+                            CONFIG_NO = ClsStrVulue.convertToDecimal(row["CONFIG_NO"]),
+                            AVAILABLE = ClsStrVulue.convertToDecimal(row["AVAILABLE"]),
+                            RESERVE = ClsStrVulue.convertToDecimal(row["RESERVE"]),
+                            CONSIGN = ClsStrVulue.convertToDecimal(row["CONSIGN"]),
+                            MS_PO_CODE = row["MS_PO_CODE"].ToString(),
+                            MS_RESERVE_CODE = row["MS_RESERVE_CODE"].ToString(),
+                            ESP_PER = ClsStrVulue.convertToDecimal(row["ESP_PER"]),
+                            STOCK_AGE = ClsStrVulue.convertToDecimal(row["STOCK_AGE"]),
+                            NONESTOCK = ClsStrVulue.convertToDecimal(row["NONESTOCK"])
+                        });
+                    }
+
+                    if (!ClsSQLServer.BulkCopy("PREQ_DETAIL", conn_sql, paramList, itemList))
+                        Console.WriteLine("PREQ_DETAIL save data error!!");
+                    else
+                        Console.WriteLine("PREQ_DETAIL insert complate!!");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+        #endregion
+
+        #region PREQ_DETAILTMP
+        public static void Import_PREQ_DETAILTMP()
+        {
+            try
+            {
+                string str = @"select * from PREQ_DETAILTMP";
+
+                DataTable dt;
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
+
+                var itemList = new List<PREQ_DETAILTMP>();
+                var item = new PREQ_DETAILTMP();
+                var paramList = ClsStrVulue.getParamList(item);
+
+                if (dt.Rows.Count > 0)
+                {
+                    str = @"truncate table PREQ_DETAILTMP";
+                    ClsSQLServer.ExecuteQuery(str, conn_sql, null);
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        itemList.Add(new PREQ_DETAILTMP
+                        {
+                            REQNO = ClsStrVulue.convertToDecimal(row["REQNO"]),
+                            PRODNO = ClsStrVulue.convertToDecimal(row["PRODNO"]),
+                            P_QTY = ClsStrVulue.convertToDecimal(row["P_QTY"]),
+                            NETPRICE = ClsStrVulue.convertToDecimal(row["NETPRICE"]),
+                            UNIT_LP = ClsStrVulue.convertToDecimal(row["UNIT_LP"]),
+                            TOTAL_LP = ClsStrVulue.convertToDecimal(row["TOTAL_LP"]),
+                            NETTOTAL = ClsStrVulue.convertToDecimal(row["NETTOTAL"]),
+                            P_COLOR = row["P_COLOR"].ToString(),
+                            P_SIZE = row["P_SIZE"].ToString(),
+                            PROD_STATUS = row["PROD_STATUS"].ToString(),
+                            UNITTYPE = row["UNITTYPE"].ToString(),
+                            R_PRONO = ClsStrVulue.convertToDecimal(row["R_PRONO"]),
+                            ESPID = ClsStrVulue.convertToDecimal(row["ESPID"]),
+                            K_EXCHANGRATE = ClsStrVulue.convertToDecimal(row["K_EXCHANGRATE"]),
+                            K_DISCOUNT = ClsStrVulue.convertToDecimal(row["K_DISCOUNT"]),
+                            P_DETAIL = row["P_DETAIL"].ToString(),
+                            BIFO = ClsStrVulue.convertToDecimal(row["BIFO"]),
+                            REFO = ClsStrVulue.convertToDecimal(row["REFO"]),
+                            ID = ClsStrVulue.convertToDecimal(row["ID"]),
+                        });
+                    }
+
+                    if (!ClsSQLServer.BulkCopy("PREQ_DETAILTMP", conn_sql, paramList, itemList))
+                        Console.WriteLine("PREQ_DETAILTMP save data error!!");
+                    else
+                        Console.WriteLine("PREQ_DETAILTMP insert complate!!");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+        #endregion
+
+        #region REQBILL
+        public static void Import_REQBILL()
+        {
+            try
+            {
+                string str = @"select * from REQBILL";
+
+                DataTable dt;
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
+
+                var itemList = new List<REQBILL>();
+                var item = new REQBILL();
+                var paramList = ClsStrVulue.getParamList(item);
+
+                if (dt.Rows.Count > 0)
+                {
+                    str = @"truncate table REQBILL";
+                    ClsSQLServer.ExecuteQuery(str, conn_sql, null);
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        itemList.Add(new REQBILL
+                        {
+                            BILLNO = row["BILLNO"].ToString(),
+                            REQNO = ClsStrVulue.convertToDecimal(row["REQNO"])
+
+                        });
+                    }
+
+                    if (!ClsSQLServer.BulkCopy("REQBILL", conn_sql, paramList, itemList))
+                        Console.WriteLine("REQBILL save data error!!");
+                    else
+                        Console.WriteLine("REQBILL insert complate!!");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+        #endregion
+
+        #region REQCN
+        public static void Import_REQCN()
+        {
+            try
+            {
+                string str = @"select * from REQCN";
+
+                DataTable dt;
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
+
+                var itemList = new List<REQCN>();
+                var item = new REQCN();
+                var paramList = ClsStrVulue.getParamList(item);
+
+                if (dt.Rows.Count > 0)
+                {
+                    str = @"truncate table REQCN";
+                    ClsSQLServer.ExecuteQuery(str, conn_sql, null);
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        itemList.Add(new REQCN
+                        {
+                            REQNO = ClsStrVulue.convertToDecimal(row["REQNO"]),
+                            CN_TOPICNO = row["CN_TOPICNO"].ToString(),
+                            R_PERCENT = ClsStrVulue.convertToDecimal(row["R_PERCENT"]),
+                            R_VAC = ClsStrVulue.convertToDecimal(row["R_VAC"]),
+                            R_BAHT = ClsStrVulue.convertToDecimal(row["R_BAHT"])
+                        });
+                    }
+
+                    if (!ClsSQLServer.BulkCopy("REQCN", conn_sql, paramList, itemList))
+                        Console.WriteLine("REQCN save data error!!");
+                    else
+                        Console.WriteLine("REQCN insert complate!!");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+        #endregion
+
+        #region REQCN_TOPIC
+        public static void Import_REQCN_TOPIC()
+        {
+            try
+            {
+                string str = @"select * from REQCN_TOPIC";
+
+                DataTable dt;
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
+
+                var itemList = new List<REQCN_TOPIC>();
+                var item = new REQCN_TOPIC();
+                var paramList = ClsStrVulue.getParamList(item);
+
+                if (dt.Rows.Count > 0)
+                {
+                    str = @"truncate table REQCN_TOPIC";
+                    ClsSQLServer.ExecuteQuery(str, conn_sql, null);
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        itemList.Add(new REQCN_TOPIC
+                        {
+                            CN_TOPICNO = row["CN_TOPICNO"].ToString(),
+                            CN_TOPICNAME = row["CN_TOPICNAME"].ToString(),
+                            CN_TOPICTHNAME = row["CN_TOPICTHNAME"].ToString(),
+                            TOPIC_ID = ClsStrVulue.convertToDecimal(row["TOPIC_ID"])
+                        });
+                    }
+
+                    if (!ClsSQLServer.BulkCopy("REQCN_TOPIC", conn_sql, paramList, itemList))
+                        Console.WriteLine("REQCN_TOPIC save data error!!");
+                    else
+                        Console.WriteLine("REQCN_TOPIC insert complate!!");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+        #endregion
+
+        #region QUOTATION
+        public static void Import_QUOTATION()
+        {
+            try
+            {
+                string str = @"select * from QUOTATION";
+
+                DataTable dt;
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn_Hamsco()).Tables[0];
+
+                var itemList = new List<QUOTATION>();
+                var item = new QUOTATION();
+                var paramList = ClsStrVulue.getParamList(item);
+
+                if (dt.Rows.Count > 0)
+                {
+                    str = @"truncate table QUOTATION";
+                    ClsSQLServer.ExecuteQuery(str, conn_sql, null);
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        itemList.Add(new QUOTATION
+                        {
+                            QUOTNO = row["QUOTNO"].ToString(),
+                            QUOTID = row["QUOTID"].ToString(),
+                            CUSNO = ClsStrVulue.convertToDecimal(row["CUSNO"]),
+                            HOSNO = ClsStrVulue.convertToDecimal(row["HOSNO"]),
+                            Q_TOPIC = row["Q_TOPIC"].ToString(),
+                            Q_TO = row["Q_TO"].ToString(),
+                            Q_DATE = ClsStrVulue.convertToDateTime(row["Q_DATE"]),
+                            Q_DATEUSE = ClsStrVulue.convertToDateTime(row["Q_DATEUSE"]),
+                            Q_TYPEID = ClsStrVulue.convertToDecimal(row["Q_TYPEID"]),
+                            EMPNO = row["EMPNO"].ToString(),
+                            DELIVERTIME = ClsStrVulue.convertToDecimal(row["DELIVERTIME"]),
+                            Q_VALID = ClsStrVulue.convertToDecimal(row["Q_VALID"]),
+                            Q_PAYDATE = row["Q_PAYDATE"].ToString(),
+                            DOC_ATTACH = row["DOC_ATTACH"].ToString(),
+                            OLD_QUOTNO = row["OLD_QUOTNO"].ToString(),
+                            Q_PEDIC = ClsStrVulue.convertToDecimal(row["Q_PEDIC"]),
+                            Q_ENDUSER = row["Q_ENDUSER"].ToString(),
+                            Q_EVALUATOR = row["Q_EVALUATOR"].ToString(),
+                            Q_PERCHASER = row["Q_PERCHASER"].ToString(),
+                            Q_DECISIONMAKER = row["Q_DECISIONMAKER"].ToString(),
+                            Q_TOTAL1 = ClsStrVulue.convertToDecimal(row["Q_TOTAL1"]),
+                            Q_DISCOUNT = ClsStrVulue.convertToDecimal(row["Q_DISCOUNT"]),
+                            Q_TOTAL2 = ClsStrVulue.convertToDecimal(row["Q_TOTAL2"]),
+                            Q_REV = ClsStrVulue.convertToDecimal(row["Q_REV"]),
+                            EXPECTMM_YY_SALE = row["EXPECTMM_YY_SALE"].ToString(),
+                            Q_SOURCE = row["Q_SOURCE"].ToString(),
+                            PURPOSEID = row["PURPOSEID"].ToString(),
+                            Q_APPROVE = row["Q_APPROVE"].ToString(),
+                            Q_RECORDER = row["Q_RECORDER"].ToString(),
+                            Q_STATUS = ClsStrVulue.convertToDecimal(row["Q_STATUS"]),
+                            PAYMENT_ID = ClsStrVulue.convertToDecimal(row["PAYMENT_ID"]),
+                            ESP = ClsStrVulue.convertToDecimal(row["ESP"]),
+                            Q_VALID_DESC = row["Q_VALID_DESC"].ToString(),
+                            STATUS = ClsStrVulue.convertToDecimal(row["STATUS"]),
+                            Q_TYPE = row["Q_TYPE"].ToString()
+                        });
+                    }
+
+                    if (!ClsSQLServer.BulkCopy("QUOTATION", conn_sql, paramList, itemList))
+                        Console.WriteLine("QUOTATION save data error!!");
+                    else
+                        Console.WriteLine("QUOTATION insert complate!!");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+        #endregion
 
     }
 }

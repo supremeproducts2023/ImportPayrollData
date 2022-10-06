@@ -85,10 +85,6 @@ namespace ImportDataPayroll.Models
         public string SENT_TO_SAP { get; set; }
         public DateTime? SENT_TO_DATE { get; set; }
         public string TEL_SENDTO { get; set; }
-        public string SUBJOB { get; set; }
-        public string GROUP_PRODUCT { get; set; }
-        public string ZONE_PRODUCT { get; set; }
-        public string TS_PRODUCT { get; set; }
-        public string BOITYPE { get; set; }
+        public DateTime? NEED_DELI_DATE { get; set; }
     }
 }
