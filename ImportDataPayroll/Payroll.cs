@@ -3386,7 +3386,7 @@ namespace ImportDataPayroll
         }
         #endregion
 
-        #region EMP
+        #region EMP (Supreme)
         public static void Import_EMP()
         {
             try
@@ -3394,7 +3394,7 @@ namespace ImportDataPayroll
                 string str = @"select * from EMP where HIREDATE is not null";
 
                 DataTable dt;
-                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn_Hamsco()).Tables[0];
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
 
                 var itemList = new List<EMP>();
                 var item = new EMP();
