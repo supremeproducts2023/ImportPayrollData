@@ -212,6 +212,7 @@ namespace ImportDataPayroll
 
             Console.WriteLine("");
             Console.WriteLine("216 PR_MASTER");
+            Console.WriteLine("217 PR_AND_PO");
         }
 
         public static void inputMenu()
@@ -552,6 +553,7 @@ namespace ImportDataPayroll
                 case "215": AddCustomer.Import_PERSON_WORKPLACE(); break;
 
                 case "216": PRPO.Import_PR_MASTER(); break;
+                case "217": PRPO.Import_PR_AND_PO(); break;
                 defaule:
                     break;
             }

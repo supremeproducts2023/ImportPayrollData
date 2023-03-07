@@ -82,6 +82,45 @@ namespace ImportDataPayroll
         }
         #endregion
 
-        
+        #region PR_AND_PO
+        public static void Import_PR_AND_PO()
+        {
+            try
+            {
+                string str = @"select * from PR_AND_PO";
+
+                DataTable dt;
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
+
+                var itemList = new List<PR_AND_PO>();
+                var item = new PR_AND_PO();
+                var paramList = ClsStrVulue.getParamList(item);
+
+                if (dt.Rows.Count > 0)
+                {
+                    str = @"truncate table PR_AND_PO";
+                    ClsSQLServer.ExecuteQuery(str, conn_sql, null);
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        itemList.Add(new PR_AND_PO
+                        {
+                            PO_NO = row["PO_NO"].ToString(),
+                            PR_NO = row["PR_NO"].ToString()
+                        });
+                    }
+
+                    if (!ClsSQLServer.BulkCopy("PR_AND_PO", conn_sql, paramList, itemList))
+                        Console.WriteLine("PR_AND_PO save data error!!");
+                    else
+                        Console.WriteLine("PR_AND_PO insert complate!!");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+        #endregion
     }
 }
