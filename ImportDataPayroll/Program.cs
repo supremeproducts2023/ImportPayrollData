@@ -12,13 +12,13 @@ namespace ImportDataPayroll
 {
     class Program
     {
-       // static string conn_sql;
+        // static string conn_sql;
 
         static void Main(string[] args)
         {
             getMenu();
 
-           // conn_sql = ConfigurationManager.AppSettings["ConnectionString_SQLSERVER"].ToString();
+            // conn_sql = ConfigurationManager.AppSettings["ConnectionString_SQLSERVER"].ToString();
 
             Console.WriteLine();
             Console.WriteLine();
@@ -128,66 +128,7 @@ namespace ImportDataPayroll
             Console.WriteLine("81 NGAR_PROD");
             Console.WriteLine("82 NGAR_STOCK_IN");
             Console.WriteLine("83 TAXFINANCE_PERMISSION");
-/*
-            Console.WriteLine("");
-            Console.WriteLine("ALL HAMSCO");
-            Console.WriteLine("84 EMP");
-            Console.WriteLine("85 REQUISITION");
-            Console.WriteLine("86 REQUISITION_CONFIG");
-            Console.WriteLine("87 REQUISITION_STATUS_TRACKING");
-            Console.WriteLine("88 REQUISITION_TIME_PROCESS");
-            Console.WriteLine("89 REQUISITION_TRACKING");
-            Console.WriteLine("90 REQUISITION_TS");
-            Console.WriteLine("91 REQUISITION_TS_FOLLOW");
-            Console.WriteLine("92 REQUISITION2");
-            Console.WriteLine("93 BILLING");
-            Console.WriteLine("94 BILL_DETAIL");
-            Console.WriteLine("95 CPI");
-            Console.WriteLine("96 CPI_CONTRACT");
-            Console.WriteLine("97 CPI_PRODUCT");
-            Console.WriteLine("98 CPII");
-            Console.WriteLine("99 REQ_BETWEEN_MNG");
-            Console.WriteLine("100 REQ_BILL");
-            Console.WriteLine("101 REQ_BILL1");
-            Console.WriteLine("102 REQ_BILL3");
-            Console.WriteLine("103 REQ_BILLNEW");
-            Console.WriteLine("104 REQ_BILLNEW2");
-            Console.WriteLine("105 REQ_COLLECT_BILL");
-            Console.WriteLine("106 REQ_CONTRACT");
-            Console.WriteLine("107 REQ_COUNT_LOGSHEET");
-            Console.WriteLine("108 BRAND");
-            Console.WriteLine("109 BRAND_EXCHANGE_RATE");
-            Console.WriteLine("110 REQ_GWD");
-            Console.WriteLine("111 REQ_GWD_REF");
-            Console.WriteLine("112 REQ_REMARKS");
-            Console.WriteLine("113 REQ_STATUS");
-            Console.WriteLine("114 REQ_TAXCN");
-            Console.WriteLine("115 REQ_TS_CONTRACT");
-            Console.WriteLine("116 REQ_TS_GAR_PO");
-            Console.WriteLine("117 REQ_TS_PROD");
-            Console.WriteLine("118 EMP");
-            Console.WriteLine("119 PRODUCT");
-            Console.WriteLine("120 PROD_CHANGE");
-            Console.WriteLine("121 PAYMENT_METHOD");
-            Console.WriteLine("122 ZONE_BKK");
-            Console.WriteLine("123 RSV_FOC");
-            Console.WriteLine("124 SALE_VAC_SHARING");
-            Console.WriteLine("125 PROVINCE_SALE");
-            Console.WriteLine("126 ZONE_SALE");
-            Console.WriteLine("127 HOSPITAL");
-            Console.WriteLine("128 CONSIGNMENT_DATA");
-            Console.WriteLine("129 CONSIGNMENT_PROD");
-            Console.WriteLine("130 PROD_CONFIG_MASTER");
-            Console.WriteLine("131 PROD_CONFIG_DETAIL");
-            Console.WriteLine("132 CONFIG_MASTER");
-            Console.WriteLine("133 CONFIG_DETAIL");
-            Console.WriteLine("134 PERSON_ADDR");
-            Console.WriteLine("135 ORG_ADDR");
-            Console.WriteLine("136 CUSTOMER");
-            Console.WriteLine("137 SUPPLIER");
-            Console.WriteLine("138 PO_MASTER");
-            Console.WriteLine("139 SUPREME_USER");
-            */
+
             Console.WriteLine("");
             Console.WriteLine("ALL REQISITION SUPREME");
             Console.WriteLine("140 BILL_DETAIL");
@@ -250,10 +191,27 @@ namespace ImportDataPayroll
             Console.WriteLine("197 SUPPLIER");
             Console.WriteLine("198 ZONE_BKK");
             Console.WriteLine("199 ZONE_SALE");
-             Console.WriteLine("200 QUOTATION");
-            
-  
+            Console.WriteLine("200 QUOTATION");
 
+            Console.WriteLine("");
+            Console.WriteLine("201 LOG_CUSTOMER");
+            Console.WriteLine("202 LOG_HOSPITAL");
+            Console.WriteLine("203 LOG_ORG_ADDRESS");
+            Console.WriteLine("204 LOG_HOS_COMMENT");
+            Console.WriteLine("205 HOS_COMMENT");
+            Console.WriteLine("206 LOG_PERSON_ADDR");
+            Console.WriteLine("207 LOG_CUS_COMMENT");
+            Console.WriteLine("208 CUS_COMMENT");
+            Console.WriteLine("209 LOG_CUS_GROUP");
+            Console.WriteLine("210 CUS_GROUP");
+            Console.WriteLine("211 CUS_GROUP_MEMBER");
+            Console.WriteLine("212 LOG_RESIDENT");
+            Console.WriteLine("213 RESIDENT");
+            Console.WriteLine("214 LOG_PERSON_WORKPLACE");
+            Console.WriteLine("215 PERSON_WORKPLACE");
+
+            Console.WriteLine("");
+            Console.WriteLine("216 PR_MASTER");
         }
 
         public static void inputMenu()
@@ -324,7 +282,7 @@ namespace ImportDataPayroll
                     Payroll.Import_EMP();
                     Payroll.Import_DEPT();
                     break;
-                
+
                 case "1": Payroll.Import_PAY_ADDRESS(); break;
                 case "2": Payroll.Import_PAY_ADVANCE(); break;
                 case "3": Payroll.Import_PAY_ADVANCE_CLEAR(); break;
@@ -448,123 +406,7 @@ namespace ImportDataPayroll
                 case "82": TaxFinance.Import_NGAR_STOCK_IN(); break;
                 case "83": TaxFinance.Import_TAXFINANCE_PERMISSION(); break;
 
-/*  ยังไม่ใช้
-                case "ALL HAMSCO":
-                    Hamsco.Import_EMP();
-                    Hamsco.Import_REQUISITION();
-                    Hamsco.Import_REQUISITION_CONFIG();
-                    Hamsco.Import_REQUISITION_STATUS_TRACKING();
-                    Hamsco.Import_REQUISITION_TIME_PROCESS();
-                    Hamsco.Import_REQUISITION_TRACKING();
-                    Hamsco.Import_REQUISITION_TS();
-                    Hamsco.Import_REQUISITION_TS_FOLLOW();
-                    Hamsco.Import_REQUISITION2();
-                    Hamsco.Import_BILLING();
-                    Hamsco.Import_BILL_DETAIL();
-                    Hamsco.Import_CPI();
-                    Hamsco.Import_CPI_CONTRACT();
-                    Hamsco.Import_CPI_PRODUCT();
-                    Hamsco.Import_CPII();
-                    Hamsco.Import_REQ_BETWEEN_MNG();
-                    Hamsco.Import_REQ_BILL();
-                    Hamsco.Import_REQ_BILL1();
-                    Hamsco.Import_REQ_BILL3();
-                    Hamsco.Import_REQ_BILLNEW();
-                    Hamsco.Import_REQ_BILLNEW2();
-                    Hamsco.Import_REQ_COLLECT_BILL();
-                    Hamsco.Import_REQ_CONTRACT();
-                    Hamsco.Import_REQ_COUNT_LOGSHEET();
-                    Hamsco.Import_BRAND();
-                    Hamsco.Import_BRAND_EXCHANGE_RATE();
-                    Hamsco.Import_REQ_GWD();
-                    Hamsco.Import_REQ_GWD_REF();
-                    Hamsco.Import_REQ_REMARKS();
-                    Hamsco.Import_REQ_STATUS();
-                    Hamsco.Import_REQ_TAXCN(); 
-                    Hamsco.Import_REQ_TS_CONTRACT(); 
-                    Hamsco.Import_REQ_TS_GAR_PO(); 
-                    Hamsco.Import_REQ_TS_PROD(); 
-                    Hamsco.Import_PRODUCT(); 
-                    Hamsco.Import_PROD_CHANGE(); 
-                    Hamsco.Import_PAYMENT_METHOD(); 
-                    Hamsco.Import_ZONE_BKK(); 
-                    Hamsco.Import_RSV_FOC(); 
-                    Hamsco.Import_SALE_VAC_SHARING(); 
-                    Hamsco.Import_PROVINCE_SALE();  
-                    Hamsco.Import_ZONE_SALE();  
-                    Hamsco.Import_HOSPITAL();  
-                    Hamsco.Import_CONSIGNMENT_DATA();  
-                    Hamsco.Import_CONSIGNMENT_PROD();  
-                    Hamsco.Import_PROD_CONFIG_MASTER();  
-                    Hamsco.Import_PROD_CONFIG_DETAIL(); 
-                    Hamsco.Import_CONFIG_MASTER(); 
-                    Hamsco.Import_CONFIG_DETAIL(); 
-                    Hamsco.Import_PERSON_ADDR();  
-                    Hamsco.Import_ORG_ADDR();  
-                    Hamsco.Import_CUSTOMER(); 
-                    Hamsco.Import_SUPPLIER(); 
-                    Hamsco.Import_PO_MASTER(); 
-                    Hamsco.Import_CUSTOMER(); 
 
-                    break;
-
-                case "84": Hamsco.Import_EMP(); break;
-                case "85": Hamsco.Import_REQUISITION(); break;
-                case "86": Hamsco.Import_REQUISITION_CONFIG(); break;
-                case "87": Hamsco.Import_REQUISITION_STATUS_TRACKING(); break;
-                case "88": Hamsco.Import_REQUISITION_TIME_PROCESS(); break;
-                case "89": Hamsco.Import_REQUISITION_TRACKING(); break;
-                case "90": Hamsco.Import_REQUISITION_TS(); break;
-                case "91": Hamsco.Import_REQUISITION_TS_FOLLOW(); break;
-                case "92": Hamsco.Import_REQUISITION2(); break;
-                case "93": Hamsco.Import_BILLING(); break;
-                case "94": Hamsco.Import_BILL_DETAIL(); break;
-                case "95": Hamsco.Import_CPI(); break;
-                case "96": Hamsco.Import_CPI_CONTRACT(); break;
-                case "97": Hamsco.Import_CPI_PRODUCT(); break;
-                case "98": Hamsco.Import_CPII(); break;
-                case "99": Hamsco.Import_REQ_BETWEEN_MNG(); break;
-                case "100": Hamsco.Import_REQ_BILL(); break;
-                case "101": Hamsco.Import_REQ_BILL1(); break;
-                case "102": Hamsco.Import_REQ_BILL3(); break;
-                case "103": Hamsco.Import_REQ_BILLNEW(); break;
-                case "104": Hamsco.Import_REQ_BILLNEW2(); break;
-                case "105": Hamsco.Import_REQ_COLLECT_BILL(); break;
-                case "106": Hamsco.Import_REQ_CONTRACT(); break;
-                case "107": Hamsco.Import_REQ_COUNT_LOGSHEET(); break;
-                case "108": Hamsco.Import_BRAND(); break;
-                case "109": Hamsco.Import_BRAND_EXCHANGE_RATE(); break;
-                case "110": Hamsco.Import_REQ_GWD(); break;
-                case "111": Hamsco.Import_REQ_GWD_REF(); break;
-                case "112": Hamsco.Import_REQ_REMARKS(); break;
-                case "113": Hamsco.Import_REQ_STATUS(); break;
-                case "114": Hamsco.Import_REQ_TAXCN(); break;
-                case "115": Hamsco.Import_REQ_TS_CONTRACT(); break;
-                case "116": Hamsco.Import_REQ_TS_GAR_PO(); break;
-                case "117": Hamsco.Import_REQ_TS_PROD(); break;
-                case "119": Hamsco.Import_PRODUCT(); break;
-                case "120": Hamsco.Import_PROD_CHANGE(); break;
-                case "121": Hamsco.Import_PAYMENT_METHOD(); break;
-                case "122": Hamsco.Import_ZONE_BKK(); break;
-                case "123": Hamsco.Import_RSV_FOC(); break;
-                case "124": Hamsco.Import_SALE_VAC_SHARING(); break;
-                case "125": Hamsco.Import_PROVINCE_SALE(); break;
-                case "126": Hamsco.Import_ZONE_SALE(); break;
-                case "127": Hamsco.Import_HOSPITAL(); break;
-                case "128": Hamsco.Import_CONSIGNMENT_DATA(); break;
-                case "129": Hamsco.Import_CONSIGNMENT_PROD(); break;
-                case "130": Hamsco.Import_PROD_CONFIG_MASTER(); break;
-                case "131": Hamsco.Import_PROD_CONFIG_DETAIL(); break;
-                case "132": Hamsco.Import_CONFIG_MASTER(); break;
-                case "133": Hamsco.Import_CONFIG_DETAIL(); break;
-                case "134": Hamsco.Import_PERSON_ADDR(); break;
-                case "135": Hamsco.Import_ORG_ADDR(); break;
-                case "136": Hamsco.Import_CUSTOMER(); break;
-                case "137": Hamsco.Import_PERSON_ADDR(); break;
-                case "138": Hamsco.Import_PO_MASTER(); break;
-                case "139": Hamsco.Import_SUPREME_USER(); break;
-
-                    */
                 case "ALL REQISITION SUPREME":
 
                     requisitionSP.Import_BILL_DETAIL();
@@ -628,7 +470,7 @@ namespace ImportDataPayroll
                     requisitionSP.Import_ZONE_BKK();
                     requisitionSP.Import_ZONE_SALE();
                     requisitionSP.Import_QUOTATION();
-                   
+
                     break;
 
                 case "140": requisitionSP.Import_BILL_DETAIL(); break;
@@ -693,6 +535,23 @@ namespace ImportDataPayroll
                 case "199": requisitionSP.Import_ZONE_SALE(); break;
                 case "200": requisitionSP.Import_QUOTATION(); break;
 
+                case "201": AddCustomer.Import_log_customer(); break;
+                case "202": AddCustomer.Import_LOG_HOSPITAL(); break;
+                case "203": AddCustomer.Import_LOG_ORG_ADDRESS(); break;
+                case "204": AddCustomer.Import_LOG_HOS_COMMENT(); break;
+                case "205": AddCustomer.Import_HOS_COMMENT(); break;
+                case "206": AddCustomer.Import_LOG_PERSON_ADDR(); break;
+                case "207": AddCustomer.Import_LOG_CUS_COMMENT(); break;
+                case "208": AddCustomer.Import_CUS_COMMENT(); break;
+                case "209": AddCustomer.Import_LOG_CUS_GROUP(); break;
+                case "210": AddCustomer.Import_CUS_GROUP(); break;
+                case "211": AddCustomer.Import_CUS_GROUP_MEMBER(); break;
+                case "212": AddCustomer.Import_LOG_RESIDENT(); break;
+                case "213": AddCustomer.Import_RESIDENT(); break;
+                case "214": AddCustomer.Import_LOG_PERSON_WORKPLACE(); break;
+                case "215": AddCustomer.Import_PERSON_WORKPLACE(); break;
+
+                case "216": PRPO.Import_PR_MASTER(); break;
                 defaule:
                     break;
             }
@@ -702,9 +561,9 @@ namespace ImportDataPayroll
             inputMenu();
         }
 
-       
 
 
-        
+
+
     }
 }

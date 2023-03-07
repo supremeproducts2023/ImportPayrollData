@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ImportDataPayroll.Models
+namespace ImportDataPayroll.Models.AddCusotmer
 {
     class NGAR_TRACKING
     {
