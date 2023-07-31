@@ -131,5 +131,54 @@ namespace ImportDataPayroll
             }
         }
         #endregion
+
+        #region NGAR_REMARK
+        public static void Import_NGAR_REMARK()
+        {
+            try
+            {
+                string str = @"select * from NGAR_REMARK";
+
+                DataTable dt;
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
+
+                var itemList = new List<NGAR_REMARK>();
+                var item = new NGAR_REMARK();
+                var paramList = ClsStrVulue.getParamList(item);
+
+                if (dt.Rows.Count > 0)
+                {
+                    str = @"truncate table NGAR_REMARK";
+                    ClsSQLServer.ExecuteQuery(str, conn_sql, null);
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        itemList.Add(new NGAR_REMARK
+                        {
+                            RMK_ID = ClsStrVulue.convertToDecimal(row["RMK_ID"]),
+                            GAR_ID = ClsStrVulue.convertToDecimal(row["GAR_ID"]),
+                            REMARK = row["REMARK"].ToString(),
+                            REMARK_BY = row["REMARK_BY"].ToString(),
+                            STATUS = row["STATUS"].ToString(),
+                            ENTRYUSER = row["ENTRYUSER"].ToString(),
+                            ENTRYDATE = row["ENTRYDATE"].ToString(),
+                            ENTRYTIME = row["ENTRYTIME"].ToString(),
+                            ACCEPTREMARK = row["ACCEPTREMARK"].ToString(),
+                            LOG_ID = ClsStrVulue.convertToDecimal(row["LOG_ID"])
+                        });
+                    }
+
+                    if (!ClsSQLServer.BulkCopy("NGAR_REMARK", conn_sql, paramList, itemList))
+                        Console.WriteLine("NGAR_REMARK save data error!!");
+                    else
+                        Console.WriteLine("NGAR_REMARK insert complate!!");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+        #endregion
     }
 }
