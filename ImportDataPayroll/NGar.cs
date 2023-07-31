@@ -180,5 +180,56 @@ namespace ImportDataPayroll
             }
         }
         #endregion
+
+        #region NGAR_ATTC
+        public static void Import_NGAR_ATTC()
+        {
+            try
+            {
+                string str = @"select * from NGAR_ATTC";
+
+                DataTable dt;
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
+
+                var itemList = new List<NGAR_ATTC>();
+                var item = new NGAR_ATTC();
+                var paramList = ClsStrVulue.getParamList(item);
+
+                if (dt.Rows.Count > 0)
+                {
+                    str = @"truncate table NGAR_ATTC";
+                    ClsSQLServer.ExecuteQuery(str, conn_sql, null);
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        itemList.Add(new NGAR_ATTC
+                        {
+                            ATTC_ID = ClsStrVulue.convertToDecimal(row["ATTC_ID"]),
+                            GAR_ID = ClsStrVulue.convertToDecimal(row["GAR_ID"]),
+                            FILE_DESC = row["FILE_DESC"].ToString(),
+                            FILE_PATH = row["FILE_PATH"].ToString(),
+                            FILE_BY = row["FILE_BY"].ToString(),
+                            REMARK = row["REMARK"].ToString(),
+                            ENTRYUSER = row["ENTRYUSER"].ToString(),
+                            ENTRYDATE = row["ENTRYDATE"].ToString(),
+                            ENTRYTIME = row["ENTRYTIME"].ToString(),
+                            UPDATEUSER = row["UPDATEUSER"].ToString(),
+                            UPDATEDATE = row["UPDATEDATE"].ToString(),
+                            UPDATETIME = row["UPDATETIME"].ToString()
+                        });
+                    }
+
+                    if (!ClsSQLServer.BulkCopy("NGAR_ATTC", conn_sql, paramList, itemList))
+                        Console.WriteLine("NGAR_ATTC save data error!!");
+                    else
+                        Console.WriteLine("NGAR_ATTC insert complate!!");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+        #endregion
     }
 }
