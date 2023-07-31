@@ -217,6 +217,7 @@ namespace ImportDataPayroll
 
             Console.WriteLine("");
             Console.WriteLine("219 PR_DETAILS");
+            Console.WriteLine("220 NBOM_DESCRIPTION");
         }
 
         public static void inputMenu()
@@ -561,6 +562,7 @@ namespace ImportDataPayroll
                 case "218": PRPO.Import_PR_DETAILS(); break;
 
                 case "219": NGAR_Module.Import_NGAR_PROD_DETAIL(); break;
+                case "220": NGAR_Module.Import_NBOM_DESCRIPTION(); break;
                 defaule:
                     break;
             }

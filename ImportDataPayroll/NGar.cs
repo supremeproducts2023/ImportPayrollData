@@ -66,5 +66,70 @@ namespace ImportDataPayroll
             }
         }
         #endregion
+
+        #region NBOM_DESCRIPTION
+        public static void Import_NBOM_DESCRIPTION()
+        {
+            try
+            {
+                string str = @"select * from NBOM_DESCRIPTION";
+
+                DataTable dt;
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
+
+                var itemList = new List<NBOM_DESCRIPTION>();
+                var item = new NBOM_DESCRIPTION();
+                var paramList = ClsStrVulue.getParamList(item);
+
+                if (dt.Rows.Count > 0)
+                {
+                    str = @"truncate table NBOM_DESCRIPTION";
+                    ClsSQLServer.ExecuteQuery(str, conn_sql, null);
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        itemList.Add(new NBOM_DESCRIPTION
+                        {
+                            BOM_CODE = ClsStrVulue.convertToDecimal(row["BOM_CODE"]),
+                            BOM_CODESHOW = row["BOM_CODESHOW"].ToString(),
+                            BOM_DESC = row["BOM_DESC"].ToString(),
+                            BOM_DESC2 = row["BOM_DESC2"].ToString(),
+                            BOM_COST = ClsStrVulue.convertToDecimal(row["BOM_COST"]),
+                            BOM_UNIT = row["BOM_UNIT"].ToString(),
+                            BOM_TYPE = ClsStrVulue.convertToDecimal(row["BOM_TYPE"]),
+                            STD_FLAG = ClsStrVulue.convertToDecimal(row["STD_FLAG"]),
+                            MATERIAL = row["MATERIAL"].ToString(),
+                            FINISHSURFACE = row["FINISHSURFACE"].ToString(),
+                            SUPPLIER = row["SUPPLIER"].ToString(),
+                            REVISE = row["REVISE"].ToString(),
+                            PICTURE_PATH = row["PICTURE_PATH"].ToString(),
+                            REMARKS = row["REMARKS"].ToString(),
+                            PRODNO = ClsStrVulue.convertToDecimal(row["PRODNO"]),
+                            COMP_ID = ClsStrVulue.convertToDecimal(row["COMP_ID"]),
+                            USED_FLAG = row["USED_FLAG"].ToString(),
+                            REC_USER = row["REC_USER"].ToString(),
+                            REC_DATE = ClsStrVulue.convertToDateTime(row["REC_DATE"]),
+                            LAST_USER = row["LAST_USER"].ToString(),
+                            LAST_DATE = ClsStrVulue.convertToDateTime(row["LAST_DATE"]),
+                            SENT_TO_SAP = row["SENT_TO_SAP"].ToString(),
+                            SENT_TO_DATE = ClsStrVulue.convertToDateTime(row["SENT_TO_DATE"]),
+                            PK_SAP = row["PK_SAP"].ToString(),
+                            PART_NO = row["PART_NO"].ToString(),
+                            DRAWING_NO = row["DRAWING_NO"].ToString(), 
+                        });
+                    }
+
+                    if (!ClsSQLServer.BulkCopy("NBOM_DESCRIPTION", conn_sql, paramList, itemList))
+                        Console.WriteLine("NBOM_DESCRIPTION save data error!!");
+                    else
+                        Console.WriteLine("NBOM_DESCRIPTION insert complate!!");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+        #endregion
     }
 }

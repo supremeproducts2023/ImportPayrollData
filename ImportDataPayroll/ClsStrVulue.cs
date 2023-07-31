@@ -52,7 +52,15 @@ namespace ImportDataPayroll
             if (data == null || data.ToString() == "")
                 return (DateTime?) null;
             else
-                return Convert.ToDateTime(data.ToString());
+                return Convert.ToDateTime(data);
         }
+
+        //public static byte convertToLong(object data)
+        //{
+        //    if (data == null || data.ToString() == "")
+        //        return null;
+        //    else
+        //        return Convert.ToInt64(data.ToString());
+        //}
     }
 }
