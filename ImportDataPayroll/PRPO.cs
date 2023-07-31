@@ -122,5 +122,59 @@ namespace ImportDataPayroll
             }
         }
         #endregion
+
+        #region PR_DETAILS
+        public static void Import_PR_DETAILS()
+        {
+            try
+            {
+                string str = @"select * from PR_DETAILS";
+
+                DataTable dt;
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
+
+                var itemList = new List<PR_DETAILS>();
+                var item = new PR_DETAILS();
+                var paramList = ClsStrVulue.getParamList(item);
+
+                if (dt.Rows.Count > 0)
+                {
+                    str = @"truncate table PR_DETAILS";
+                    ClsSQLServer.ExecuteQuery(str, conn_sql, null);
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        itemList.Add(new PR_DETAILS
+                        {
+                            PR_NO = row["PR_NO"].ToString(),
+                            ID = ClsStrVulue.convertToDecimal(row["ID"]),
+                            PROD_NO = row["PROD_NO"].ToString(),
+                            PROD_NAME = row["PROD_NAME"].ToString(),
+                            PROD_PRICE = ClsStrVulue.convertToDecimal(row["PROD_PRICE"]),
+                            DISCOUNT_PERCENT = row["DISCOUNT_PERCENT"].ToString(),
+                            DISCOUNT_BAHT = ClsStrVulue.convertToDecimal(row["DISCOUNT_BAHT"]),
+                            PROD_QTY = ClsStrVulue.convertToDecimal(row["PROD_QTY"]),
+                            PROD_UNIT = row["PROD_UNIT"].ToString(),
+                            REC_USER = row["REC_USER"].ToString(),
+                            REC_DATE = ClsStrVulue.convertToDateTime(row["REC_DATE"]),
+                            LAST_USER = row["LAST_USER"].ToString(),
+                            LAST_DATE = ClsStrVulue.convertToDateTime(row["LAST_DATE"]),
+                            SUBJOB_NO = row["SUBJOB_NO"].ToString(),
+                            CODE = row["CODE"].ToString(), 
+                        });
+                    }
+
+                    if (!ClsSQLServer.BulkCopy("PR_DETAILS", conn_sql, paramList, itemList))
+                        Console.WriteLine("PR_DETAILS save data error!!");
+                    else
+                        Console.WriteLine("PR_DETAILS insert complate!!");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+        #endregion
     }
 }
