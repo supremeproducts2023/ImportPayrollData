@@ -220,6 +220,9 @@ namespace ImportDataPayroll
             Console.WriteLine("220 NBOM_DESCRIPTION");
             Console.WriteLine("221 NGAR_REMARK");
             Console.WriteLine("222 NGAR_ATTC");
+
+            Console.WriteLine("");
+            Console.WriteLine("223 NMRP_OM");
         }
 
         public static void inputMenu()
@@ -567,6 +570,8 @@ namespace ImportDataPayroll
                 case "220": NGAR_Module.Import_NBOM_DESCRIPTION(); break;
                 case "221": NGAR_Module.Import_NGAR_REMARK(); break;
                 case "222": NGAR_Module.Import_NGAR_ATTC(); break;
+
+                case "223": MRP.Import_NMRP_OM(); break;
                 defaule:
                     break;
             }
