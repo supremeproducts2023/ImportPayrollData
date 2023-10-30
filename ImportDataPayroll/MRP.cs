@@ -81,5 +81,56 @@ namespace ImportDataPayroll
             }
         }
         #endregion
+
+        #region NMRP_OD
+        public static void Import_NMRP_OD()
+        {
+            try
+            {
+                string str = @"select * from NMRP_OD";
+
+                DataTable dt;
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
+
+                var itemList = new List<NMRP_OD>();
+                var item = new NMRP_OD();
+                var paramList = ClsStrVulue.getParamList(item);
+
+                if (dt.Rows.Count > 0)
+                {
+                    str = @"truncate table NMRP_OD";
+                    ClsSQLServer.ExecuteQuery(str, conn_sql, null);
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        itemList.Add(new NMRP_OD
+                        {
+                            O_RUN = ClsStrVulue.convertToDecimal(row["O_RUN"]),
+                            JOBNO = row["JOBNO"].ToString(),
+                            BOM_CODE = ClsStrVulue.convertToDecimal(row["BOM_CODE"]),
+                            PRODNO = ClsStrVulue.convertToDecimal(row["PRODNO"]),
+                            O_SPEC = row["O_SPEC"].ToString(),
+                            O_QTY = ClsStrVulue.convertToDecimal(row["O_QTY"]),
+                            O_SEND = ClsStrVulue.convertToDateTime(row["O_SEND"]),
+                            O_COST = ClsStrVulue.convertToDecimal(row["O_COST"]),
+                            REC_USER = row["REC_USER"].ToString(),
+                            REC_DATE = ClsStrVulue.convertToDateTime(row["REC_DATE"]),
+                            LAST_USER = row["LAST_USER"].ToString(),
+                            LAST_DATE = ClsStrVulue.convertToDateTime(row["LAST_DATE"]),
+                        });
+                    }
+
+                    if (!ClsSQLServer.BulkCopy("NMRP_OD", conn_sql, paramList, itemList))
+                        Console.WriteLine("NMRP_OD save data error!!");
+                    else
+                        Console.WriteLine("NMRP_OD insert complate!!");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+        #endregion
     }
 }

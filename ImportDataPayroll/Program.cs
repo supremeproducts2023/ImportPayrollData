@@ -223,6 +223,7 @@ namespace ImportDataPayroll
 
             Console.WriteLine("");
             Console.WriteLine("223 NMRP_OM");
+            Console.WriteLine("224 NMRP_OD");
         }
 
         public static void inputMenu()
@@ -572,6 +573,7 @@ namespace ImportDataPayroll
                 case "222": NGAR_Module.Import_NGAR_ATTC(); break;
 
                 case "223": MRP.Import_NMRP_OM(); break;
+                case "224": MRP.Import_NMRP_OD(); break;
                 defaule:
                     break;
             }
