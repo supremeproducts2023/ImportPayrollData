@@ -132,5 +132,57 @@ namespace ImportDataPayroll
             }
         }
         #endregion
+
+        #region NMRP_BM
+        public static void Import_NMRP_BM()
+        {
+            try
+            {
+                string str = @"select * from NMRP_BM";
+
+                DataTable dt;
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
+
+                var itemList = new List<NMRP_BM>();
+                var item = new NMRP_BM();
+                var paramList = ClsStrVulue.getParamList(item);
+
+                if (dt.Rows.Count > 0)
+                {
+                    str = @"truncate table NMRP_BM";
+                    ClsSQLServer.ExecuteQuery(str, conn_sql, null);
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        itemList.Add(new NMRP_BM
+                        {
+                            B_NO = row["B_NO"].ToString(),
+                            B_DATE = ClsStrVulue.convertToDateTime(row["B_DATE"]),
+                            EMPNO = row["EMPNO"].ToString(),
+                            STATUS = ClsStrVulue.convertToDecimal(row["STATUS"]),
+                            ROLLBACK_REMARK = row["ROLLBACK_REMARK"].ToString(),
+                            DOC_TYPE = row["DOC_TYPE"].ToString(),
+                            BRANCH_BEGIN = ClsStrVulue.convertToDecimal(row["BRANCH_BEGIN"]),
+                            BRANCH_END = ClsStrVulue.convertToDecimal(row["BRANCH_END"]),
+                            REC_USER = row["REC_USER"].ToString(),
+                            REC_DATE = ClsStrVulue.convertToDateTime(row["REC_DATE"]),
+                            LAST_USER = row["LAST_USER"].ToString(),
+                            LAST_DATE = ClsStrVulue.convertToDateTime(row["LAST_DATE"]),
+                            SENT_TO_DATE = ClsStrVulue.convertToDateTime(row["SENT_TO_DATE"]),
+                        });
+                    }
+
+                    if (!ClsSQLServer.BulkCopy("NMRP_BM", conn_sql, paramList, itemList))
+                        Console.WriteLine("NMRP_BM save data error!!");
+                    else
+                        Console.WriteLine("NMRP_BM insert complate!!");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+        #endregion
     }
 }
