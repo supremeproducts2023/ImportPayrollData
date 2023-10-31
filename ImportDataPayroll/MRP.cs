@@ -184,5 +184,53 @@ namespace ImportDataPayroll
             }
         }
         #endregion
+
+        #region NMRP_BD
+        public static void Import_NMRP_BD()
+        {
+            try
+            {
+                string str = @"select * from NMRP_BD";
+
+                DataTable dt;
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
+
+                var itemList = new List<NMRP_BD>();
+                var item = new NMRP_BD();
+                var paramList = ClsStrVulue.getParamList(item);
+
+                if (dt.Rows.Count > 0)
+                {
+                    str = @"truncate table NMRP_BD";
+                    ClsSQLServer.ExecuteQuery(str, conn_sql, null);
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        itemList.Add(new NMRP_BD
+                        {
+                            B_RUN = ClsStrVulue.convertToDecimal(row["B_RUN"]),
+                            B_NO = row["B_NO"].ToString(),
+                            QTY = ClsStrVulue.convertToDecimal(row["QTY"]),
+                            B_REMARKS = row["B_REMARKS"].ToString(),
+                            BOM_CODE = ClsStrVulue.convertToDecimal(row["BOM_CODE"]),
+                            REC_USER = row["REC_USER"].ToString(),
+                            REC_DATE = ClsStrVulue.convertToDateTime(row["REC_DATE"]),
+                            LAST_USER = row["LAST_USER"].ToString(),
+                            LAST_DATE = ClsStrVulue.convertToDateTime(row["LAST_DATE"]),
+                        });
+                    }
+
+                    if (!ClsSQLServer.BulkCopy("NMRP_BD", conn_sql, paramList, itemList))
+                        Console.WriteLine("NMRP_BD save data error!!");
+                    else
+                        Console.WriteLine("NMRP_BD insert complate!!");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+        #endregion
     }
 }
