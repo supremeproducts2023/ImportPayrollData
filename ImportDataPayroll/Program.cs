@@ -227,6 +227,7 @@ namespace ImportDataPayroll
             Console.WriteLine("225 NMRP_BM");
             Console.WriteLine("226 NMRP_BD");
             Console.WriteLine("227 NMRP_IRM");
+            Console.WriteLine("228 NMRP_IRD");
         }
 
         public static void inputMenu()
@@ -580,6 +581,7 @@ namespace ImportDataPayroll
                 case "225": MRP.Import_NMRP_BM(); break;
                 case "226": MRP.Import_NMRP_BD(); break;
                 case "227": MRP.Import_NMRP_IRM(); break;
+                case "228": MRP.Import_NMRP_IRD(); break;
                 defaule:
                     break;
             }
