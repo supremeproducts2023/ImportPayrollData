@@ -732,5 +732,67 @@ namespace ImportDataPayroll
             }
         }
         #endregion
+
+        #region NMRP_LOT_IN
+        public static void Import_NMRP_LOT_IN()
+        {
+            try
+            {
+                string str = @"select * from NMRP_LOT_IN";
+
+                DataTable dt;
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
+
+                var itemList = new List<NMRP_LOT_IN>();
+                var item = new NMRP_LOT_IN();
+                var paramList = ClsStrVulue.getParamList(item);
+
+                if (dt.Rows.Count > 0)
+                {
+                    str = @"truncate table NMRP_LOT_IN";
+                    ClsSQLServer.ExecuteQuery(str, conn_sql, null);
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        itemList.Add(new NMRP_LOT_IN
+                        {
+                            IN_ID = ClsStrVulue.convertToDecimal(row["IN_ID"]),
+                            BRANCH = ClsStrVulue.convertToDecimal(row["BRANCH"]),
+                            BOM_CODE = ClsStrVulue.convertToDecimal(row["BOM_CODE"]),
+                            STATUS = ClsStrVulue.convertToDecimal(row["STATUS"]),
+                            DOC_RUN = ClsStrVulue.convertToDecimal(row["DOC_RUN"]),
+                            DOC_TYPE = row["DOC_TYPE"].ToString(),
+                            LOT = row["LOT"].ToString(),
+                            SERIAL = row["SERIAL"].ToString(),
+                            COST = ClsStrVulue.convertToDecimal(row["COST"]),
+                            QTY = ClsStrVulue.convertToDecimal(row["QTY"]),
+                            GAR = row["GAR"].ToString(),
+                            PRODUCE_FOR = row["PRODUCE_FOR"].ToString(),
+                            GWD_USER = row["GWD_USER"].ToString(),
+                            GWD_DATE = ClsStrVulue.convertToDateTime(row["GWD_DATE"]),
+                            STK_ORDER = ClsStrVulue.convertToDecimal(row["STK_ORDER"]),
+                            STK_USER = row["STK_USER"].ToString(),
+                            STK_DATE = ClsStrVulue.convertToDateTime(row["STK_DATE"]),
+                            IN_ID_M = ClsStrVulue.convertToDecimal(row["IN_ID_M"]),
+                            GARNO = row["GARNO"].ToString(),
+                            RM_RUN = ClsStrVulue.convertToDecimal(row["RM_RUN"]),
+                            T_NO = row["T_NO"].ToString(),
+                            CHANGE_NO = row["CHANGE_NO"].ToString(),
+                            STK_COMMIT = ClsStrVulue.convertToDateTime(row["STK_COMMIT"]),
+                        });
+                    }
+
+                    if (!ClsSQLServer.BulkCopy("NMRP_LOT_IN", conn_sql, paramList, itemList))
+                        Console.WriteLine("NMRP_LOT_IN save data error!!");
+                    else
+                        Console.WriteLine("NMRP_LOT_IN insert complate!!");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+        #endregion
     }
 }
