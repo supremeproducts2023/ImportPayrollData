@@ -429,5 +429,60 @@ namespace ImportDataPayroll
             }
         }
         #endregion
+
+        #region NMRP_PM
+        public static void Import_NMRP_PM()
+        {
+            try
+            {
+                string str = @"select * from NMRP_PM";
+
+                DataTable dt;
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
+
+                var itemList = new List<NMRP_PM>();
+                var item = new NMRP_PM();
+                var paramList = ClsStrVulue.getParamList(item);
+
+                if (dt.Rows.Count > 0)
+                {
+                    str = @"truncate table NMRP_PM";
+                    ClsSQLServer.ExecuteQuery(str, conn_sql, null);
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        itemList.Add(new NMRP_PM
+                        {
+                            P_NO = row["P_NO"].ToString(),
+                            BOM_CODE = ClsStrVulue.convertToDecimal(row["BOM_CODE"]),
+                            P_DATE = ClsStrVulue.convertToDateTime(row["P_DATE"]),
+                            P_EMPNO = row["P_EMPNO"].ToString(),
+                            P_REMARKS = row["P_REMARKS"].ToString(),
+                            SPEC = row["SPEC"].ToString(),
+                            STATUS = ClsStrVulue.convertToDecimal(row["STATUS"]),
+                            BRANCH = ClsStrVulue.convertToDecimal(row["BRANCH"]),
+                            C_DATE = ClsStrVulue.convertToDateTime(row["C_DATE"]),
+                            C_EMPNO = row["C_EMPNO"].ToString(),
+                            C_REMARKS = row["C_REMARKS"].ToString(),
+                            REC_USER = row["REC_USER"].ToString(),
+                            REC_DATE = ClsStrVulue.convertToDateTime(row["REC_DATE"]),
+                            LAST_USER = row["LAST_USER"].ToString(),
+                            LAST_DATE = ClsStrVulue.convertToDateTime(row["LAST_DATE"]),
+                            KICK_USER = row["KICK_USER"].ToString(), 
+                        });
+                    }
+
+                    if (!ClsSQLServer.BulkCopy("NMRP_PM", conn_sql, paramList, itemList))
+                        Console.WriteLine("NMRP_PM save data error!!");
+                    else
+                        Console.WriteLine("NMRP_PM insert complate!!");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+        #endregion
     }
 }
