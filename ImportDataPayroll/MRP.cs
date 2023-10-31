@@ -582,5 +582,53 @@ namespace ImportDataPayroll
             }
         }
         #endregion
+
+        #region NMRP_TD
+        public static void Import_NMRP_TD()
+        {
+            try
+            {
+                string str = @"select * from NMRP_TD";
+
+                DataTable dt;
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
+
+                var itemList = new List<NMRP_TD>();
+                var item = new NMRP_TD();
+                var paramList = ClsStrVulue.getParamList(item);
+
+                if (dt.Rows.Count > 0)
+                {
+                    str = @"truncate table NMRP_TD";
+                    ClsSQLServer.ExecuteQuery(str, conn_sql, null);
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        itemList.Add(new NMRP_TD
+                        {
+                            T_RUN = ClsStrVulue.convertToDecimal(row["T_RUN"]),
+                            T_NO = row["T_NO"].ToString(),
+                            QTY = ClsStrVulue.convertToDecimal(row["QTY"]),
+                            T_REMARKS = row["T_REMARKS"].ToString(),
+                            F_NO = row["F_NO"].ToString(),
+                            REC_USER = row["REC_USER"].ToString(),
+                            REC_DATE = ClsStrVulue.convertToDateTime(row["REC_DATE"]),
+                            LAST_USER = row["LAST_USER"].ToString(),
+                            LAST_DATE = ClsStrVulue.convertToDateTime(row["LAST_DATE"]),
+                        });
+                    }
+
+                    if (!ClsSQLServer.BulkCopy("NMRP_TD", conn_sql, paramList, itemList))
+                        Console.WriteLine("NMRP_TD save data error!!");
+                    else
+                        Console.WriteLine("NMRP_TD insert complate!!");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+        #endregion
     }
 }
