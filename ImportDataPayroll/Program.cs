@@ -238,6 +238,7 @@ namespace ImportDataPayroll
             Console.WriteLine("236 NMRP_YD");
             Console.WriteLine("237 NMRP_LOT_IN");
             Console.WriteLine("238 NMRP_LOT_OUT");
+            Console.WriteLine("239 NMRP_LOBOR_HOUR");
         }
 
         public static void inputMenu()
@@ -602,6 +603,7 @@ namespace ImportDataPayroll
                 case "236": MRP.Import_NMRP_YD(); break;
                 case "237": MRP.Import_NMRP_LOT_IN(); break;
                 case "238": MRP.Import_NMRP_LOT_OUT(); break;
+                case "239": MRP.Import_NMRP_LOBOR_HOUR(); break;
                 defaule:
                     break;
             }

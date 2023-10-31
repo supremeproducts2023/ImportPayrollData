@@ -847,5 +847,51 @@ namespace ImportDataPayroll
             }
         }
         #endregion
+
+        #region NMRP_LOBOR_HOUR
+        public static void Import_NMRP_LOBOR_HOUR()
+        {
+            try
+            {
+                string str = @"select * from NMRP_LOBOR_HOUR";
+
+                DataTable dt;
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
+
+                var itemList = new List<NMRP_LOBOR_HOUR>();
+                var item = new NMRP_LOBOR_HOUR();
+                var paramList = ClsStrVulue.getParamList(item);
+
+                if (dt.Rows.Count > 0)
+                {
+                    str = @"truncate table NMRP_LOBOR_HOUR";
+                    ClsSQLServer.ExecuteQuery(str, conn_sql, null);
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        itemList.Add(new NMRP_LOBOR_HOUR
+                        {
+                            ID = ClsStrVulue.convertToDecimal(row["ID"]),
+                            EMPNO = row["EMPNO"].ToString(),
+                            DATE_WORK = ClsStrVulue.convertToDateTime(row["DATE_WORK"]),
+                            JOBNO = row["JOBNO"].ToString(),
+                            LOBOR_HOUR = ClsStrVulue.convertToDecimal(row["LOBOR_HOUR"]),
+                            REMARK = row["REMARK"].ToString(),
+                            LAST_UP = ClsStrVulue.convertToDateTime(row["LAST_UP"]),
+                        });
+                    }
+
+                    if (!ClsSQLServer.BulkCopy("NMRP_LOBOR_HOUR", conn_sql, paramList, itemList))
+                        Console.WriteLine("NMRP_LOBOR_HOUR save data error!!");
+                    else
+                        Console.WriteLine("NMRP_LOBOR_HOUR insert complate!!");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+        #endregion
     }
 }
