@@ -794,5 +794,58 @@ namespace ImportDataPayroll
             }
         }
         #endregion
+
+        #region NMRP_LOT_OUT
+        public static void Import_NMRP_LOT_OUT()
+        {
+            try
+            {
+                string str = @"select * from NMRP_LOT_OUT";
+
+                DataTable dt;
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
+
+                var itemList = new List<NMRP_LOT_OUT>();
+                var item = new NMRP_LOT_OUT();
+                var paramList = ClsStrVulue.getParamList(item);
+
+                if (dt.Rows.Count > 0)
+                {
+                    str = @"truncate table NMRP_LOT_OUT";
+                    ClsSQLServer.ExecuteQuery(str, conn_sql, null);
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        itemList.Add(new NMRP_LOT_OUT
+                        {
+                            OUT_ID = ClsStrVulue.convertToDecimal(row["OUT_ID"]),
+                            BRANCH = ClsStrVulue.convertToDecimal(row["BRANCH"]),
+                            IN_ID = ClsStrVulue.convertToDecimal(row["IN_ID"]),
+                            STATUS = ClsStrVulue.convertToDecimal(row["STATUS"]),
+                            DOC_RUN = ClsStrVulue.convertToDecimal(row["DOC_RUN"]),
+                            DOC_TYPE = row["DOC_TYPE"].ToString(),
+                            QTY = ClsStrVulue.convertToDecimal(row["QTY"]),
+                            GWD_USER = row["GWD_USER"].ToString(),
+                            GWD_DATE = ClsStrVulue.convertToDateTime(row["GWD_DATE"]),
+                            STK_ORDER = ClsStrVulue.convertToDecimal(row["STK_ORDER"]),
+                            STK_USER = row["STK_USER"].ToString(),
+                            STK_DATE = ClsStrVulue.convertToDateTime(row["STK_DATE"]),
+                            CHANGE_NO = row["CHANGE_NO"].ToString(),
+                            STK_COMMIT = ClsStrVulue.convertToDateTime(row["STK_COMMIT"]),
+                        });
+                    }
+
+                    if (!ClsSQLServer.BulkCopy("NMRP_LOT_OUT", conn_sql, paramList, itemList))
+                        Console.WriteLine("NMRP_LOT_OUT save data error!!");
+                    else
+                        Console.WriteLine("NMRP_LOT_OUT insert complate!!");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+        #endregion
     }
 }
