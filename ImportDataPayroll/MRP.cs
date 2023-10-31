@@ -684,5 +684,53 @@ namespace ImportDataPayroll
             }
         }
         #endregion
+
+        #region NMRP_YD
+        public static void Import_NMRP_YD()
+        {
+            try
+            {
+                string str = @"select * from NMRP_YD";
+
+                DataTable dt;
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
+
+                var itemList = new List<NMRP_YD>();
+                var item = new NMRP_YD();
+                var paramList = ClsStrVulue.getParamList(item);
+
+                if (dt.Rows.Count > 0)
+                {
+                    str = @"truncate table NMRP_YD";
+                    ClsSQLServer.ExecuteQuery(str, conn_sql, null);
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        itemList.Add(new NMRP_YD
+                        {
+                            Y_RUN = ClsStrVulue.convertToDecimal(row["Y_RUN"]),
+                            Y_NO = row["Y_NO"].ToString(),
+                            BOM_CODE = ClsStrVulue.convertToDecimal(row["BOM_CODE"]),
+                            QTY = row["QTY"].ToString(),
+                            Y_REMARKS = row["Y_REMARKS"].ToString(),
+                            REC_USER = row["REC_USER"].ToString(),
+                            REC_DATE = ClsStrVulue.convertToDateTime(row["REC_DATE"]),
+                            LAST_USER = row["LAST_USER"].ToString(),
+                            LAST_DATE = ClsStrVulue.convertToDateTime(row["LAST_DATE"]),
+                        });
+                    }
+
+                    if (!ClsSQLServer.BulkCopy("NMRP_YD", conn_sql, paramList, itemList))
+                        Console.WriteLine("NMRP_YD save data error!!");
+                    else
+                        Console.WriteLine("NMRP_YD insert complate!!");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+        #endregion
     }
 }
