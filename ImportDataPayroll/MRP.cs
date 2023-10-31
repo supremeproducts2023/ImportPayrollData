@@ -232,5 +232,57 @@ namespace ImportDataPayroll
             }
         }
         #endregion
+
+        #region NMRP_IRM
+        public static void Import_NMRP_IRM()
+        {
+            try
+            {
+                string str = @"select * from NMRP_IRM";
+
+                DataTable dt;
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
+
+                var itemList = new List<NMRP_IRM>();
+                var item = new NMRP_IRM();
+                var paramList = ClsStrVulue.getParamList(item);
+
+                if (dt.Rows.Count > 0)
+                {
+                    str = @"truncate table NMRP_IRM";
+                    ClsSQLServer.ExecuteQuery(str, conn_sql, null);
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        itemList.Add(new NMRP_IRM
+                        {
+                            IR_NO = row["IR_NO"].ToString(),
+                            P_NO = row["P_NO"].ToString(),
+                            IR_DATE = ClsStrVulue.convertToDateTime(row["IR_DATE"]),
+                            EMPNO = row["EMPNO"].ToString(),
+                            STATUS = ClsStrVulue.convertToDecimal(row["STATUS"]),
+                            ROLLBACK_REMARK = row["ROLLBACK_REMARK"].ToString(),
+                            DOC_TYPE = row["DOC_TYPE"].ToString(),
+                            REC_USER = row["REC_USER"].ToString(),
+                            REC_DATE = ClsStrVulue.convertToDateTime(row["REC_DATE"]),
+                            LAST_USER = row["LAST_USER"].ToString(),
+                            LAST_DATE = ClsStrVulue.convertToDateTime(row["LAST_DATE"]),
+                            SENT_TO_DATE = ClsStrVulue.convertToDateTime(row["SENT_TO_DATE"]),
+                            KICK_USER = row["KICK_USER"].ToString(), 
+                        });
+                    }
+
+                    if (!ClsSQLServer.BulkCopy("NMRP_IRM", conn_sql, paramList, itemList))
+                        Console.WriteLine("NMRP_IRM save data error!!");
+                    else
+                        Console.WriteLine("NMRP_IRM insert complate!!");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+        #endregion
     }
 }
