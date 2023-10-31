@@ -484,5 +484,52 @@ namespace ImportDataPayroll
             }
         }
         #endregion
+
+        #region NMRP_PD
+        public static void Import_NMRP_PD()
+        {
+            try
+            {
+                string str = @"select * from NMRP_PD";
+
+                DataTable dt;
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
+
+                var itemList = new List<NMRP_PD>();
+                var item = new NMRP_PD();
+                var paramList = ClsStrVulue.getParamList(item);
+
+                if (dt.Rows.Count > 0)
+                {
+                    str = @"truncate table NMRP_PD";
+                    ClsSQLServer.ExecuteQuery(str, conn_sql, null);
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        itemList.Add(new NMRP_PD
+                        {
+                            P_NO = row["P_NO"].ToString(),
+                            F_NO = row["F_NO"].ToString(),
+                            QTY = ClsStrVulue.convertToDecimal(row["QTY"]),
+                            P_REMARKS = row["P_REMARKS"].ToString(),
+                            REC_USER = row["REC_USER"].ToString(),
+                            REC_DATE = ClsStrVulue.convertToDateTime(row["REC_DATE"]),
+                            LAST_USER = row["LAST_USER"].ToString(),
+                            LAST_DATE = ClsStrVulue.convertToDateTime(row["LAST_DATE"]),
+                        });
+                    }
+
+                    if (!ClsSQLServer.BulkCopy("NMRP_PD", conn_sql, paramList, itemList))
+                        Console.WriteLine("NMRP_PD save data error!!");
+                    else
+                        Console.WriteLine("NMRP_PD insert complate!!");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+        #endregion
     }
 }
