@@ -630,5 +630,59 @@ namespace ImportDataPayroll
             }
         }
         #endregion
+
+        #region NMRP_YM
+        public static void Import_NMRP_YM()
+        {
+            try
+            {
+                string str = @"select * from NMRP_YM";
+
+                DataTable dt;
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
+
+                var itemList = new List<NMRP_YM>();
+                var item = new NMRP_YM();
+                var paramList = ClsStrVulue.getParamList(item);
+
+                if (dt.Rows.Count > 0)
+                {
+                    str = @"truncate table NMRP_YM";
+                    ClsSQLServer.ExecuteQuery(str, conn_sql, null);
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        itemList.Add(new NMRP_YM
+                        {
+                            Y_NO = row["Y_NO"].ToString(),
+                            Y_DATE = ClsStrVulue.convertToDateTime(row["Y_DATE"]),
+                            EMP_NO = row["EMP_NO"].ToString(),
+                            STATUS = ClsStrVulue.convertToDecimal(row["STATUS"]),
+                            ROLLBACK_REMARKS = row["ROLLBACK_REMARKS"].ToString(),
+                            REC_USER = row["REC_USER"].ToString(),
+                            REC_DATE = ClsStrVulue.convertToDateTime(row["REC_DATE"]),
+                            LAST_USER = row["LAST_USER"].ToString(),
+                            LAST_DATE = ClsStrVulue.convertToDateTime(row["LAST_DATE"]),
+                            KICK_USER = row["KICK_USER"].ToString(),
+                            GAR_NO = row["GAR_NO"].ToString(),
+                            SUPPLIER_ID = ClsStrVulue.convertToDecimal(row["SUPPLIER_ID"]),
+                            BRANCH = ClsStrVulue.convertToDecimal(row["BRANCH"]),
+                            B_NO = row["B_NO"].ToString(),
+                            DOC_TYPE = row["DOC_TYPE"].ToString(), 
+                        });
+                    }
+
+                    if (!ClsSQLServer.BulkCopy("NMRP_YM", conn_sql, paramList, itemList))
+                        Console.WriteLine("NMRP_YM save data error!!");
+                    else
+                        Console.WriteLine("NMRP_YM insert complate!!");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+        #endregion
     }
 }
