@@ -332,5 +332,54 @@ namespace ImportDataPayroll
             }
         }
         #endregion
+
+        #region NMRP_FM
+        public static void Import_NMRP_FM()
+        {
+            try
+            {
+                string str = @"select * from NMRP_FM";
+
+                DataTable dt;
+                dt = ClsOracle.GetOnetable(str, ClsOracle.Read_Conn()).Tables[0];
+
+                var itemList = new List<NMRP_FM>();
+                var item = new NMRP_FM();
+                var paramList = ClsStrVulue.getParamList(item);
+
+                if (dt.Rows.Count > 0)
+                {
+                    str = @"truncate table NMRP_FM";
+                    ClsSQLServer.ExecuteQuery(str, conn_sql, null);
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        itemList.Add(new NMRP_FM
+                        {
+                            F_NO = row["F_NO"].ToString(),
+                            F_DATE = ClsStrVulue.convertToDateTime(row["F_DATE"]),
+                            JOBNO = row["JOBNO"].ToString(),
+                            EMPNO = row["EMPNO"].ToString(),
+                            STATUS = ClsStrVulue.convertToDecimal(row["STATUS"]),
+                            REC_USER = row["REC_USER"].ToString(),
+                            REC_DATE = ClsStrVulue.convertToDateTime(row["REC_DATE"]),
+                            LAST_USER = row["LAST_USER"].ToString(),
+                            LAST_DATE = ClsStrVulue.convertToDateTime(row["LAST_DATE"]),
+                            KICK_USER = row["KICK_USER"].ToString(), 
+                        });
+                    }
+
+                    if (!ClsSQLServer.BulkCopy("NMRP_FM", conn_sql, paramList, itemList))
+                        Console.WriteLine("NMRP_FM save data error!!");
+                    else
+                        Console.WriteLine("NMRP_FM insert complate!!");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+        #endregion
     }
 }
